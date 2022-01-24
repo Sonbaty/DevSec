@@ -1,0 +1,192 @@
+IP:172.21.10.24, Host:F4_Left
+Total PORT-VLAN entries: 7
+Maximum PORT-VLAN entries: 1024
+PORT-VLAN 1, Name DEFAULT-VLAN, Priority level0, On
+PORT-VLAN 940, Name [None], Priority level0, On
+PORT-VLAN 941, Name [None], Priority level0, On
+PORT-VLAN 942, Name [None], Priority level0, On
+PORT-VLAN 943, Name [None], Priority level0, On
+PORT-VLAN 944, Name [None], Priority level0, On
+PORT-VLAN 945, Name [None], Priority level0, On
+
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+IP:172.21.10.21, Host:F2_Right
+Total PORT-VLAN entries: 8
+Maximum PORT-VLAN entries: 1024
+PORT-VLAN 1, Name DEFAULT-VLAN, Priority level0, in single spanning tree domain
+PORT-VLAN 940, Name [None], Priority level0, in single spanning tree domain
+PORT-VLAN 941, Name [None], Priority level0, in single spanning tree domain
+PORT-VLAN 942, Name [None], Priority level0, in single spanning tree domain
+PORT-VLAN 943, Name [None], Priority level0, in single spanning tree domain
+PORT-VLAN 944, Name [None], Priority level0, in single spanning tree domain
+PORT-VLAN 945, Name [None], Priority level0, in single spanning tree domain
+SINGLE-SPANNING-TREE-VLAN, Name Single-spanning-tree-vlan, Priority level0, 
+
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+IP:172.21.10.17, Host:PBX_Room_SW
+Total PORT-VLAN entries: 7
+Maximum PORT-VLAN entries: 1024
+PORT-VLAN 1, Name DEFAULT-VLAN, Priority level0, On
+PORT-VLAN 940, Name [None], Priority level0, On
+PORT-VLAN 941, Name [None], Priority level0, On
+PORT-VLAN 942, Name [None], Priority level0, On
+PORT-VLAN 943, Name [None], Priority level0, On
+PORT-VLAN 944, Name [None], Priority level0, On
+PORT-VLAN 945, Name [None], Priority level0, On
+
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+IP:172.21.10.26, Host:Adam-R1
+Total PORT-VLAN entries: 12
+Maximum PORT-VLAN entries: 1024
+PORT-VLAN 1, Name DEFAULT-VLAN, Priority level0, On
+PORT-VLAN 99, Name [None], Priority level0, On
+PORT-VLAN 110, Name voice, Priority level0, On
+PORT-VLAN 250, Name CCTV, Priority level0, On
+PORT-VLAN 254, Name Admin, Priority level0, On
+PORT-VLAN 255, Name Micros, Priority level0, On
+PORT-VLAN 940, Name [None], Priority level0, On
+PORT-VLAN 941, Name [None], Priority level0, On
+PORT-VLAN 942, Name [None], Priority level0, On
+PORT-VLAN 943, Name [None], Priority level0, On
+PORT-VLAN 944, Name [None], Priority level0, On
+PORT-VLAN 945, Name [None], Priority level0, On
+
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+IP:172.21.10.27, Host:Adam-R2
+Total PORT-VLAN entries: 12
+Maximum PORT-VLAN entries: 1024
+PORT-VLAN 1, Name DEFAULT-VLAN, Priority level0, On
+PORT-VLAN 99, Name [None], Priority level0, On
+PORT-VLAN 110, Name Voice_VLAN, Priority level0, On
+PORT-VLAN 250, Name CCTV, Priority level0, On
+PORT-VLAN 254, Name Admin, Priority level0, On
+PORT-VLAN 255, Name Micros, Priority level0, On
+PORT-VLAN 940, Name [None], Priority level0, On
+PORT-VLAN 941, Name [None], Priority level0, On
+PORT-VLAN 942, Name [None], Priority level0, On
+PORT-VLAN 943, Name [None], Priority level0, On
+PORT-VLAN 944, Name [None], Priority level0, On
+PORT-VLAN 945, Name [None], Priority level0, On
+
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+IP:172.21.10.20, Host:F2_Left
+Total PORT-VLAN entries: 7
+Maximum PORT-VLAN entries: 1024
+PORT-VLAN 1, Name DEFAULT-VLAN, Priority level0, On
+PORT-VLAN 940, Name [None], Priority level0, On
+PORT-VLAN 941, Name [None], Priority level0, On
+PORT-VLAN 942, Name [None], Priority level0, On
+PORT-VLAN 943, Name [None], Priority level0, On
+PORT-VLAN 944, Name [None], Priority level0, On
+PORT-VLAN 945, Name [None], Priority level0, On
+
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+IP:172.21.10.22, Host:F3_Left
+Total PORT-VLAN entries: 7
+Maximum PORT-VLAN entries: 1024
+PORT-VLAN 1, Name DEFAULT-VLAN, Priority level0, On
+PORT-VLAN 940, Name [None], Priority level0, On
+PORT-VLAN 941, Name [None], Priority level0, On
+PORT-VLAN 942, Name [None], Priority level0, On
+PORT-VLAN 943, Name [None], Priority level0, On
+PORT-VLAN 944, Name [None], Priority level0, On
+PORT-VLAN 945, Name [None], Priority level0, On
+
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+IP:172.21.10.25, Host:F4_Right
+Total PORT-VLAN entries: 7
+Maximum PORT-VLAN entries: 1024
+PORT-VLAN 1, Name DEFAULT-VLAN, Priority level0, On
+PORT-VLAN 940, Name [None], Priority level0, On
+PORT-VLAN 941, Name [None], Priority level0, On
+PORT-VLAN 942, Name [None], Priority level0, On
+PORT-VLAN 943, Name [None], Priority level0, On
+PORT-VLAN 944, Name [None], Priority level0, On
+PORT-VLAN 945, Name [None], Priority level0, On
+
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+IP:172.21.10.2, Host:Core-SW
+Total PORT-VLAN entries: 19
+Maximum PORT-VLAN entries: 1024
+PORT-VLAN 1, Name DEFAULT-VLAN, Priority level0, On
+PORT-VLAN 99, Name [None], Priority level0, On
+PORT-VLAN 110, Name voice, Priority level0, On
+PORT-VLAN 250, Name CCTV, Priority level0, On
+PORT-VLAN 254, Name Admin, Priority level0, On
+PORT-VLAN 255, Name Micros, Priority level0, On
+PORT-VLAN 901, Name Etisalat_Netwrok, Priority level0, On
+PORT-VLAN 902, Name We_Netwrok, Priority level0, On
+PORT-VLAN 919, Name [None], Priority level0, On
+PORT-VLAN 940, Name Guest_WiFi, Priority level0, On
+PORT-VLAN 941, Name [None], Priority level0, On
+PORT-VLAN 942, Name [None], Priority level0, On
+PORT-VLAN 943, Name Admin-WiFi, Priority level0, On
+PORT-VLAN 944, Name [None], Priority level0, On
+PORT-VLAN 945, Name TestaRossa, Priority level0, On
+PORT-VLAN 980, Name To_Admin_NW, Priority level0, On
+PORT-VLAN 981, Name ET_Guest_WAN, Priority level0, On
+PORT-VLAN 982, Name We_Guest_WAN, Priority level0, On
+PORT-VLAN 983, Name We_Guest_WAN, Priority level0, On
+
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+IP:172.21.10.23, Host:F3_Right
+Total PORT-VLAN entries: 7
+Maximum PORT-VLAN entries: 1024
+PORT-VLAN 1, Name DEFAULT-VLAN, Priority level0, On
+PORT-VLAN 940, Name [None], Priority level0, On
+PORT-VLAN 941, Name [None], Priority level0, On
+PORT-VLAN 942, Name [None], Priority level0, On
+PORT-VLAN 943, Name [None], Priority level0, On
+PORT-VLAN 944, Name [None], Priority level0, On
+PORT-VLAN 945, Name [None], Priority level0, On
+
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+IP:172.21.10.19, Host:F1_Right
+Total PORT-VLAN entries: 7
+Maximum PORT-VLAN entries: 1024
+PORT-VLAN 1, Name DEFAULT-VLAN, Priority level0, On
+PORT-VLAN 940, Name [None], Priority level0, On
+PORT-VLAN 941, Name [None], Priority level0, On
+PORT-VLAN 942, Name [None], Priority level0, On
+PORT-VLAN 943, Name [None], Priority level0, On
+PORT-VLAN 944, Name [None], Priority level0, On
+PORT-VLAN 945, Name [None], Priority level0, On
+
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+IP:172.21.10.18, Host:F1_Left
+Total PORT-VLAN entries: 7
+Maximum PORT-VLAN entries: 1024
+PORT-VLAN 1, Name DEFAULT-VLAN, Priority level0, On
+PORT-VLAN 940, Name [None], Priority level0, On
+PORT-VLAN 941, Name [None], Priority level0, On
+PORT-VLAN 942, Name [None], Priority level0, On
+PORT-VLAN 943, Name [None], Priority level0, On
+PORT-VLAN 944, Name [None], Priority level0, On
+PORT-VLAN 945, Name [None], Priority level0, On
+
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+IP:172.21.10.16, Host:CCTV_Room
+Total PORT-VLAN entries: 7
+Maximum PORT-VLAN entries: 1024
+PORT-VLAN 1, Name DEFAULT-VLAN, Priority level0, On
+PORT-VLAN 940, Name [None], Priority level0, On
+PORT-VLAN 941, Name [None], Priority level0, On
+PORT-VLAN 942, Name [None], Priority level0, On
+PORT-VLAN 943, Name [None], Priority level0, On
+PORT-VLAN 944, Name [None], Priority level0, On
+PORT-VLAN 945, Name [None], Priority level0, On
+
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
