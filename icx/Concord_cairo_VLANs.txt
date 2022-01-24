@@ -8,6 +8,7 @@ PORT-VLAN 942, Name [None], Priority level0, On
 PORT-VLAN 943, Name [None], Priority level0, On
 PORT-VLAN 944, Name [None], Priority level0, On
 PORT-VLAN 945, Name [None], Priority level0, On
+nice
 
 -------------------------------------------------------------------------------
 -------------------------------------------------------------------------------
