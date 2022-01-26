@@ -21,7 +21,7 @@ def get_info(IP,any):
             'device_type': 'hp_procurve',
             'ip': IP,
             'username': 'manager',
-            'password': 'Coralsea@2017',
+            'password': 'CoralSea@2017',
             # 'banner_timeout': 80
             'global_delay_factor': 2,
 
@@ -68,7 +68,7 @@ def get_info(IP,any):
     filename = f'{Location}/{device}-IP[{my_ip}]/' + f'{device} AT {CurrTime}' + '.txt'
     
 
-    run_query = connection.send_command('sh run')
+    run_query = connection.send_command('sh running-config')
    
     sw_identifier = f'IP:{my_ip}, Host:{device}'
     #filename = initial + my_ip

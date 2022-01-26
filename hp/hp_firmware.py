@@ -19,7 +19,7 @@ def get_info(IP,any):
             'device_type': 'hp_procurve',
             'ip': IP,
             'username': 'manager',
-            'password': 'Coralsea@2017',
+            'password': 'CoralSea@2017',
             # 'banner_timeout': 80
             'global_delay_factor': 2,
 
