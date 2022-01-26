@@ -7,12 +7,14 @@ import pathlib
 import os
 import re
 
+
 devices_file = open("hp_devices.txt")  ## open the ip list file from root folder
 devices_file.seek(0)  ## put the first read on the begining
 ip_list = devices_file.read().splitlines()  ## splite the ip's in a list
-print(ip_list)
 devices_file.close()
 initial = 'HP'
+Location = input('Enter The Switches Group Name First : ')
+
 
 def get_info(IP,any):
     switch = {
@@ -44,42 +46,40 @@ def get_info(IP,any):
         hostname, device = hostname.split(" ")
     print(device)
     my_ip = IP.strip('\n')
+    
+    
+    now = datetime.now()
+    CurrTime = now.strftime("%Y-%m-%d %H-%M-%S")
+    print("Backing up " + device)
 
+    if not os.path.exists(Location):
+        os.mkdir(Location)
+        print("Directory ", Location, " Created ")
+    else:
+        print("Directory ", Location, " already exists")
 
-    model_query = connection.send_command('show dhcp client vendor-specific | i Vendor Class')
-    firmware_query = connection.send_command('sh flash')
+    if not os.path.exists(f'{Location}/{device}-IP[{my_ip}]'):
+        os.makedirs(f'{Location}/{device}-IP[{my_ip}]')
+        print("Directory ", device, " Created ")
+    else:
+        print("Directory ", device, " already exists")
+
+    # filename = '/home/sonbaty/Automation/backups/' + device + '.txt'
+    filename = f'{Location}/{device}-IP[{my_ip}]/' + f'{device} AT {CurrTime}' + '.txt'
+    
+
+    run_query = connection.send_command('sh run')
+   
     sw_identifier = f'IP:{my_ip}, Host:{device}'
-    filename = initial + my_ip
+    #filename = initial + my_ip
     log_file = open(filename, "a")  # append mode
-    log_file.write(sw_identifier)
+    log_file.write(run_query)
     log_file.write("\n")
-    log_file.write(model_query)
-    log_file.write("\n")
-    log_file.write(firmware_query)
-    log_file.write("\n")
-
-
 
 
     connection.disconnect()
     return
 
-def finalize():
-    print('finalizing ...............')
-    Path = str(pathlib.Path().resolve())
-    print(Path)
-    operated_file = open('Result.txt','a')
-    filelist = os.listdir()
-    for i in filelist:
-        if i.startswith(initial):
-            with open(Path + f'/{i}', 'r') as f:
-                print(i)
-                for line in f:
-                    operated_file.write(line)
-                os.remove(i)
-            operated_file.write('\n')
-            operated_file.write('-' * 79)
-            operated_file.write('\n')
 
 
 if __name__ == "__main__":
@@ -100,4 +100,3 @@ if __name__ == "__main__":
             print('Waiting For all switches to finish')
 
     start()
-    finalize()
