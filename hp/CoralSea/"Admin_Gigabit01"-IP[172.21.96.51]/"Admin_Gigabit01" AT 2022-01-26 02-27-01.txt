@@ -1,0 +1,44 @@
+Running configuration:
+
+; J9775A Configuration Editor; Created on release #YA.16.10.0002
+; Ver #14:01.44.00.04.19.02.13.98.82.34.61.18.28.f3.84.9c.63.ff.37.27:45
+hostname "Admin_Gigabit01"
+trunk 45-46 trk1 lacp
+trunk 47-48 trk2 lacp
+trunk 11-14 trk10 lacp
+ip default-gateway 172.21.96.1
+snmp-server community "C0r@lSe@" unrestricted
+vlan 1
+   name "DEFAULT_VLAN"
+   no untagged 1-10,15-44,Trk1-Trk2,Trk10
+   untagged 49-52
+   no ip address
+   exit
+vlan 96
+   name "MGT"
+   tagged 30,42-44,Trk1-Trk2
+   ip address 172.21.96.51 255.255.255.0
+   exit
+vlan 150
+   name "Admin150"
+   untagged 1-8,10,15-29,39,41,Trk10
+   tagged 42-44,Trk1-Trk2
+   no ip address
+   exit
+vlan 210
+   name "CCTV"
+   untagged 9,31-38,40
+   tagged 30,42-44,Trk1-Trk2
+   no ip address
+   exit
+management-vlan 96
+spanning-tree
+spanning-tree Trk1 priority 4
+spanning-tree Trk2 priority 4
+spanning-tree Trk10 priority 4
+spanning-tree mode rapid-pvst
+no tftp server
+no dhcp config-file-update
+no dhcp image-file-update
+password manager
+

@@ -1,0 +1,179 @@
+Running configuration:
+
+; J9779A Configuration Editor; Created on release #YB.16.01.0004
+; Ver #0b:34.41.10.28.c3.84.9c.63.ff.37.27:11
+hostname "CHV-B12-1"
+logging 172.21.96.104
+qos type-of-service diff-services
+timesync sntp
+sntp unicast
+sntp 30
+sntp server priority 1 172.21.96.102
+ip default-gateway 172.21.96.1
+interface 1
+   name "Room-12102"
+   exit
+interface 2
+   name "Room-12105"
+   exit
+interface 3
+   name "Room-12108"
+   exit
+interface 4
+   name "Room-12111"
+   exit
+interface 5
+   name "Room-12201"
+   exit
+interface 6
+   name "Room-12205"
+   exit
+interface 7
+   name "Room-12208"
+   exit
+interface 8
+   name "Room-12211"
+   exit
+interface 9
+   disable
+   no power-over-ethernet
+   exit
+interface 10
+   disable
+   no power-over-ethernet
+   exit
+interface 11
+   disable
+   no power-over-ethernet
+   exit
+interface 12
+   disable
+   no power-over-ethernet
+   exit
+interface 13
+   disable
+   no power-over-ethernet
+   exit
+interface 14
+   disable
+   no power-over-ethernet
+   exit
+interface 15
+   disable
+   no power-over-ethernet
+   exit
+interface 16
+   disable
+   no power-over-ethernet
+   exit
+interface 17
+   disable
+   no power-over-ethernet
+   exit
+interface 18
+   disable
+   no power-over-ethernet
+   exit
+interface 19
+   disable
+   no power-over-ethernet
+   exit
+interface 20
+   disable
+   no power-over-ethernet
+   exit
+interface 21
+   disable
+   no power-over-ethernet
+   exit
+interface 22
+   disable
+   no power-over-ethernet
+   exit
+interface 23
+   disable
+   no power-over-ethernet
+   exit
+interface 24
+   name "Building_12_outdoor"
+   exit
+interface 25
+   name "DVR1"
+   exit
+interface 26
+   name "DVR2"
+   exit
+interface 27
+   name "CHV-B11-1"
+   exit
+interface 28
+   name "CHV-B14-1"
+   exit
+snmp-server community "C0r@lSe@" operator unrestricted
+vlan 1
+   name "DEFAULT_VLAN"
+   no untagged 1-28
+   no ip address
+   exit
+vlan 80
+   name "VLAN80"
+   tagged 27-28
+   no ip address
+   exit
+vlan 96
+   name "MGT"
+   untagged 1-24
+   tagged 25-28
+   ip address 172.21.96.19 255.255.255.0
+   exit
+vlan 97
+   name "Guest-WiFi"
+   tagged 1-28
+   no ip address
+   exit
+vlan 210
+   name "CCTV"
+   untagged 25-26
+   tagged 27-28
+   no ip address
+   exit
+vlan 211
+   name "VLAN211"
+   tagged 24,27-28
+   no ip address
+   exit
+management-vlan 96
+spanning-tree
+spanning-tree 1 admin-edge-port
+spanning-tree 2 admin-edge-port
+spanning-tree 3 admin-edge-port
+spanning-tree 4 admin-edge-port
+spanning-tree 5 admin-edge-port
+spanning-tree 6 admin-edge-port
+spanning-tree 7 admin-edge-port
+spanning-tree 8 admin-edge-port
+spanning-tree 9 admin-edge-port
+spanning-tree 10 admin-edge-port
+spanning-tree 11 admin-edge-port
+spanning-tree 12 admin-edge-port
+spanning-tree 13 admin-edge-port
+spanning-tree 14 admin-edge-port
+spanning-tree 15 admin-edge-port
+spanning-tree 16 admin-edge-port
+spanning-tree 17 admin-edge-port
+spanning-tree 18 admin-edge-port
+spanning-tree 19 admin-edge-port
+spanning-tree 20 admin-edge-port
+spanning-tree 21 admin-edge-port
+spanning-tree 22 admin-edge-port
+spanning-tree 23 admin-edge-port
+spanning-tree 24 admin-edge-port
+spanning-tree 25 admin-edge-port
+spanning-tree 26 admin-edge-port
+spanning-tree mode rapid-pvst
+no dhcp config-file-update
+no dhcp image-file-update
+no dhcp tr69-acs-url
+password manager
+password operator
+
