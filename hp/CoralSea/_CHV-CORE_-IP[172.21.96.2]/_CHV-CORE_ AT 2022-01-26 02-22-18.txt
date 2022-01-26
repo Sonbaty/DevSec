@@ -1,0 +1,227 @@
+Running configuration:
+
+; J9850A Configuration Editor; Created on release #KB.16.01.0004
+; Ver #0c:01.7c.59.f4.7b.ff.ff.fc.ff.ff.3f.ef:
+hostname "CHV-CORE"
+module A type j9549a
+class ipv4 "CCTV"
+     10 match ip 172.21.210.0 0.0.0.255 0.0.0.0 255.255.255.255
+     20 match ip 120.0.211.0 0.0.0.255 0.0.0.0 255.255.255.255
+   exit
+policy pbr "CCTV"
+     10 class ipv4 "CCTV"
+      action ip default-next-hop 172.21.210.251
+      exit
+   exit
+trunk A7,A9 trk1 lacp
+logging 172.21.96.104
+qos type-of-service diff-services
+timesync sntp
+sntp unicast
+sntp 30
+sntp server priority 1 172.21.96.102
+telnet-server listen data
+web-management listen data
+ip ssh listen data
+ip route 0.0.0.0 0.0.0.0 150.0.0.3
+ip route 10.0.0.0 255.255.0.0 150.0.0.253
+ip route 100.0.0.0 255.255.255.0 150.0.0.253
+ip route 120.0.0.0 255.255.0.0 150.0.0.5
+ip route 160.0.0.0 255.255.255.0 150.0.0.253
+ip route 160.0.1.0 255.255.255.0 150.0.0.253
+ip route 170.0.0.0 255.255.255.0 150.0.0.253
+ip route 172.21.0.0 255.255.255.0 172.21.96.1
+ip route 172.21.1.0 255.255.255.0 172.21.96.1
+ip route 192.168.0.0 255.255.0.0 172.21.96.1
+ip routing
+interface A1
+   name "WAN-LL"
+   exit
+interface A2
+   name "WAN-Wimax"
+   exit
+interface A3
+   name "WAN-FW"
+   exit
+interface A4
+   name "VPN-LL"
+   exit
+interface A5
+   name "VPN-WiMax"
+   exit
+interface A6
+   name "Admin_int_FW"
+   exit
+interface A7
+   name "Admin_uplink1trk1"
+   exit
+interface A8
+   name "backup server"
+   exit
+interface A9
+   name "Admin_Uplink2trk1"
+   exit
+interface A10
+   name "Guest-FW"
+   exit
+interface A12
+   name "Wan_test port"
+   exit
+interface A13
+   name "to_Control-Room-POE"
+   exit
+interface A14
+   name "wireless-controller"
+   exit
+interface A15
+   name "etisalat uplink"
+   exit
+interface A16
+   name "FW-ET-Wan"
+   exit
+interface A17
+   name "Aqua Uplink"
+   exit
+interface A18
+   name "Admin_uplink"
+   exit
+interface A19
+   name "Internal-Network"
+   exit
+interface A20
+   name "FW-MGNT"
+   exit
+interface A21
+   name "To_CHV-B11-1"
+   exit
+interface A22
+   name "To_CHV-B04-1"
+   exit
+interface A23
+   name "To_CHV-B03-1"
+   exit
+interface A24
+   name "To_CHV-V01-1"
+   exit
+snmp-server community "C0r@lSe@" operator
+snmp-server listen data
+oobm
+   disable
+   ip address dhcp-bootp
+   exit
+router rip
+   redistribute connected
+   enable
+   exit
+vlan 1
+   name "DEFAULT_VLAN"
+   no untagged A1-A3,A5-A6,A8,A10-A12,A14-A20,Trk1
+   untagged A4,A13,A21-A24
+   no ip address
+   exit
+vlan 2
+   name "Admin"
+   tagged A18
+   no ip address
+   exit
+vlan 4
+   name "WAN-Group"
+   no ip address
+   exit
+vlan 5
+   name "VPN-Group"
+   no ip address
+   exit
+vlan 6
+   name "Internal-Network-Group"
+   no ip address
+   exit
+vlan 7
+   name "MAIL"
+   no ip address
+   exit
+vlan 8
+   name "Etisalat wan"
+   untagged A12,A15-A16
+   no ip address
+   exit
+vlan 10
+   name "FW_Routing_INT"
+   untagged A11,A19
+   ip address 10.10.10.2 255.255.255.0
+   exit
+vlan 80
+   name "VLAN80"
+   tagged A13-A14,A21-A24
+   no ip address
+   exit
+vlan 95
+   name "WiFi-MGNT"
+   tagged A13,A17
+   no ip address
+   exit
+vlan 96
+   name "MGNT"
+   untagged A1-A3,A8,A14,A20
+   tagged A13,A17-A18,A21-A24,Trk1
+   ip address 172.21.96.2 255.255.255.0
+   ip rip 172.21.96.2
+   ip rip 172.21.96.2 receive v1-only
+   ip rip 172.21.96.2 send v1-only
+   exit
+vlan 97
+   name "Guest-WiFi"
+   untagged A10
+   tagged A13-A14,A17,A21-A24
+   no ip address
+   exit
+vlan 150
+   name "VLAN150"
+   untagged A5,A17
+   tagged A6,A13,A15,A18,Trk1
+   ip address 150.0.0.1 255.255.255.0
+   service-policy "CCTV" in
+   exit
+vlan 210
+   name "CCTV"
+   tagged A6,A13,A18,A21-A24,Trk1
+   ip address 172.21.210.250 255.255.254.0
+   service-policy "CCTV" in
+   exit
+vlan 211
+   name "Wings_temp"
+   tagged A6,A13,A21-A24
+   no ip address
+   exit
+vlan 212
+   name "event"
+   tagged A14,A19
+   no ip address
+   exit
+vlan 213
+   name "VLAN213"
+   tagged A13-A14,A18-A19,A21-A24
+   no ip address
+   exit
+vlan 214
+   name "DMZ"
+   tagged A13,A19
+   no ip address
+   exit
+spanning-tree
+spanning-tree Trk1 priority 4
+spanning-tree mode rapid-pvst
+spanning-tree vlan 1 root primary
+spanning-tree vlan 96 root primary
+spanning-tree vlan 97 root primary
+spanning-tree vlan 150 root primary
+spanning-tree vlan 210 root primary
+spanning-tree priority 0
+no tftp server
+tftp server listen data
+no autorun
+no dhcp config-file-update
+no dhcp image-file-update
+password manager
+password operator
+

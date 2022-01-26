@@ -1,0 +1,86 @@
+Running configuration:
+
+; J9779A Configuration Editor; Created on release #YB.16.01.0004
+; Ver #0b:34.41.10.28.c3.84.9c.63.ff.37.27:11
+hostname "Control-Room"
+logging 172.21.96.104
+qos type-of-service diff-services
+timesync sntp
+sntp unicast
+sntp 30
+sntp server priority 1 172.21.96.102
+ip default-gateway 172.21.96.1
+interface 1
+   name "to_lobby"
+   exit
+interface 25
+   name "CSHV_Server"
+   exit
+interface 26
+   name "CHV-CORE"
+   exit
+snmp-server community "C0r@lSe@" unrestricted
+snmp-server host 155.0.96.5 community "public"
+vlan 1
+   name "DEFAULT_VLAN"
+   no untagged 1-16,22-27
+   untagged 17-21,28
+   ip address dhcp-bootp
+   exit
+vlan 80
+   name "HL"
+   tagged 1-12,24-28
+   no ip address
+   exit
+vlan 95
+   name "WiFi-MGNT"
+   tagged 26
+   no ip address
+   exit
+vlan 96
+   name "MGNT"
+   untagged 1-12,14-16,24-25,27
+   tagged 13,26
+   ip address 172.21.96.24 255.255.255.0
+   exit
+vlan 97
+   name "Guest_WiFi"
+   tagged 1-13,24-26
+   no ip address
+   exit
+vlan 150
+   name "VLAN150"
+   tagged 26-27
+   no ip address
+   exit
+vlan 210
+   name "CCTV"
+   untagged 13
+   tagged 22,26-27
+   no ip address
+   exit
+vlan 211
+   name "wings"
+   tagged 26-27
+   no ip address
+   exit
+vlan 213
+   name "VLAN213"
+   tagged 7,26
+   no ip address
+   exit
+vlan 214
+   name "DMZ"
+   untagged 23
+   tagged 26
+   no ip address
+   exit
+management-vlan 96
+spanning-tree
+spanning-tree mode rapid-pvst
+no dhcp config-file-update
+no dhcp image-file-update
+no dhcp tr69-acs-url
+password manager
+password operator
+
