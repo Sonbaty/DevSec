@@ -83,7 +83,7 @@ def finalize():
     print('finalizing ...............')
     Path = str(pathlib.Path().resolve())
     print(Path)
-    operated_file = open('Result.txt','a')
+    operated_file = open('SW_Uptime.txt','a')
     filelist = os.listdir()
     for i in filelist:
         if i.startswith(initial):

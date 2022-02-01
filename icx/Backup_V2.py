@@ -63,7 +63,7 @@ def get_info(IP,any):
         print("Directory ", device, " already exists")
 
     # filename = '/home/sonbaty/Automation/backups/' + device + '.txt'
-    filename = f'{Location}/{device}-IP[{my_ip}]/' + f'{device} AT {CurrTime}' + '.txt'
+    filename = f'{Location}/{device}-IP[{my_ip}]/' + f'{device}_AT_{CurrTime}' + '.txt'
     
 
     run_query = connection.send_command('sh run')
