@@ -1,0 +1,25 @@
+IP:172.21.97.7, Host:RW-R2-48POE
+SW: Version 08.0.80bT211 
+STACKID 1  system uptime is 90 day(s) 10 hour(s) 34 minute(s) 0 second(s) 
+
+-------------------------------------------------------------------------------
+IP:172.21.97.4, Host:LW-R1-48POE
+SW: Version 08.0.80bT211 
+STACKID 1  system uptime is 27 day(s) 21 hour(s) 20 minute(s) 42 second(s) 
+
+-------------------------------------------------------------------------------
+IP:172.21.97.2, Host:Core_SW
+SW: Version 08.0.80dT211 
+STACKID 1  system uptime is 1020 day(s) 3 hour(s) 4 minute(s) 34 second(s) 
+
+-------------------------------------------------------------------------------
+IP:172.21.97.3, Host:Servers_Room_Rack_24POE
+SW: Version 08.0.80bT211 
+STACKID 1  system uptime is 22 day(s) 6 hour(s) 10 minute(s) 52 second(s) 
+
+-------------------------------------------------------------------------------
+IP:172.21.97.5, Host:LW-R2-48POE
+SW: Version 08.0.80bT211 
+STACKID 1  system uptime is 103 day(s) 22 hour(s) 3 minute(s) 45 second(s) 
+
+-------------------------------------------------------------------------------
