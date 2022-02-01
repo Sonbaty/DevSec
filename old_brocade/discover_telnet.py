@@ -61,7 +61,7 @@ def finalize():
     print('finalizing ...............')
     Path = str(pathlib.Path().resolve())
     print(Path)
-    operated_file = open('discovered hosts.txt', 'a')
+    operated_file = open('discovered_hosts.txt', 'a')
     filelist = os.listdir()
     for i in filelist:
         if i.startswith(initial):
