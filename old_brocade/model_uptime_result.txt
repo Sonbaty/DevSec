@@ -1,0 +1,46 @@
+IP:172.21.97.7, Host:RW-R2-48POE
+SW: Version 08.0.80bT211 
+UNIT 1: compiled on Sep  4 2018 at 00:08:14 labeled as SPS08080b
+UNIT 1: SL 1: ICX7150-48P-4X1G POE 48-port Management Module
+UNIT 1: SL 2: ICX7150-2X1GC 2-port 2G Module
+UNIT 1: SL 3: ICX7150-4X10GF 4-port 40G Module
+STACKID 1  system uptime is 91 day(s) 4 hour(s) 45 minute(s) 24 second(s) 
+
+-------------------------------------------------------------------------------
+IP:172.21.97.4, Host:LW-R1-48POE
+SW: Version 08.0.80bT211 
+UNIT 1: compiled on Sep  4 2018 at 00:08:14 labeled as SPS08080b
+UNIT 1: SL 1: ICX7150-48P-4X1G POE 48-port Management Module
+UNIT 1: SL 2: ICX7150-2X1GC 2-port 2G Module
+UNIT 1: SL 3: ICX7150-4X10GF 4-port 40G Module
+STACKID 1  system uptime is 28 day(s) 15 hour(s) 32 minute(s) 5 second(s) 
+
+-------------------------------------------------------------------------------
+IP:172.21.97.2, Host:Core_SW
+SW: Version 08.0.80dT211 
+UNIT 1: compiled on Nov 20 2018 at 00:09:55 labeled as SPS08080d
+UNIT 1: SL 1: ICX7450-48F 48-port Management Module
+UNIT 1: SL 2: ICX7400-4X10GF 4-port 40G Module
+UNIT 1: SL 3: ICX7400-1X40GQ 1-port 40G Module
+UNIT 1: SL 4: ICX7400-1X40GQ 1-port 40G Module
+STACKID 1  system uptime is 1020 day(s) 21 hour(s) 13 minute(s) 2 second(s) 
+
+-------------------------------------------------------------------------------
+IP:172.21.97.3, Host:Servers_Room_Rack_24POE
+SW: Version 08.0.80bT211 
+UNIT 1: compiled on Sep  4 2018 at 00:08:14 labeled as SPS08080b
+UNIT 1: SL 1: ICX7150-24P-4X1G POE 24-port Management Module
+UNIT 1: SL 2: ICX7150-2X1GC 2-port 2G Module
+UNIT 1: SL 3: ICX7150-4X10GF 4-port 40G Module
+STACKID 1  system uptime is 23 day(s) 22 minute(s) 15 second(s) 
+
+-------------------------------------------------------------------------------
+IP:172.21.97.5, Host:LW-R2-48POE
+SW: Version 08.0.80bT211 
+UNIT 1: compiled on Sep  4 2018 at 00:08:14 labeled as SPS08080b
+UNIT 1: SL 1: ICX7150-48P-4X1G POE 48-port Management Module
+UNIT 1: SL 2: ICX7150-2X1GC 2-port 2G Module
+UNIT 1: SL 3: ICX7150-4X10GF 4-port 40G Module
+STACKID 1  system uptime is 104 day(s) 16 hour(s) 15 minute(s) 7 second(s) 
+
+-------------------------------------------------------------------------------

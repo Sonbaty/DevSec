@@ -47,6 +47,7 @@ def get_info(IP, any):
 
     sw_query = connection.send_command('show version | i SW')
     sw_uptime_query = connection.send_command('show version | i uptime')
+    sw_model_query = connection.send_command('show version | i UNIT')
 
     sw_identifier = f'IP:{my_ip}, Host:{device}'
     filename = initial + my_ip
@@ -55,9 +56,10 @@ def get_info(IP, any):
     log_file.write("\n")
     log_file.write(sw_query)
     log_file.write("\n")
+    log_file.write(sw_model_query)
+    log_file.write("\n")
     log_file.write(sw_uptime_query)
     log_file.write("\n")
-
     connection.disconnect()
     return
 
@@ -66,7 +68,7 @@ def finalize():
     print('finalizing ...............')
     Path = str(pathlib.Path().resolve())
     print(Path)
-    operated_file = open('Result.txt', 'a')
+    operated_file = open('model_uptime_result.txt', 'a')
     filelist = os.listdir()
     for i in filelist:
         if i.startswith(initial):
