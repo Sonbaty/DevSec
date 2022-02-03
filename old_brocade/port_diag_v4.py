@@ -15,7 +15,7 @@ devices_file.seek(0)  # put the first read on the begining
 ip_list = devices_file.read().splitlines()  # splite the ip's in a list
 print(ip_list)
 devices_file.close()
-initial = 'HP'
+initial = 'Brocade'
 
 
 def get_info(IP, any):
