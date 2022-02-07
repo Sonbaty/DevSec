@@ -48,8 +48,12 @@ def get_info(IP,any):
     my_ip = IP.strip('\n')
 
     connection.enable()
-    connection.send_command('enable telnet password C0nc0rde')
-    connection.send_command('enable super-user-password C0nc0rde')
+    config_commands = [
+
+                        'enable telnet password C0nc0rde',
+                        'enable super-user-password C0nc0rde',
+                        'exit'  ]
+    connection.send_config_set(config_commands, delay_factor=4)
     print(f'All passwords on {device} is set..')
     connection.disconnect()
     return
