@@ -1,0 +1,80 @@
+IP:10.0.96.112, Host:hostname Sec4_G_R1_NPOE3
+Sec4_G_R1_NPOE3 uptime is 2 years, 6 weeks, 23 hours, 59 minutes
+FastEthernet0/1 ----> : 
+     0 input errors, 0 CRC, 0 frame, 0 overrun, 0 ignored
+     0 output errors, 0 collisions, 1 interface resets
+FastEthernet0/2 ----> : 
+     2 input errors, 0 CRC, 0 frame, 0 overrun, 0 ignored
+     0 output errors, 0 collisions, 1 interface resets
+FastEthernet0/3 ----> : 
+     0 input errors, 0 CRC, 0 frame, 0 overrun, 0 ignored
+     0 output errors, 0 collisions, 1 interface resets
+FastEthernet0/4 ----> : 
+     0 input errors, 0 CRC, 0 frame, 0 overrun, 0 ignored
+     0 output errors, 0 collisions, 1 interface resets
+FastEthernet0/5 ----> : 
+     75 input errors, 41 CRC, 0 frame, 0 overrun, 0 ignored
+     0 output errors, 0 collisions, 1 interface resets
+FastEthernet0/6 ----> : 
+     0 input errors, 0 CRC, 0 frame, 0 overrun, 0 ignored
+     0 output errors, 0 collisions, 1 interface resets
+FastEthernet0/7 ----> : 
+     0 input errors, 0 CRC, 0 frame, 0 overrun, 0 ignored
+     0 output errors, 0 collisions, 1 interface resets
+FastEthernet0/8 ----> : 
+     0 input errors, 0 CRC, 0 frame, 0 overrun, 0 ignored
+     0 output errors, 0 collisions, 1 interface resets
+FastEthernet0/9 ----> : 
+     0 input errors, 0 CRC, 0 frame, 0 overrun, 0 ignored
+     0 output errors, 0 collisions, 1 interface resets
+FastEthernet0/10 ----> : 
+     0 input errors, 0 CRC, 0 frame, 0 overrun, 0 ignored
+     0 output errors, 0 collisions, 1 interface resets
+FastEthernet0/11 ----> : 
+     0 input errors, 0 CRC, 0 frame, 0 overrun, 0 ignored
+     0 output errors, 0 collisions, 1 interface resets
+FastEthernet0/12 ----> : 
+     0 input errors, 0 CRC, 0 frame, 0 overrun, 0 ignored
+     0 output errors, 0 collisions, 1 interface resets
+FastEthernet0/13 ----> : 
+     4 input errors, 0 CRC, 0 frame, 0 overrun, 0 ignored
+     0 output errors, 0 collisions, 1 interface resets
+FastEthernet0/14 ----> : 
+     9 input errors, 0 CRC, 0 frame, 0 overrun, 0 ignored
+     0 output errors, 0 collisions, 1 interface resets
+FastEthernet0/15 ----> : 
+     3 input errors, 0 CRC, 0 frame, 0 overrun, 0 ignored
+     0 output errors, 0 collisions, 1 interface resets
+FastEthernet0/16 ----> : 
+     1527 input errors, 0 CRC, 0 frame, 0 overrun, 0 ignored
+     0 output errors, 0 collisions, 1 interface resets
+FastEthernet0/17 ----> : 
+     153 input errors, 0 CRC, 0 frame, 0 overrun, 0 ignored
+     0 output errors, 0 collisions, 1 interface resets
+FastEthernet0/18 ----> : 
+     8 input errors, 0 CRC, 0 frame, 0 overrun, 0 ignored
+     0 output errors, 0 collisions, 1 interface resets
+FastEthernet0/19 ----> : 
+     11 input errors, 0 CRC, 0 frame, 0 overrun, 0 ignored
+     0 output errors, 0 collisions, 1 interface resets
+FastEthernet0/20 ----> : 
+     10 input errors, 0 CRC, 0 frame, 0 overrun, 0 ignored
+     0 output errors, 0 collisions, 1 interface resets
+FastEthernet0/21 ----> : 
+     0 input errors, 0 CRC, 0 frame, 0 overrun, 0 ignored
+     0 output errors, 0 collisions, 1 interface resets
+FastEthernet0/22 ----> : 
+     0 input errors, 0 CRC, 0 frame, 0 overrun, 0 ignored
+     0 output errors, 0 collisions, 1 interface resets
+FastEthernet0/23 ----> : 
+     0 input errors, 0 CRC, 0 frame, 0 overrun, 0 ignored
+     0 output errors, 0 collisions, 1 interface resets
+FastEthernet0/24 ----> : 
+     0 input errors, 0 CRC, 0 frame, 0 overrun, 0 ignored
+     0 output errors, 0 collisions, 1 interface resets
+GigabitEthernet0/1 ----> : 
+     0 input errors, 0 CRC, 0 frame, 0 overrun, 0 ignored
+     0 output errors, 0 collisions, 1 interface resets
+GigabitEthernet0/2 ----> : 
+     0 input errors, 0 CRC, 0 frame, 0 overrun, 0 ignored
+     0 output errors, 0 collisions, 1 interface resets

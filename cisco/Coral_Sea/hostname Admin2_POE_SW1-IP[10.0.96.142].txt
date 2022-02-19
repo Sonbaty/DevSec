@@ -1,0 +1,158 @@
+IP:10.0.96.142, Host:hostname Admin2_POE_SW1
+Admin2_POE_SW1 uptime is 2 years, 5 weeks, 2 days, 23 hours, 4 minutes
+FastEthernet0/1 ----> : 
+     318588 input errors, 451 CRC, 0 frame, 0 overrun, 0 ignored
+     0 output errors, 10 collisions, 1 interface resets
+FastEthernet0/2 ----> : 
+     0 input errors, 0 CRC, 0 frame, 0 overrun, 0 ignored
+     0 output errors, 0 collisions, 1 interface resets
+FastEthernet0/3 ----> : 
+     0 input errors, 0 CRC, 0 frame, 0 overrun, 0 ignored
+     0 output errors, 0 collisions, 1 interface resets
+FastEthernet0/4 ----> : 
+     0 input errors, 0 CRC, 0 frame, 0 overrun, 0 ignored
+     0 output errors, 0 collisions, 1 interface resets
+FastEthernet0/5 ----> : 
+     244 input errors, 0 CRC, 0 frame, 0 overrun, 0 ignored
+     0 output errors, 0 collisions, 1 interface resets
+FastEthernet0/6 ----> : 
+     11 input errors, 0 CRC, 0 frame, 0 overrun, 0 ignored
+     0 output errors, 0 collisions, 1 interface resets
+FastEthernet0/7 ----> : 
+     0 input errors, 0 CRC, 0 frame, 0 overrun, 0 ignored
+     0 output errors, 0 collisions, 1 interface resets
+FastEthernet0/8 ----> : 
+     5365 input errors, 4 CRC, 0 frame, 0 overrun, 0 ignored
+     0 output errors, 0 collisions, 1 interface resets
+FastEthernet0/9 ----> : 
+     12 input errors, 0 CRC, 0 frame, 0 overrun, 0 ignored
+     0 output errors, 0 collisions, 1 interface resets
+FastEthernet0/10 ----> : 
+     163765 input errors, 0 CRC, 0 frame, 0 overrun, 0 ignored
+     0 output errors, 0 collisions, 1 interface resets
+FastEthernet0/11 ----> : 
+     247 input errors, 0 CRC, 0 frame, 0 overrun, 0 ignored
+     0 output errors, 1632 collisions, 2 interface resets
+FastEthernet0/12 ----> : 
+     0 input errors, 0 CRC, 0 frame, 0 overrun, 0 ignored
+     0 output errors, 0 collisions, 1 interface resets
+FastEthernet0/13 ----> : 
+     0 input errors, 0 CRC, 0 frame, 0 overrun, 0 ignored
+     0 output errors, 0 collisions, 1 interface resets
+FastEthernet0/14 ----> : 
+     1 input errors, 1 CRC, 0 frame, 0 overrun, 0 ignored
+     0 output errors, 0 collisions, 1 interface resets
+FastEthernet0/15 ----> : 
+     5 input errors, 0 CRC, 0 frame, 0 overrun, 0 ignored
+     0 output errors, 0 collisions, 1 interface resets
+FastEthernet0/16 ----> : 
+     10396 input errors, 5 CRC, 0 frame, 0 overrun, 0 ignored
+     0 output errors, 0 collisions, 1 interface resets
+FastEthernet0/17 ----> : 
+     0 input errors, 0 CRC, 0 frame, 0 overrun, 0 ignored
+     0 output errors, 0 collisions, 1 interface resets
+FastEthernet0/18 ----> : 
+     2 input errors, 0 CRC, 0 frame, 0 overrun, 0 ignored
+     0 output errors, 0 collisions, 1 interface resets
+FastEthernet0/19 ----> : 
+     0 input errors, 0 CRC, 0 frame, 0 overrun, 0 ignored
+     0 output errors, 0 collisions, 1 interface resets
+FastEthernet0/20 ----> : 
+     1 input errors, 0 CRC, 0 frame, 0 overrun, 0 ignored
+     0 output errors, 0 collisions, 1 interface resets
+FastEthernet0/21 ----> : 
+     1832163 input errors, 731496 CRC, 0 frame, 0 overrun, 0 ignored
+     0 output errors, 0 collisions, 1 interface resets
+FastEthernet0/22 ----> : 
+     14 input errors, 7 CRC, 0 frame, 0 overrun, 0 ignored
+     0 output errors, 0 collisions, 1 interface resets
+FastEthernet0/23 ----> : 
+     35 input errors, 0 CRC, 0 frame, 0 overrun, 0 ignored
+     0 output errors, 148 collisions, 1 interface resets
+FastEthernet0/24 ----> : 
+     103569 input errors, 19355 CRC, 0 frame, 0 overrun, 0 ignored
+     0 output errors, 0 collisions, 1 interface resets
+FastEthernet0/25 ----> : 
+     11 input errors, 0 CRC, 0 frame, 0 overrun, 0 ignored
+     0 output errors, 0 collisions, 1 interface resets
+FastEthernet0/26 ----> : 
+     137 input errors, 25 CRC, 0 frame, 0 overrun, 0 ignored
+     0 output errors, 0 collisions, 1 interface resets
+FastEthernet0/27 ----> : 
+     0 input errors, 0 CRC, 0 frame, 0 overrun, 0 ignored
+     0 output errors, 0 collisions, 1 interface resets
+FastEthernet0/28 ----> : 
+     0 input errors, 0 CRC, 0 frame, 0 overrun, 0 ignored
+     0 output errors, 0 collisions, 1 interface resets
+FastEthernet0/29 ----> : 
+     0 input errors, 0 CRC, 0 frame, 0 overrun, 0 ignored
+     0 output errors, 0 collisions, 1 interface resets
+FastEthernet0/30 ----> : 
+     0 input errors, 0 CRC, 0 frame, 0 overrun, 0 ignored
+     0 output errors, 0 collisions, 1 interface resets
+FastEthernet0/31 ----> : 
+     27 input errors, 1 CRC, 0 frame, 0 overrun, 0 ignored
+     0 output errors, 0 collisions, 1 interface resets
+FastEthernet0/32 ----> : 
+     42423 input errors, 12936 CRC, 0 frame, 0 overrun, 0 ignored
+     0 output errors, 21 collisions, 1 interface resets
+FastEthernet0/33 ----> : 
+     0 input errors, 0 CRC, 0 frame, 0 overrun, 0 ignored
+     0 output errors, 0 collisions, 1 interface resets
+FastEthernet0/34 ----> : 
+     1 input errors, 0 CRC, 0 frame, 0 overrun, 0 ignored
+     0 output errors, 0 collisions, 1 interface resets
+FastEthernet0/35 ----> : 
+     35964 input errors, 8061 CRC, 0 frame, 0 overrun, 0 ignored
+     0 output errors, 0 collisions, 1 interface resets
+FastEthernet0/36 ----> : 
+     54080 input errors, 7143 CRC, 0 frame, 0 overrun, 0 ignored
+     0 output errors, 0 collisions, 1 interface resets
+FastEthernet0/37 ----> : 
+     40481 input errors, 307 CRC, 0 frame, 0 overrun, 0 ignored
+     0 output errors, 0 collisions, 1 interface resets
+FastEthernet0/38 ----> : 
+     0 input errors, 0 CRC, 0 frame, 0 overrun, 0 ignored
+     0 output errors, 0 collisions, 1 interface resets
+FastEthernet0/39 ----> : 
+     1 input errors, 0 CRC, 0 frame, 0 overrun, 0 ignored
+     0 output errors, 0 collisions, 1 interface resets
+FastEthernet0/40 ----> : 
+     8965 input errors, 1 CRC, 0 frame, 0 overrun, 0 ignored
+     0 output errors, 0 collisions, 1 interface resets
+FastEthernet0/41 ----> : 
+     212 input errors, 0 CRC, 0 frame, 0 overrun, 0 ignored
+     0 output errors, 0 collisions, 1 interface resets
+FastEthernet0/42 ----> : 
+     126929 input errors, 5265 CRC, 0 frame, 0 overrun, 0 ignored
+     0 output errors, 0 collisions, 1 interface resets
+FastEthernet0/43 ----> : 
+     7 input errors, 0 CRC, 0 frame, 0 overrun, 0 ignored
+     0 output errors, 0 collisions, 1 interface resets
+FastEthernet0/44 ----> : 
+     0 input errors, 0 CRC, 0 frame, 0 overrun, 0 ignored
+     0 output errors, 0 collisions, 1 interface resets
+FastEthernet0/45 ----> : 
+     0 input errors, 0 CRC, 0 frame, 0 overrun, 0 ignored
+     0 output errors, 0 collisions, 1 interface resets
+FastEthernet0/46 ----> : 
+     0 input errors, 0 CRC, 0 frame, 0 overrun, 0 ignored
+     0 output errors, 0 collisions, 1 interface resets
+FastEthernet0/47 ----> : 
+     903 input errors, 0 CRC, 0 frame, 0 overrun, 0 ignored
+     0 output errors, 0 collisions, 1 interface resets
+FastEthernet0/48 ----> : 
+     0 input errors, 0 CRC, 0 frame, 0 overrun, 0 ignored
+     0 output errors, 0 collisions, 1 interface resets
+GigabitEthernet0/1 ----> : 
+     83 input errors, 0 CRC, 0 frame, 0 overrun, 0 ignored
+     0 output errors, 0 collisions, 1 interface resets
+GigabitEthernet0/2 ----> : 
+     0 input errors, 0 CRC, 0 frame, 0 overrun, 0 ignored
+     0 output errors, 0 collisions, 1 interface resets
+GigabitEthernet0/3 ----> : 
+     0 input errors, 0 CRC, 0 frame, 0 overrun, 0 ignored
+     0 output errors, 0 collisions, 1 interface resets
+GigabitEthernet0/4 ----> : 
+     0 input errors, 0 CRC, 0 frame, 0 overrun, 0 ignored
+     0 output errors, 0 collisions, 1 interface resets
