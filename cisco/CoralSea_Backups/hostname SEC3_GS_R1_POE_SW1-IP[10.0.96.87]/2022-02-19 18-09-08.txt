@@ -1,0 +1,391 @@
+Building configuration...
+
+Current configuration : 9940 bytes
+!
+version 12.2
+no service pad
+service timestamps debug datetime msec
+service timestamps log datetime msec
+no service password-encryption
+service sequence-numbers
+!
+hostname SEC3_GS_R1_POE_SW1
+!
+boot-start-marker
+boot-end-marker
+!
+enable password Coral@sts123
+!
+!
+!
+no aaa new-model
+clock timezone EET 2
+system mtu routing 1500
+!
+!
+ip igmp snooping querier
+ip igmp snooping vlan 20 immediate-leave
+!
+mls qos srr-queue output cos-map queue 1 threshold 3 5
+mls qos srr-queue output cos-map queue 2 threshold 3 3 6 7
+mls qos srr-queue output cos-map queue 3 threshold 3 2 4
+mls qos srr-queue output cos-map queue 4 threshold 2 1
+mls qos srr-queue output cos-map queue 4 threshold 3 0
+mls qos
+!
+crypto pki trustpoint TP-self-signed-905621376
+ enrollment selfsigned
+ subject-name cn=IOS-Self-Signed-Certificate-905621376
+ revocation-check none
+ rsakeypair TP-self-signed-905621376
+!
+!
+crypto pki certificate chain TP-self-signed-905621376
+ certificate self-signed 01
+  30820249 308201B2 A0030201 02020101 300D0609 2A864886 F70D0101 04050030 
+  30312E30 2C060355 04031325 494F532D 53656C66 2D536967 6E65642D 43657274 
+  69666963 6174652D 39303536 32313337 36301E17 0D393330 33303130 30303131 
+  355A170D 32303031 30313030 30303030 5A303031 2E302C06 03550403 1325494F 
+  532D5365 6C662D53 69676E65 642D4365 72746966 69636174 652D3930 35363231 
+  33373630 819F300D 06092A86 4886F70D 01010105 0003818D 00308189 02818100 
+  C2E044DA AFB3D6BD CDCE3543 8B08CD99 EEA54C4D 01A43E65 74A8A6C1 B7CBBD16 
+  A2B52EF6 61E5A8B1 04D7571A EC3D648D 09F0378E 8E55AEEF 063B890B B8BD6F75 
+  A744C39A E47E69D6 D0200AEB 026CC926 43181D5F E3242942 BA74724D 4437EC83 
+  4BCE5AAA 01391EF5 F1F06D56 561CFF15 A3678F1D 62FC25FF 53998C4F 13EF8645 
+  02030100 01A37330 71300F06 03551D13 0101FF04 05300301 01FF301E 0603551D 
+  11041730 15821353 4543335F 47535F52 315F504F 455F5357 312E301F 0603551D 
+  23041830 1680141F 42253E95 B7BC6EE5 84578388 49F3D479 938EE030 1D060355 
+  1D0E0416 04141F42 253E95B7 BC6EE584 57838849 F3D47993 8EE0300D 06092A86 
+  4886F70D 01010405 00038181 00644E8C 5AC556C2 81E0F4F4 2DEB489A 50993465 
+  8CFB0DA4 C6B2EA91 F1535A0F DDFA00CF 8CAC52D0 FFBB89C0 6D645881 1C42F72D 
+  B9E6E910 26CC14DE 66D5B7D2 3D2E1CB3 A9A8A667 A3D46328 2259015F 037E62B2 
+  1469344F D5D840F4 ECC6E6DA 727EC827 28A6D6D1 D7852FDF 7E5FDD67 2DB82CB9 
+  24ABAD1E 40367B22 824774E1 ED
+  quit
+!
+!
+!
+!
+spanning-tree mode rapid-pvst
+spanning-tree extend system-id
+!
+vlan internal allocation policy ascending
+lldp run
+!
+!
+interface FastEthernet0/1
+ description "IPTel_Room 3132"
+ switchport voice vlan 52
+ spanning-tree portfast
+!
+interface FastEthernet0/2
+ description "IPTel_Room 3133"
+ switchport voice vlan 52
+ spanning-tree portfast
+!
+interface FastEthernet0/3
+ description "IPTel_Room 3134"
+ switchport voice vlan 52
+ spanning-tree portfast
+!
+interface FastEthernet0/4
+ description "IPTel_Room 3135"
+ switchport voice vlan 52
+ spanning-tree portfast
+!
+interface FastEthernet0/5
+ description "IPTel_Room 3136"
+ switchport voice vlan 52
+ spanning-tree portfast
+!
+interface FastEthernet0/6
+ description "IPTel_Room 3137"
+ switchport voice vlan 52
+ spanning-tree portfast
+!
+interface FastEthernet0/7
+ description "IPTel_Room 3138"
+ switchport voice vlan 52
+ spanning-tree portfast
+!
+interface FastEthernet0/8
+ description "IPTel_Room 3139"
+ switchport voice vlan 52
+ spanning-tree portfast
+!
+interface FastEthernet0/9
+ description "IPTel_Room 3140"
+ switchport voice vlan 52
+ spanning-tree portfast
+!
+interface FastEthernet0/10
+ description "IPTel_Room 3141"
+ switchport voice vlan 52
+ spanning-tree portfast
+!
+interface FastEthernet0/11
+ description "IPTel_Room 3142"
+ switchport voice vlan 52
+ spanning-tree portfast
+!
+interface FastEthernet0/12
+ description "IPTel_Room 3143"
+ switchport voice vlan 52
+ spanning-tree portfast
+!
+interface FastEthernet0/13
+ description "IPTel_Room 3144"
+ switchport voice vlan 52
+ spanning-tree portfast
+!
+interface FastEthernet0/14
+ description "IPTel_Room 3145"
+ switchport voice vlan 52
+ spanning-tree portfast
+!
+interface FastEthernet0/15
+ description "IPTel_Room 3146"
+ switchport voice vlan 52
+ spanning-tree portfast
+!
+interface FastEthernet0/16
+ description "IPTel_Room 3147"
+ switchport voice vlan 52
+ spanning-tree portfast
+!
+interface FastEthernet0/17
+ description "IPTel_Room 3148"
+ switchport voice vlan 52
+ spanning-tree portfast
+!
+interface FastEthernet0/18
+ description "IPTel_Room 3149"
+ switchport voice vlan 52
+ spanning-tree portfast
+!
+interface FastEthernet0/19
+ description "IPTel_Room 3150"
+ switchport voice vlan 52
+ spanning-tree portfast
+!
+interface FastEthernet0/20
+ description "IPTel_Room 3151"
+ switchport voice vlan 52
+ spanning-tree portfast
+!
+interface FastEthernet0/21
+ description "IPTel_Room 3152"
+ switchport voice vlan 52
+ spanning-tree portfast
+!
+interface FastEthernet0/22
+ description "IPTel_Room 3153"
+ switchport voice vlan 52
+ spanning-tree portfast
+!
+interface FastEthernet0/23
+ description "IPTel_Room 3154"
+ switchport voice vlan 52
+ spanning-tree portfast
+!
+interface FastEthernet0/24
+ description "IPTel_Room 3155"
+ switchport voice vlan 52
+ spanning-tree portfast
+!
+interface FastEthernet0/25
+ description "IPTel_Room 3230"
+ switchport voice vlan 52
+ spanning-tree portfast
+!
+interface FastEthernet0/26
+ description "IPTel_Room 3231"
+ switchport voice vlan 52
+ spanning-tree portfast
+!
+interface FastEthernet0/27
+ description "IPTel_Room 3232"
+ switchport voice vlan 52
+ spanning-tree portfast
+!
+interface FastEthernet0/28
+ description "IPTel_Room 3233"
+ switchport voice vlan 52
+ spanning-tree portfast
+!
+interface FastEthernet0/29
+ description "IPTel_Room 3234"
+ switchport voice vlan 52
+ spanning-tree portfast
+!
+interface FastEthernet0/30
+ description "IPTel_Room 3235"
+ switchport voice vlan 52
+ spanning-tree portfast
+!
+interface FastEthernet0/31
+ description "IPTel_Room 3236"
+ switchport voice vlan 52
+ spanning-tree portfast
+!
+interface FastEthernet0/32
+ description "IPTel_Room 3237"
+ switchport voice vlan 52
+ spanning-tree portfast
+!
+interface FastEthernet0/33
+ description "IPTel_Room 3238"
+ switchport voice vlan 52
+ spanning-tree portfast
+!
+interface FastEthernet0/34
+ description "IPTel_Room 3239"
+ switchport voice vlan 52
+ spanning-tree portfast
+!
+interface FastEthernet0/35
+ description "IPTel_Room 3240"
+ switchport voice vlan 52
+ spanning-tree portfast
+!
+interface FastEthernet0/36
+ description "IPTel_Room 3241"
+ switchport voice vlan 52
+ spanning-tree portfast
+!
+interface FastEthernet0/37
+ description "IPTel_Room 3242"
+ switchport voice vlan 52
+ spanning-tree portfast
+!
+interface FastEthernet0/38
+ description "IPTel_Room 3243"
+ switchport voice vlan 52
+ spanning-tree portfast
+!
+interface FastEthernet0/39
+ description "IPTel_Room 3244"
+ switchport voice vlan 52
+ spanning-tree portfast
+!
+interface FastEthernet0/40
+ description "IPTel_Room 3245"
+ switchport voice vlan 52
+ spanning-tree portfast
+!
+interface FastEthernet0/41
+ description "IPTel_Room 3246"
+ switchport voice vlan 52
+ spanning-tree portfast
+!
+interface FastEthernet0/42
+ description "IPTel_Room 3247"
+ switchport voice vlan 52
+ spanning-tree portfast
+!
+interface FastEthernet0/43
+ description "IPTel_Room 3248"
+ switchport voice vlan 52
+ spanning-tree portfast
+!
+interface FastEthernet0/44
+ description "IPTel_Room 3249"
+ switchport voice vlan 52
+ spanning-tree portfast
+!
+interface FastEthernet0/45
+ description "IPTel_Room 3250"
+ switchport voice vlan 52
+ spanning-tree portfast
+!
+interface FastEthernet0/46
+ description "IPTel_Room 3251"
+ switchport voice vlan 52
+ spanning-tree portfast
+!
+interface FastEthernet0/47
+ description "IPTel_Room 3252"
+ switchport voice vlan 52
+ spanning-tree portfast
+!
+interface FastEthernet0/48
+ description "IPTel_Room 3253"
+ switchport voice vlan 52
+ spanning-tree portfast
+!
+interface GigabitEthernet0/1
+ switchport mode trunk
+ mls qos trust cos
+ macro description cisco-switch
+ spanning-tree link-type point-to-point
+!
+interface GigabitEthernet0/2
+ switchport mode trunk
+ mls qos trust cos
+ macro description cisco-switch | cisco-switch
+ spanning-tree link-type point-to-point
+!
+interface GigabitEthernet0/3
+ switchport mode trunk
+ mls qos trust cos
+ macro description cisco-switch | cisco-switch
+ spanning-tree link-type point-to-point
+!
+interface GigabitEthernet0/4
+ switchport mode trunk
+ mls qos trust cos
+ macro description cisco-switch | cisco-switch
+ spanning-tree link-type point-to-point
+!
+interface Vlan1
+ no ip address
+ no ip route-cache
+!
+interface Vlan96
+ ip address 10.0.96.87 255.255.255.0
+ no ip route-cache
+!
+ip http server
+ip http secure-server
+!
+ip access-list standard wr
+snmp-server community Coralwr@sts RO wr
+snmp-server enable traps snmp authentication linkdown linkup coldstart warmstart
+snmp-server enable traps transceiver all
+snmp-server enable traps tty
+snmp-server enable traps cluster
+snmp-server enable traps entity
+snmp-server enable traps cpu threshold
+snmp-server enable traps rep
+snmp-server enable traps vtp
+snmp-server enable traps vlancreate
+snmp-server enable traps vlandelete
+snmp-server enable traps flash insertion removal
+snmp-server enable traps port-security
+snmp-server enable traps auth-framework sec-violation
+snmp-server enable traps dot1x auth-fail-vlan guest-vlan no-auth-fail-vlan no-guest-vlan
+snmp-server enable traps envmon fan shutdown supply temperature status
+snmp-server enable traps power-ethernet group 1
+snmp-server enable traps power-ethernet police
+snmp-server enable traps config-copy
+snmp-server enable traps config
+snmp-server enable traps config-ctid
+snmp-server enable traps bridge newroot topologychange
+snmp-server enable traps stpx inconsistency root-inconsistency loop-inconsistency
+snmp-server enable traps syslog
+snmp-server enable traps mac-notification change move threshold
+snmp-server enable traps vlan-membership
+snmp-server enable traps errdisable
+!
+line con 0
+ password Coral@sts123
+ login
+line vty 0 4
+ password Coral@sts123
+ login
+line vty 5 15
+ login
+!
+ntp server 192.168.3.3
+end
+

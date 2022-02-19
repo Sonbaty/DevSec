@@ -1,0 +1,285 @@
+Building configuration...
+
+Current configuration : 7586 bytes
+!
+version 12.2
+no service pad
+service timestamps debug datetime msec
+service timestamps log datetime msec
+no service password-encryption
+service sequence-numbers
+!
+hostname Sec2_TH_NPOE2
+!
+boot-start-marker
+boot-end-marker
+!
+enable secret 5 $1$0N4a$NsA.yS4sGpCjraDO.T8fM0
+!
+!
+!
+no aaa new-model
+clock timezone EET 2
+system mtu routing 1500
+!
+!
+ip igmp snooping querier
+ip igmp snooping vlan 20 immediate-leave
+!
+mls qos srr-queue output cos-map queue 1 threshold 3 5
+mls qos srr-queue output cos-map queue 2 threshold 3 3 6 7
+mls qos srr-queue output cos-map queue 3 threshold 3 2 4
+mls qos srr-queue output cos-map queue 4 threshold 2 1
+mls qos srr-queue output cos-map queue 4 threshold 3 0
+mls qos
+!
+crypto pki trustpoint TP-self-signed-3479495936
+ enrollment selfsigned
+ subject-name cn=IOS-Self-Signed-Certificate-3479495936
+ revocation-check none
+ rsakeypair TP-self-signed-3479495936
+!
+!
+crypto pki certificate chain TP-self-signed-3479495936
+ certificate self-signed 01
+  30820246 308201AF A0030201 02020101 300D0609 2A864886 F70D0101 04050030 
+  31312F30 2D060355 04031326 494F532D 53656C66 2D536967 6E65642D 43657274 
+  69666963 6174652D 33343739 34393539 3336301E 170D3933 30333031 30303030 
+  35375A17 0D323030 31303130 30303030 305A3031 312F302D 06035504 03132649 
+  4F532D53 656C662D 5369676E 65642D43 65727469 66696361 74652D33 34373934 
+  39353933 3630819F 300D0609 2A864886 F70D0101 01050003 818D0030 81890281 
+  8100BD11 C5195ABE B5594308 5AC5D8C2 9E390803 182E759F 75787397 367DFF00 
+  3E1210E4 52A91B4B 8FE4AFBB 4145D976 5F59418C 6199DB3E FB673539 DA2EAD35 
+  09E43979 1022B632 DE9AED3C 99385CA0 2F6BF23E 7C196841 374D3DAB 1034F000 
+  F57DCEF8 593F36D4 0C3D5E24 7523AB3F CBC53163 C8C5D01A 074D14B7 4BBFCB96 
+  F3A10203 010001A3 6E306C30 0F060355 1D130101 FF040530 030101FF 30190603 
+  551D1104 12301082 0E536563 325F5448 5F4E504F 45322E30 1F060355 1D230418 
+  30168014 E8A6074F 0C31D53B 469AD073 C4F5D056 0F9C506A 301D0603 551D0E04 
+  160414E8 A6074F0C 31D53B46 9AD073C4 F5D0560F 9C506A30 0D06092A 864886F7 
+  0D010104 05000381 810051BD E199E319 5103EC1F 36A2C18E 8493AF13 7FC9EFFC 
+  53DE639F F5681C42 FCFF00D2 64BF4CDE 475DD4A7 2FC49722 BEF4085A B0856F34 
+  898AEC49 8688A802 31C2A2E1 B1697079 5F7FB67B 61742B0E A92458A0 7B7D9186 
+  C3482F9A 78F776FE F6C96422 9FF9EE00 DA760FA0 A6256AA7 8B564AD2 44AC1694 
+  4FFDFEE0 7A7358BE 3C97
+  quit
+!
+!
+!
+!
+spanning-tree mode rapid-pvst
+spanning-tree extend system-id
+!
+vlan internal allocation policy ascending
+lldp run
+!
+!
+interface FastEthernet0/1
+ description "IPTV_Room 2521"
+ switchport access vlan 20
+ switchport mode access
+ spanning-tree portfast
+!
+interface FastEthernet0/2
+ description "IPTV_Room 2520"
+ switchport access vlan 20
+ switchport mode access
+ spanning-tree portfast
+!
+interface FastEthernet0/3
+ description "IPTV_Room 2519"
+ switchport access vlan 20
+ switchport mode access
+ spanning-tree portfast
+!
+interface FastEthernet0/4
+ description "IPTV_Room 2518"
+ switchport access vlan 20
+ switchport mode access
+ spanning-tree portfast
+!
+interface FastEthernet0/5
+ description "IPTV_Room 2517"
+ switchport access vlan 20
+ switchport mode access
+ spanning-tree portfast
+!
+interface FastEthernet0/6
+ description "IPTV_Room 2516"
+ switchport access vlan 20
+ switchport mode access
+ spanning-tree portfast
+!
+interface FastEthernet0/7
+ description "IPTV_Room 2515"
+ switchport access vlan 20
+ switchport mode access
+ spanning-tree portfast
+!
+interface FastEthernet0/8
+ description "IPTV_Room 2514"
+ switchport access vlan 20
+ switchport mode access
+ spanning-tree portfast
+!
+interface FastEthernet0/9
+ description "IPTV_Room 2513"
+ switchport access vlan 20
+ switchport mode access
+ spanning-tree portfast
+!
+interface FastEthernet0/10
+ description "IPTV_Room 2512"
+ switchport access vlan 20
+ switchport mode access
+ spanning-tree portfast
+!
+interface FastEthernet0/11
+ description "IPTV_Room 2511"
+ switchport access vlan 20
+ switchport mode access
+ spanning-tree portfast
+!
+interface FastEthernet0/12
+ description "IPTV_Room 2510"
+ switchport access vlan 20
+ switchport mode access
+ spanning-tree portfast
+!
+interface FastEthernet0/13
+ description "IPTV_Room 2509"
+ switchport access vlan 20
+ switchport mode access
+ spanning-tree portfast
+!
+interface FastEthernet0/14
+ description "IPTV_Room 2508"
+ switchport access vlan 20
+ switchport mode access
+ spanning-tree portfast
+!
+interface FastEthernet0/15
+ description "IPTV_Room 2507"
+ switchport access vlan 20
+ switchport mode access
+ spanning-tree portfast
+!
+interface FastEthernet0/16
+ description "IPTV_Room 2506"
+ switchport access vlan 20
+ switchport mode access
+ spanning-tree portfast
+!
+interface FastEthernet0/17
+ description "IPTV_Room 2505"
+ switchport access vlan 20
+ switchport mode access
+ spanning-tree portfast
+!
+interface FastEthernet0/18
+ description "IPTV_Room 2504"
+ switchport access vlan 20
+ switchport mode access
+ spanning-tree portfast
+!
+interface FastEthernet0/19
+ description "IPTV_Room 2503"
+ switchport access vlan 20
+ switchport mode access
+ spanning-tree portfast
+!
+interface FastEthernet0/20
+ description "IPTV_Room 2502"
+ switchport access vlan 20
+ switchport mode access
+ spanning-tree portfast
+!
+interface FastEthernet0/21
+ description "IPTV_Room 2501"
+ switchport access vlan 20
+ switchport mode access
+ spanning-tree portfast
+!
+interface FastEthernet0/22
+ description "IPTV_Room 2502"
+ switchport access vlan 20
+ switchport mode access
+ spanning-tree portfast
+!
+interface FastEthernet0/23
+ description "IPTV_Room 2503"
+ switchport access vlan 20
+ switchport mode access
+ spanning-tree portfast
+!
+interface FastEthernet0/24
+ description VG
+ switchport access vlan 202
+ switchport mode access
+ spanning-tree portfast
+!
+interface GigabitEthernet0/1
+ switchport mode trunk
+ mls qos trust cos
+ macro description cisco-switch
+ spanning-tree link-type point-to-point
+!
+interface GigabitEthernet0/2
+ switchport mode trunk
+ mls qos trust cos
+ macro description cisco-switch | cisco-switch
+ spanning-tree link-type point-to-point
+!
+interface Vlan1
+ no ip address
+ no ip route-cache
+ shutdown
+!
+interface Vlan96
+ ip address 10.0.96.62 255.255.255.0
+ no ip route-cache
+!
+ip http server
+ip http secure-server
+!
+ip access-list standard wr
+snmp-server community Coralwr@sts RO wr
+snmp-server enable traps snmp authentication linkdown linkup coldstart warmstart
+snmp-server enable traps transceiver all
+snmp-server enable traps tty
+snmp-server enable traps cluster
+snmp-server enable traps entity
+snmp-server enable traps cpu threshold
+snmp-server enable traps rep
+snmp-server enable traps vtp
+snmp-server enable traps vlancreate
+snmp-server enable traps vlandelete
+snmp-server enable traps flash insertion removal
+snmp-server enable traps port-security
+snmp-server enable traps auth-framework sec-violation
+snmp-server enable traps dot1x auth-fail-vlan guest-vlan no-auth-fail-vlan no-guest-vlan
+snmp-server enable traps envmon fan shutdown supply temperature status
+snmp-server enable traps power-ethernet group 1
+snmp-server enable traps power-ethernet police
+snmp-server enable traps config-copy
+snmp-server enable traps config
+snmp-server enable traps config-ctid
+snmp-server enable traps bridge newroot topologychange
+snmp-server enable traps stpx inconsistency root-inconsistency loop-inconsistency
+snmp-server enable traps syslog
+snmp-server enable traps mac-notification change move threshold
+snmp-server enable traps vlan-membership
+snmp-server enable traps errdisable
+!
+line con 0
+ password Coral@sts123
+ login
+line vty 0 4
+ password Coral@sts123
+ login
+line vty 5 15
+ password Coral@sts123
+ login
+!
+ntp server 192.168.3.3
+end
+

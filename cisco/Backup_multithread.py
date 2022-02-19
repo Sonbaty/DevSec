@@ -8,7 +8,7 @@ import os
 Location = input('Enter The Switches Group Name First : ')
 print("Backup Is EveryDay at 1 AM")
 
-ips_file = open("Devices.txt", 'r')  ## open the ip list file from root folder
+ips_file = open("cisco_devices.txt", 'r')    ## open the ip list file from root folder
 ips_file.seek(0)  ## put the first read on the begining
 ip_list = ips_file.read().splitlines()  ## splite the ip's in a list
 ips_file.close()
@@ -34,14 +34,13 @@ def get_backup(IP,any):
     print(output)
     print()
     print('-' * 79)
-
+    connection.enable()
     hostname = connection.send_command('show run | i hostname')
-    hostname.split(" ")
     if hostname == "":
         device = "SW_name"
         print('Notice : This switch has no hostname configured')
     else:
-        hostname, device = hostname.split(" ")
+        device = hostname
     print(device)
     my_ip = IP.strip('\n')
     now = datetime.now()
@@ -60,14 +59,13 @@ def get_backup(IP,any):
     else:
         print("Directory ", device, " already exists")
 
-        # filename = '/home/sonbaty/Automation/backups/' + device + '.txt'
-    tftp_srvr = 'test'
-    date = f'{Location}/{device}-IP[{my_ip}]/'
-    filename = f'{device} AT {curr_time}' + '.txt'
+    #tftp_srvr = 'test'
+    filename = f'{Location}/{device}-IP[{my_ip}]/'+f'{curr_time}' + '.txt'
     connection.enable()
-    filename = 'deviceNames.txt'
+    #filename = 'deviceNames.txt'
+    run_query = connection.send_command('sh running-config')
     log_file = open(filename, "a")  # append mode
-    log_file.write(device)
+    log_file.write(run_query)
     log_file.write("\n")
     #connection.send_command(f'copy run tftp {tftp_srvr} {date}/{filename}')
     connection.disconnect()

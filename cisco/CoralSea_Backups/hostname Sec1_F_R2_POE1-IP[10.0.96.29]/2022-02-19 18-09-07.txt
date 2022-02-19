@@ -1,0 +1,320 @@
+Building configuration...
+
+Current configuration : 6768 bytes
+!
+version 12.2
+no service pad
+service timestamps debug uptime
+service timestamps log uptime
+no service password-encryption
+!
+hostname Sec1_F_R2_POE1
+!
+!
+no aaa new-model
+switch 1 provision ws-c3750-48p
+system mtu routing 1500
+ip subnet-zero
+!
+ip igmp snooping querier
+ip igmp snooping vlan 20 immediate-leave
+!
+!
+!
+no file verify auto
+!
+spanning-tree mode rapid-pvst
+spanning-tree extend system-id
+!
+vlan internal allocation policy ascending
+!
+interface FastEthernet1/0/1
+ description "IPTel_Room 1244"
+ switchport mode access
+ switchport voice vlan 32
+ spanning-tree portfast
+!
+interface FastEthernet1/0/2
+ description "IPTel_Room 1245"
+ switchport mode access
+ switchport voice vlan 32
+ spanning-tree portfast
+!
+interface FastEthernet1/0/3
+ description "IPTel_Room 1246"
+ switchport mode access
+ switchport voice vlan 32
+ spanning-tree portfast
+!
+interface FastEthernet1/0/4
+ description "IPTel_Room 1247"
+ switchport mode access
+ switchport voice vlan 32
+ spanning-tree portfast
+!
+interface FastEthernet1/0/5
+ description "IPTel_Room 1201"
+ switchport mode access
+ switchport voice vlan 32
+ spanning-tree portfast
+!
+interface FastEthernet1/0/6
+ description "IPTel_Room 1202"
+ switchport mode access
+ switchport voice vlan 32
+ spanning-tree portfast
+!
+interface FastEthernet1/0/7
+ description "IPTel_Room 1203"
+ switchport mode access
+ switchport voice vlan 32
+ spanning-tree portfast
+!
+interface FastEthernet1/0/8
+ description "IPTel_Room 1204"
+ switchport mode access
+ switchport voice vlan 32
+ spanning-tree portfast
+!
+interface FastEthernet1/0/9
+ description "IPTel_Room 1205"
+ switchport mode access
+ switchport voice vlan 32
+ spanning-tree portfast
+!
+interface FastEthernet1/0/10
+ description "IPTel_Room 1206"
+ switchport mode access
+ switchport voice vlan 32
+ spanning-tree portfast
+!
+interface FastEthernet1/0/11
+ description "IPTel_Room 1207"
+ switchport mode access
+ switchport voice vlan 32
+ spanning-tree portfast
+!
+interface FastEthernet1/0/12
+ description "IPTel_Room 1208"
+ switchport mode access
+ switchport voice vlan 32
+ spanning-tree portfast
+!
+interface FastEthernet1/0/13
+ description "IPTel_Room 1209"
+ switchport mode access
+ switchport voice vlan 32
+ spanning-tree portfast
+!
+interface FastEthernet1/0/14
+ description "IPTel_Room 1210"
+ switchport mode access
+ switchport voice vlan 32
+ spanning-tree portfast
+!
+interface FastEthernet1/0/15
+ description "IPTel_Room 1211"
+ switchport mode access
+ switchport voice vlan 32
+ spanning-tree portfast
+!
+interface FastEthernet1/0/16
+ description "IPTel_Room 1237"
+ switchport mode access
+ switchport voice vlan 32
+ spanning-tree portfast
+!
+interface FastEthernet1/0/17
+ description "IPTel_Room 1238"
+ switchport mode access
+ switchport voice vlan 32
+ spanning-tree portfast
+!
+interface FastEthernet1/0/18
+ description "IPTel_Room 1239"
+ switchport mode access
+ switchport voice vlan 32
+ spanning-tree portfast
+!
+interface FastEthernet1/0/19
+ description "IPTel_Room 1240"
+ switchport mode access
+ switchport voice vlan 32
+ spanning-tree portfast
+!
+interface FastEthernet1/0/20
+ description "IPTel_Room 1241"
+ switchport mode access
+ switchport voice vlan 32
+ spanning-tree portfast
+!
+interface FastEthernet1/0/21
+ description "IPTel_Room 1242"
+ switchport mode access
+ switchport voice vlan 32
+ spanning-tree portfast
+!
+interface FastEthernet1/0/22
+ description "IPTel_Room 1243"
+ switchport mode access
+ switchport voice vlan 32
+ spanning-tree portfast
+!
+interface FastEthernet1/0/23
+ description AP 1205
+ switchport trunk native vlan 90
+ switchport trunk allowed vlan 21,90,116
+ switchport voice vlan 32
+ spanning-tree portfast
+!
+interface FastEthernet1/0/24
+ switchport access vlan 2
+ switchport mode access
+ switchport voice vlan 32
+ spanning-tree portfast
+!
+interface FastEthernet1/0/25
+!
+interface FastEthernet1/0/26
+!
+interface FastEthernet1/0/27
+!
+interface FastEthernet1/0/28
+!
+interface FastEthernet1/0/29
+!
+interface FastEthernet1/0/30
+!
+interface FastEthernet1/0/31
+!
+interface FastEthernet1/0/32
+!
+interface FastEthernet1/0/33
+ description Ap Room 1244
+ switchport trunk encapsulation dot1q
+ switchport trunk native vlan 90
+ switchport trunk allowed vlan 21,90,116
+ switchport mode trunk
+ spanning-tree portfast
+!
+interface FastEthernet1/0/34
+ description AP Room 1247
+ switchport trunk encapsulation dot1q
+ switchport trunk native vlan 90
+ switchport trunk allowed vlan 21,90,116
+ switchport mode trunk
+ spanning-tree portfast
+!
+interface FastEthernet1/0/35
+ description AP room 1201
+ switchport trunk encapsulation dot1q
+ switchport trunk native vlan 90
+ switchport trunk allowed vlan 21,90,116
+ switchport mode trunk
+ spanning-tree portfast
+!
+interface FastEthernet1/0/36
+ description AP Room 1203
+ switchport trunk encapsulation dot1q
+ switchport trunk native vlan 90
+ switchport trunk allowed vlan 21,90,116
+ switchport mode trunk
+ spanning-tree portfast
+!
+interface FastEthernet1/0/37
+ description Ap Room 1206
+ switchport trunk encapsulation dot1q
+ switchport trunk native vlan 90
+ switchport trunk allowed vlan 21,90,116
+ switchport mode trunk
+ spanning-tree portfast
+!
+interface FastEthernet1/0/38
+ description AP Room 1209
+ switchport trunk encapsulation dot1q
+ switchport trunk native vlan 90
+ switchport trunk allowed vlan 21,90,116
+ switchport mode trunk
+ spanning-tree portfast
+!
+interface FastEthernet1/0/39
+ description Ap Room 1239
+ switchport trunk encapsulation dot1q
+ switchport trunk native vlan 90
+ switchport trunk allowed vlan 21,90,116
+ switchport mode trunk
+ spanning-tree portfast
+!
+interface FastEthernet1/0/40
+ description Ap Room 1242
+ switchport trunk encapsulation dot1q
+ switchport trunk native vlan 90
+ switchport trunk allowed vlan 21,90,116
+ switchport mode trunk
+ spanning-tree portfast
+!
+interface FastEthernet1/0/41
+!
+interface FastEthernet1/0/42
+!
+interface FastEthernet1/0/43
+!
+interface FastEthernet1/0/44
+!
+interface FastEthernet1/0/45
+!
+interface FastEthernet1/0/46
+!
+interface FastEthernet1/0/47
+!
+interface FastEthernet1/0/48
+!
+interface GigabitEthernet1/0/1
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+!
+interface GigabitEthernet1/0/2
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+!
+interface GigabitEthernet1/0/3
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+!
+interface GigabitEthernet1/0/4
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+!
+interface Vlan1
+ no ip address
+ no ip route-cache
+ shutdown
+!
+interface Vlan96
+ ip address 10.0.96.29 255.255.255.0
+ no ip route-cache
+!
+ip classless
+ip http server
+!
+ip access-list standard wr
+!
+snmp-server community Coralwr@sts RO wr
+snmp-server enable traps license
+!
+control-plane
+!
+!
+line con 0
+ password Coral@sts123
+ login
+line vty 0 4
+ password Coral@sts123
+ login
+ length 0
+line vty 5 15
+ password Coral@sts123
+ login
+!
+end
+

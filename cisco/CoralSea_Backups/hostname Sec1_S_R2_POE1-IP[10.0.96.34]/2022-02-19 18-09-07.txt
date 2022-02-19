@@ -1,0 +1,330 @@
+Building configuration...
+
+Current configuration : 9934 bytes
+!
+version 12.2
+no service pad
+service timestamps debug datetime msec
+service timestamps log datetime msec
+no service password-encryption
+service sequence-numbers
+!
+hostname Sec1_S_R2_POE1
+!
+boot-start-marker
+boot-end-marker
+!
+enable secret 5 $1$nbWp$WR0yJbYCeU/Wa11DlfTL3/
+!
+!
+!
+no aaa new-model
+clock timezone EET 2
+system mtu routing 1500
+!
+!
+ip igmp snooping querier
+ip igmp snooping vlan 20 immediate-leave
+!
+mls qos map cos-dscp 0 8 16 24 32 46 48 56
+mls qos srr-queue input bandwidth 90 10
+mls qos srr-queue input threshold 1 8 16
+mls qos srr-queue input threshold 2 34 66
+mls qos srr-queue input buffers 67 33 
+mls qos srr-queue input cos-map queue 1 threshold 2 1
+mls qos srr-queue input cos-map queue 1 threshold 3 0
+mls qos srr-queue input cos-map queue 2 threshold 1 2
+mls qos srr-queue input cos-map queue 2 threshold 2 4 6 7
+mls qos srr-queue input cos-map queue 2 threshold 3 3 5
+mls qos srr-queue input dscp-map queue 1 threshold 2 9 10 11 12 13 14 15
+mls qos srr-queue input dscp-map queue 1 threshold 3 0 1 2 3 4 5 6 7
+mls qos srr-queue input dscp-map queue 1 threshold 3 32
+mls qos srr-queue input dscp-map queue 2 threshold 1 16 17 18 19 20 21 22 23
+mls qos srr-queue input dscp-map queue 2 threshold 2 33 34 35 36 37 38 39 48
+mls qos srr-queue input dscp-map queue 2 threshold 2 49 50 51 52 53 54 55 56
+mls qos srr-queue input dscp-map queue 2 threshold 2 57 58 59 60 61 62 63
+mls qos srr-queue input dscp-map queue 2 threshold 3 24 25 26 27 28 29 30 31
+mls qos srr-queue input dscp-map queue 2 threshold 3 40 41 42 43 44 45 46 47
+mls qos srr-queue output cos-map queue 1 threshold 3 5
+mls qos srr-queue output cos-map queue 2 threshold 3 3 6 7
+mls qos srr-queue output cos-map queue 3 threshold 3 2 4
+mls qos srr-queue output cos-map queue 4 threshold 2 1
+mls qos srr-queue output cos-map queue 4 threshold 3 0
+mls qos srr-queue output dscp-map queue 1 threshold 3 40 41 42 43 44 45 46 47
+mls qos srr-queue output dscp-map queue 2 threshold 3 24 25 26 27 28 29 30 31
+mls qos srr-queue output dscp-map queue 2 threshold 3 48 49 50 51 52 53 54 55
+mls qos srr-queue output dscp-map queue 2 threshold 3 56 57 58 59 60 61 62 63
+mls qos srr-queue output dscp-map queue 3 threshold 3 16 17 18 19 20 21 22 23
+mls qos srr-queue output dscp-map queue 3 threshold 3 32 33 34 35 36 37 38 39
+mls qos srr-queue output dscp-map queue 4 threshold 1 8
+mls qos srr-queue output dscp-map queue 4 threshold 2 9 10 11 12 13 14 15
+mls qos srr-queue output dscp-map queue 4 threshold 3 0 1 2 3 4 5 6 7
+mls qos queue-set output 1 threshold 1 138 138 92 138
+mls qos queue-set output 1 threshold 2 138 138 92 400
+mls qos queue-set output 1 threshold 3 36 77 100 318
+mls qos queue-set output 1 threshold 4 20 50 67 400
+mls qos queue-set output 2 threshold 1 149 149 100 149
+mls qos queue-set output 2 threshold 2 118 118 100 235
+mls qos queue-set output 2 threshold 3 41 68 100 272
+mls qos queue-set output 2 threshold 4 42 72 100 242
+mls qos queue-set output 1 buffers 10 10 26 54
+mls qos queue-set output 2 buffers 16 6 17 61
+mls qos
+!
+crypto pki trustpoint HTTPS_SS_CERT_KEYPAIR
+ enrollment selfsigned
+ serial-number
+ revocation-check none
+ rsakeypair HTTPS_SS_CERT_KEYPAIR
+!
+!
+crypto pki certificate chain HTTPS_SS_CERT_KEYPAIR
+ certificate self-signed 01
+  3082027B 308201E4 A0030201 02020101 300D0609 2A864886 F70D0101 04050030 
+  4B311830 16060355 0403140F 53656331 5F535F52 325F504F 45312E31 2F300F06 
+  03550405 13083531 35343437 3030301C 06092A86 4886F70D 01090216 0F536563 
+  315F535F 52325F50 4F45312E 301E170D 39333033 30313030 30333337 5A170D32 
+  30303130 31303030 3030305A 304B3118 30160603 55040314 0F536563 315F535F 
+  52325F50 4F45312E 312F300F 06035504 05130835 31353434 37303030 1C06092A 
+  864886F7 0D010902 160F5365 63315F53 5F52325F 504F4531 2E30819F 300D0609 
+  2A864886 F70D0101 01050003 818D0030 81890281 8100F678 AACAE20F 71DA61C1 
+  7CB5F64C 5E7F0D5D 603D559A AF2EA90D B39D86E2 481A480A AB9CAB8D EEE10155 
+  7ED34071 6C099B2F 532CF8B9 62382631 39D42E1B BFDC760A 081B8784 E448C3A5 
+  CF2BCF31 980354ED EEEEA17D D193E51D 23B119CF 883BFC08 33A56671 386741BE 
+  B80A557C B8C0DB90 91D7107F 728BA4EE C2E8930F 60BF0203 010001A3 6F306D30 
+  0F060355 1D130101 FF040530 030101FF 301A0603 551D1104 13301182 0F536563 
+  315F535F 52325F50 4F45312E 301F0603 551D2304 18301680 14874504 51E67659 
+  5F34D2A3 99D8F17E 4A4DD056 F6301D06 03551D0E 04160414 87450451 E676595F 
+  34D2A399 D8F17E4A 4DD056F6 300D0609 2A864886 F70D0101 04050003 81810003 
+  EA3E07BA 3619E9CD F83C3CB2 E15FED20 CEB11782 39FF204D 1D181E44 27152970 
+  26DC1484 9752B0F3 B83F834F BB75BB42 72723536 5F103D83 AF86264D 3659483C 
+  03213A92 0B419601 F5E182DA F9452985 01E44FB9 1453E1A4 DF085D0F 5D166A19 
+  3A568ADA 4B26AC29 6E4D456F 7D9F9739 58F828AA 81C73C0E FAB1CDFF 2C
+  07F7
+  quit
+!
+!
+!
+!
+spanning-tree mode rapid-pvst
+spanning-tree extend system-id
+!
+vlan internal allocation policy ascending
+lldp run
+!
+!
+!
+interface FastEthernet0/1
+ description IPTel_Room1335
+ switchport mode access
+ switchport voice vlan 32
+ spanning-tree portfast
+!
+interface FastEthernet0/2
+ description IPTel_Room1336
+ switchport mode access
+ switchport voice vlan 32
+ spanning-tree portfast
+!
+interface FastEthernet0/3
+ description IPTel_Room1337
+ switchport mode access
+ switchport voice vlan 32
+ spanning-tree portfast
+!
+interface FastEthernet0/4
+ description IPTel_Room1301
+ switchport mode access
+ switchport voice vlan 32
+ spanning-tree portfast
+!
+interface FastEthernet0/5
+ description IPTel_Room1302
+ switchport mode access
+ switchport voice vlan 32
+ spanning-tree portfast
+!
+interface FastEthernet0/6
+ description IPTel_Room1303
+ switchport mode access
+ switchport voice vlan 32
+ spanning-tree portfast
+!
+interface FastEthernet0/7
+ description IPTel_Room1303
+ switchport mode access
+ switchport voice vlan 32
+ spanning-tree portfast
+!
+interface FastEthernet0/8
+ description IPTel_Room1305
+ switchport mode access
+ switchport voice vlan 32
+ spanning-tree portfast
+!
+interface FastEthernet0/9
+ description IPTel_Room1306
+ switchport mode access
+ switchport voice vlan 32
+ spanning-tree portfast
+!
+interface FastEthernet0/10
+ description IPTel_Room1307
+ switchport mode access
+ switchport voice vlan 32
+ spanning-tree portfast
+!
+interface FastEthernet0/11
+ description IPTel_Room1308
+ switchport mode access
+ switchport voice vlan 32
+ spanning-tree portfast
+!
+interface FastEthernet0/12
+ description IPTel_Room1309
+ switchport mode access
+ switchport voice vlan 32
+ spanning-tree portfast
+!
+interface FastEthernet0/13
+ description IPTel_Room1310
+ switchport mode access
+ switchport voice vlan 32
+ spanning-tree portfast
+!
+interface FastEthernet0/14
+ description IPTel_Room1330
+ switchport mode access
+ switchport voice vlan 32
+ spanning-tree portfast
+!
+interface FastEthernet0/15
+ description IPTel_Room1331
+ switchport mode access
+ switchport voice vlan 32
+ spanning-tree portfast
+!
+interface FastEthernet0/16
+ description IPTel_Room1332
+ switchport mode access
+ switchport voice vlan 32
+ spanning-tree portfast
+!
+interface FastEthernet0/17
+ description IPTel_Room1333
+ switchport mode access
+ switchport voice vlan 32
+ spanning-tree portfast
+!
+interface FastEthernet0/18
+ description IPTel_Room1334
+ switchport mode access
+ switchport voice vlan 32
+ spanning-tree portfast
+!
+interface FastEthernet0/19
+ description IPTel_Room1335
+ switchport mode access
+ switchport voice vlan 32
+ spanning-tree portfast
+!
+interface FastEthernet0/20
+ switchport mode access
+ switchport voice vlan 32
+ spanning-tree portfast
+!
+interface FastEthernet0/21
+ switchport mode access
+ switchport voice vlan 32
+ spanning-tree portfast
+!
+interface FastEthernet0/22
+ switchport mode access
+ switchport voice vlan 32
+ spanning-tree portfast
+!
+interface FastEthernet0/23
+ description AP_Room1301
+ switchport trunk native vlan 90
+ switchport trunk allowed vlan 21,90,116
+ switchport mode trunk
+ spanning-tree portfast
+!
+interface FastEthernet0/24
+ switchport mode access
+ switchport voice vlan 32
+ spanning-tree portfast
+!
+interface GigabitEthernet0/1
+ switchport mode trunk
+ srr-queue bandwidth share 10 10 60 20
+ queue-set 2
+ priority-queue out 
+ mls qos trust cos
+ macro description cisco-switch | cisco-switch
+ auto qos voip trust 
+ spanning-tree link-type point-to-point
+!
+interface GigabitEthernet0/2
+ switchport mode trunk
+ srr-queue bandwidth share 10 10 60 20
+ queue-set 2
+ priority-queue out 
+ mls qos trust cos
+ macro description cisco-switch | cisco-switch
+ auto qos voip trust 
+ spanning-tree link-type point-to-point
+!
+interface Vlan1
+ no ip address
+ no ip route-cache
+ shutdown
+!
+interface Vlan96
+ ip address 10.0.96.34 255.255.255.0
+ no ip route-cache
+!
+ip http server
+ip http secure-server
+!
+ip access-list standard wr
+snmp-server community Coralwr@sts RO wr
+snmp-server enable traps snmp authentication linkdown linkup coldstart warmstart
+snmp-server enable traps transceiver all
+snmp-server enable traps tty
+snmp-server enable traps cluster
+snmp-server enable traps entity
+snmp-server enable traps cpu threshold
+snmp-server enable traps vtp
+snmp-server enable traps vlancreate
+snmp-server enable traps vlandelete
+snmp-server enable traps flash insertion removal
+snmp-server enable traps port-security
+snmp-server enable traps envmon fan shutdown supply temperature status
+snmp-server enable traps power-ethernet group 1
+snmp-server enable traps power-ethernet police
+snmp-server enable traps config-copy
+snmp-server enable traps config
+snmp-server enable traps config-ctid
+snmp-server enable traps rtr
+snmp-server enable traps bridge newroot topologychange
+snmp-server enable traps stpx inconsistency root-inconsistency loop-inconsistency
+snmp-server enable traps syslog
+snmp-server enable traps mac-notification change move threshold
+snmp-server enable traps vlan-membership
+snmp-server enable traps errdisable
+!
+line con 0
+ password Coral@sts123
+ login
+line vty 0 4
+ password Coral@sts123
+ login
+ length 0
+line vty 5 15
+ password Coral@sts123
+ login
+!
+ntp server 192.168.3.3
+end
+

@@ -1,0 +1,390 @@
+Building configuration...
+
+Current configuration : 8775 bytes
+!
+version 12.2
+no service pad
+service timestamps debug uptime
+service timestamps log uptime
+no service password-encryption
+!
+hostname Admin1_POE_SW3
+!
+enable password Coral@sts123
+!
+no aaa new-model
+system mtu routing 1500
+ip subnet-zero
+!
+!
+!
+!
+no file verify auto
+!
+spanning-tree mode rapid-pvst
+spanning-tree extend system-id
+!
+vlan internal allocation policy ascending
+!
+interface FastEthernet0/1
+ switchport access vlan 2
+ switchport mode access
+ spanning-tree portfast
+!
+interface FastEthernet0/2
+ switchport access vlan 2
+ switchport mode access
+ switchport voice vlan 3
+ spanning-tree portfast
+!
+interface FastEthernet0/3
+ switchport access vlan 2
+ switchport mode access
+ switchport voice vlan 3
+ spanning-tree portfast
+!
+interface FastEthernet0/4
+ description Admin
+ switchport access vlan 211
+ switchport mode access
+ switchport voice vlan 3
+ spanning-tree portfast
+!
+interface FastEthernet0/5
+ switchport access vlan 211
+ switchport mode access
+ spanning-tree portfast
+!
+interface FastEthernet0/6
+ switchport access vlan 2
+ switchport mode access
+ switchport voice vlan 3
+ spanning-tree portfast
+!
+interface FastEthernet0/7
+ switchport trunk native vlan 90
+ switchport trunk allowed vlan 21,90
+ spanning-tree portfast
+!
+interface FastEthernet0/8
+ switchport access vlan 2
+ switchport mode access
+ switchport voice vlan 3
+ spanning-tree portfast
+!
+interface FastEthernet0/9
+ description Interface PC
+ switchport access vlan 2
+ switchport trunk encapsulation dot1q
+ switchport mode access
+ spanning-tree portfast
+!
+interface FastEthernet0/10
+ description Lobby_AP                                                                                                    switchport trunk native vlan 90                                                                                         switchport tr
+ switchport trunk encapsulation dot1q
+ switchport trunk native vlan 90
+ switchport trunk allowed vlan 21,90
+ switchport mode trunk
+ spanning-tree portfast
+!
+interface FastEthernet0/11
+ switchport access vlan 2
+ switchport mode access
+ switchport voice vlan 3
+ spanning-tree portfast
+!
+interface FastEthernet0/12
+ switchport access vlan 2
+ switchport mode access
+ switchport voice vlan 3
+ spanning-tree portfast
+!
+interface FastEthernet0/13
+ switchport access vlan 2
+ switchport mode access
+ switchport voice vlan 3
+ spanning-tree portfast
+!
+interface FastEthernet0/14
+ switchport access vlan 2
+ switchport mode access
+ switchport voice vlan 3
+ spanning-tree portfast
+!
+interface FastEthernet0/15
+ switchport access vlan 2
+ switchport mode access
+ switchport voice vlan 3
+ spanning-tree portfast
+!
+interface FastEthernet0/16
+ switchport access vlan 2
+ switchport mode access
+ switchport voice vlan 3
+ spanning-tree portfast
+!
+interface FastEthernet0/17
+ description FC AP Ruckus
+ switchport trunk encapsulation dot1q
+ switchport trunk native vlan 90
+ switchport trunk allowed vlan 21,90,116
+ switchport mode trunk
+ spanning-tree portfast
+!
+interface FastEthernet0/18
+ description Terrace Camera 
+ switchport access vlan 211
+ switchport mode access
+ switchport voice vlan 3
+ spanning-tree portfast
+!
+interface FastEthernet0/19
+ switchport access vlan 2
+ switchport mode access
+ switchport voice vlan 3
+ spanning-tree portfast
+!
+interface FastEthernet0/20
+ switchport access vlan 2
+ switchport mode access
+ switchport voice vlan 3
+ spanning-tree portfast
+!
+interface FastEthernet0/21
+ switchport access vlan 2
+ switchport mode access
+ switchport voice vlan 3
+ spanning-tree portfast
+!
+interface FastEthernet0/22
+ description IPTV Test
+ switchport trunk encapsulation dot1q
+ switchport trunk native vlan 95
+ switchport trunk allowed vlan 81,95
+ spanning-tree portfast
+!
+interface FastEthernet0/23
+ switchport access vlan 2
+ switchport mode access
+ switchport voice vlan 3
+ spanning-tree portfast
+!
+interface FastEthernet0/24
+ switchport access vlan 2
+ switchport mode access
+ switchport voice vlan 3
+ spanning-tree portfast
+!
+interface FastEthernet0/25
+ switchport access vlan 2
+ switchport mode access
+ switchport voice vlan 3
+ spanning-tree portfast
+!
+interface FastEthernet0/26
+ switchport access vlan 2
+ switchport mode access
+ switchport voice vlan 3
+ spanning-tree portfast
+!
+interface FastEthernet0/27
+ switchport access vlan 2
+ switchport mode access
+ switchport voice vlan 3
+ spanning-tree portfast
+!
+interface FastEthernet0/28
+ description Biano Bar AP
+ switchport trunk encapsulation dot1q
+ switchport trunk native vlan 90
+ switchport trunk allowed vlan 21,90
+ switchport mode trunk
+ spanning-tree portfast
+!
+interface FastEthernet0/29
+ switchport access vlan 2
+ switchport mode access
+ switchport voice vlan 3
+ spanning-tree portfast
+!
+interface FastEthernet0/30
+ switchport access vlan 2
+ switchport mode access
+ switchport voice vlan 3
+ spanning-tree portfast
+!
+interface FastEthernet0/31
+ switchport access vlan 2
+ switchport mode access
+ switchport voice vlan 3
+ spanning-tree portfast
+!
+interface FastEthernet0/32
+ description Dell_server
+ switchport access vlan 90
+ switchport trunk native vlan 90
+ spanning-tree portfast
+!
+interface FastEthernet0/33
+ switchport access vlan 2
+ switchport mode access
+ switchport voice vlan 3
+ spanning-tree portfast
+!
+interface FastEthernet0/34
+ switchport access vlan 2
+ switchport mode access
+ switchport voice vlan 3
+ spanning-tree portfast
+!
+interface FastEthernet0/35
+ switchport access vlan 2
+ switchport mode access
+ switchport voice vlan 3
+ spanning-tree portfast
+!
+interface FastEthernet0/36
+ switchport access vlan 2
+ switchport mode access
+ switchport voice vlan 3
+ spanning-tree portfast
+!
+interface FastEthernet0/37
+ switchport access vlan 2
+ switchport mode access
+ switchport voice vlan 3
+ spanning-tree portfast
+!
+interface FastEthernet0/38
+ switchport access vlan 2
+ switchport trunk native vlan 95
+ switchport trunk allowed vlan 81,95
+ switchport mode access
+ switchport voice vlan 3
+ spanning-tree portfast
+!
+interface FastEthernet0/39
+ switchport access vlan 2
+ switchport mode access
+ switchport voice vlan 3
+ spanning-tree portfast
+!
+interface FastEthernet0/40
+ description ADMIN
+ switchport access vlan 2
+ switchport mode access
+ spanning-tree portfast
+!
+interface FastEthernet0/41
+ description Admin Elevetor Camera
+ switchport access vlan 211
+ switchport mode access
+ switchport voice vlan 3
+ spanning-tree portfast
+!
+interface FastEthernet0/42
+ switchport access vlan 2
+ switchport mode access
+ switchport voice vlan 3
+ spanning-tree portfast
+!
+interface FastEthernet0/43
+ switchport access vlan 2
+ switchport mode access
+ switchport voice vlan 3
+ spanning-tree portfast
+!
+interface FastEthernet0/44
+ switchport access vlan 2
+ switchport mode access
+ switchport voice vlan 3
+ spanning-tree portfast
+!
+interface FastEthernet0/45
+ switchport trunk encapsulation dot1q
+ switchport trunk native vlan 90
+ switchport trunk allowed vlan 20,21,90
+ switchport mode trunk
+ spanning-tree portfast
+!
+interface FastEthernet0/46
+ description Uplink
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+!
+interface FastEthernet0/47
+ description M.purpose Camera
+ switchport access vlan 211
+ switchport mode access
+ mls qos trust cos
+ macro description cisco-switch
+ spanning-tree portfast
+ spanning-tree link-type point-to-point
+!
+interface FastEthernet0/48
+ description Admin AP Ruckus
+ switchport trunk encapsulation dot1q
+ switchport trunk native vlan 90
+ switchport trunk allowed vlan 21,90,116
+ switchport mode trunk
+ spanning-tree portfast
+!
+interface GigabitEthernet0/1
+!
+interface GigabitEthernet0/2
+!
+interface GigabitEthernet0/3
+ mls qos trust cos
+ macro description cisco-switc
+!
+interface GigabitEthernet0/4
+!
+interface Vlan1
+ no ip address
+ no ip route-cache
+ shutdown
+!
+interface Vlan96
+ ip address 10.0.96.10 255.255.255.0
+ no ip route-cache
+!
+ip classless
+ip http server
+!
+ip access-list standard wr
+!
+snmp-server community Coralwr@sts RO wr
+snmp-server enable traps snmp authentication linkdown linkup coldstart warmstart
+snmp-server enable traps tty
+snmp-server enable traps cluster
+snmp-server enable traps entity
+snmp-server enable traps cpu threshold
+snmp-server enable traps power-ethernet group 1
+snmp-server enable traps vtp
+snmp-server enable traps vlancreate
+snmp-server enable traps vlandelete
+snmp-server enable traps flash insertion removal
+snmp-server enable traps port-security
+snmp-server enable traps envmon fan shutdown supply temperature status
+snmp-server enable traps config-copy
+snmp-server enable traps config
+snmp-server enable traps bridge newroot topologychange
+snmp-server enable traps stpx inconsistency root-inconsistency loop-inconsistency
+snmp-server enable traps syslog
+snmp-server enable traps vlan-membership
+!
+control-plane
+!
+!
+line con 0
+ password Coral@sts123
+ login
+line vty 0 4
+ password Coral@sts123
+ login
+ length 0
+line vty 5 15
+ login
+!
+end
+

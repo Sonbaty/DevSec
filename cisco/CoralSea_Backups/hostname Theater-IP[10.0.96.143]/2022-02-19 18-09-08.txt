@@ -1,0 +1,297 @@
+Building configuration...
+
+Current configuration : 8046 bytes
+!
+version 12.2
+no service pad
+service timestamps debug datetime msec
+service timestamps log datetime msec
+no service password-encryption
+service sequence-numbers
+!
+hostname Theater
+!
+boot-start-marker
+boot-end-marker
+!
+enable secret 5 $1$BfJT$.Ay/fMLLM0m6GAkfdcKyw.
+!
+!
+!
+no aaa new-model
+system mtu routing 1500
+!
+!
+ip igmp snooping querier
+ip igmp snooping vlan 20 immediate-leave
+!
+mls qos srr-queue output cos-map queue 1 threshold 3 5
+mls qos srr-queue output cos-map queue 2 threshold 3 3 6 7
+mls qos srr-queue output cos-map queue 3 threshold 3 2 4
+mls qos srr-queue output cos-map queue 4 threshold 2 1
+mls qos srr-queue output cos-map queue 4 threshold 3 0
+mls qos
+!
+crypto pki trustpoint TP-self-signed-3475197312
+ enrollment selfsigned
+ subject-name cn=IOS-Self-Signed-Certificate-3475197312
+ revocation-check none
+ rsakeypair TP-self-signed-3475197312
+!
+!
+crypto pki certificate chain TP-self-signed-3475197312
+ certificate self-signed 01
+  30820240 308201A9 A0030201 02020101 300D0609 2A864886 F70D0101 04050030 
+  31312F30 2D060355 04031326 494F532D 53656C66 2D536967 6E65642D 43657274 
+  69666963 6174652D 33343735 31393733 3132301E 170D3933 30333031 30303030 
+  35385A17 0D323030 31303130 30303030 305A3031 312F302D 06035504 03132649 
+  4F532D53 656C662D 5369676E 65642D43 65727469 66696361 74652D33 34373531 
+  39373331 3230819F 300D0609 2A864886 F70D0101 01050003 818D0030 81890281 
+  8100C1A9 24A6DB55 A1E8C878 EE8828CC 748DF960 8EBCC031 90E5DC83 A0BAF647 
+  7C54496B 722CE968 FD1BF4F3 CB21754C DF2AF9AF DDB20D40 3483770A F8EE6645 
+  A501171F 967ACDC6 80E729C9 C2A8250D AF4A821B B43A34C3 7E7E4149 FE879E79 
+  B357D848 D922E653 061E5BF9 A1C1AA64 FA100DEA 89C278FE 61481843 A1665680 
+  32A10203 010001A3 68306630 0F060355 1D130101 FF040530 030101FF 30130603 
+  551D1104 0C300A82 08546865 61746572 2E301F06 03551D23 04183016 8014DE09 
+  E5D35942 8E7493D5 85ACA4E4 0F3EA39D 40DB301D 0603551D 0E041604 14DE09E5 
+  D359428E 7493D585 ACA4E40F 3EA39D40 DB300D06 092A8648 86F70D01 01040500 
+  03818100 8AE93B69 8AF6BC05 6FB1C08E 8A89EBF3 78A2BD4C 45744677 5D0E53A6 
+  6007A394 60295E47 6BAC5F80 C15D0334 1EF152A4 D428DA13 C9894187 89818ADE 
+  C5BD8184 50F8586E CC5E6C31 3182AED9 8E0B6C05 80BD11EF E9B41C27 532F20AD 
+  AF05725C 04A76040 CE120D94 9AF93F44 5279B17D 35CBAADB 7024BC78 DCF28932 37444D20
+  quit
+!
+!
+!
+!
+spanning-tree mode rapid-pvst
+spanning-tree extend system-id
+!
+vlan internal allocation policy ascending
+lldp run
+!
+!
+interface FastEthernet0/1
+ description Theater Access Point
+ switchport trunk native vlan 90
+ switchport trunk allowed vlan 21,90,116
+ switchport mode trunk
+ spanning-tree portfast
+!
+interface FastEthernet0/2
+ description "DATA"
+ switchport trunk native vlan 90
+ switchport trunk allowed vlan 21,90
+ switchport mode trunk
+ spanning-tree portfast
+!
+interface FastEthernet0/3
+ description "DATA"
+ switchport trunk native vlan 90
+ switchport trunk allowed vlan 21,90
+ switchport mode trunk
+ spanning-tree portfast
+!
+interface FastEthernet0/4
+ description "DATA"
+ switchport trunk native vlan 90
+ switchport trunk allowed vlan 21,90
+ switchport mode trunk
+ spanning-tree portfast
+!
+interface FastEthernet0/5
+ description "DATA"
+ switchport trunk native vlan 90
+ switchport trunk allowed vlan 21,90
+ switchport mode trunk
+ spanning-tree portfast
+!
+interface FastEthernet0/6
+ description "DATA"
+ switchport trunk native vlan 90
+ switchport trunk allowed vlan 21,90
+ switchport mode trunk
+ spanning-tree portfast
+!
+interface FastEthernet0/7
+ description "DATA"
+ switchport trunk native vlan 90
+ switchport trunk allowed vlan 21,90
+ switchport mode trunk
+ spanning-tree portfast
+!
+interface FastEthernet0/8
+ description "DATA"
+ switchport trunk native vlan 90
+ switchport trunk allowed vlan 21,90
+ switchport mode trunk
+ spanning-tree portfast
+!
+interface FastEthernet0/9
+ description "DATA"
+ switchport trunk native vlan 90
+ switchport trunk allowed vlan 21,90
+ switchport mode trunk
+ spanning-tree portfast
+!
+interface FastEthernet0/10
+ description "DATA"
+ switchport trunk native vlan 90
+ switchport trunk allowed vlan 21,90
+ switchport mode trunk
+ spanning-tree portfast
+!
+interface FastEthernet0/11
+ description "DATA"
+ switchport trunk native vlan 90
+ switchport trunk allowed vlan 21,90
+ switchport mode trunk
+ spanning-tree portfast
+!
+interface FastEthernet0/12
+ description "DATA"
+ switchport trunk native vlan 90
+ switchport trunk allowed vlan 21,90
+ switchport mode trunk
+ spanning-tree portfast
+!
+interface FastEthernet0/13
+ description "DATA"
+ switchport trunk native vlan 90
+ switchport trunk allowed vlan 21,90
+ switchport mode trunk
+ spanning-tree portfast
+!
+interface FastEthernet0/14
+ description "DATA"
+ switchport trunk native vlan 90
+ switchport trunk allowed vlan 21,90
+ switchport mode trunk
+ spanning-tree portfast
+!
+interface FastEthernet0/15
+ description "DATA"
+ switchport trunk native vlan 90
+ switchport trunk allowed vlan 21,90
+ switchport mode trunk
+ spanning-tree portfast
+!
+interface FastEthernet0/16
+ description "DATA"
+ switchport trunk native vlan 90
+ switchport trunk allowed vlan 21,90
+ switchport mode trunk
+ spanning-tree portfast
+!
+interface FastEthernet0/17
+ description Theater_Camera_1
+ switchport access vlan 211
+ switchport mode access
+ spanning-tree portfast
+!
+interface FastEthernet0/18
+ description theater_Camera_2
+ switchport access vlan 211
+ switchport mode access
+ spanning-tree portfast
+!
+interface FastEthernet0/19
+ description "DATA"
+ switchport trunk native vlan 90
+ switchport trunk allowed vlan 21,90
+ switchport mode trunk
+ spanning-tree portfast
+!
+interface FastEthernet0/20
+ description "DATA"
+ switchport trunk native vlan 90
+ switchport trunk allowed vlan 21,90
+ switchport mode trunk
+ spanning-tree portfast
+!
+interface FastEthernet0/21
+ description Theater Cameras
+ switchport access vlan 211
+ spanning-tree portfast
+!
+interface FastEthernet0/22
+ description parking-2 Camera
+ switchport access vlan 211
+ spanning-tree portfast
+!
+interface FastEthernet0/23
+ description Baron St Camera
+ switchport access vlan 211
+ spanning-tree portfast
+!
+interface FastEthernet0/24
+ description DVR
+ switchport access vlan 211
+ switchport mode access
+ spanning-tree portfast
+!
+interface GigabitEthernet0/1
+ switchport mode trunk
+ mls qos trust cos
+ macro description cisco-switch
+ spanning-tree link-type point-to-point
+!
+interface GigabitEthernet0/2
+ switchport mode trunk
+ mls qos trust cos
+ macro description cisco-switch | cisco-switch
+ spanning-tree link-type point-to-point
+!
+interface Vlan1
+ no ip address
+ no ip route-cache
+ shutdown
+!
+interface Vlan96
+ ip address 10.0.96.143 255.255.255.0
+ no ip route-cache
+!
+ip http server
+ip http secure-server
+!
+ip access-list standard wr
+snmp-server community Coralwr@sts RO wr
+snmp-server enable traps snmp authentication linkdown linkup coldstart warmstart
+snmp-server enable traps transceiver all
+snmp-server enable traps tty
+snmp-server enable traps cluster
+snmp-server enable traps entity
+snmp-server enable traps cpu threshold
+snmp-server enable traps rep
+snmp-server enable traps vtp
+snmp-server enable traps vlancreate
+snmp-server enable traps vlandelete
+snmp-server enable traps flash insertion removal
+snmp-server enable traps port-security
+snmp-server enable traps auth-framework sec-violation
+snmp-server enable traps dot1x auth-fail-vlan guest-vlan no-auth-fail-vlan no-guest-vlan
+snmp-server enable traps envmon fan shutdown supply temperature status
+snmp-server enable traps power-ethernet group 1
+snmp-server enable traps power-ethernet police
+snmp-server enable traps config-copy
+snmp-server enable traps config
+snmp-server enable traps config-ctid
+snmp-server enable traps bridge newroot topologychange
+snmp-server enable traps stpx inconsistency root-inconsistency loop-inconsistency
+snmp-server enable traps syslog
+snmp-server enable traps mac-notification change move threshold
+snmp-server enable traps vlan-membership
+snmp-server enable traps errdisable
+!
+line con 0
+ password Coral@sts123
+ login
+line vty 0 4
+ password Coral@sts123
+ login
+line vty 5 15
+ password Coral@sts123
+ login
+!
+end
+

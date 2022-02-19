@@ -1,0 +1,1235 @@
+Building configuration...
+
+Current configuration : 28471 bytes
+!
+! Last configuration change at 15:58:19 GMT Thu Feb 17 2022
+! NVRAM config last updated at 15:58:21 GMT Thu Feb 17 2022
+!
+version 15.2
+no service pad
+service timestamps debug datetime msec
+service timestamps log datetime msec
+service password-encryption
+service compress-config
+service sequence-numbers
+!
+hostname IMPERIAL_4507
+!
+boot-start-marker
+boot system flash bootflash:cat4500e-entservicesk9-mz.152-2.E8.bin
+boot-end-marker
+!
+!
+vrf definition mgmtVrf
+ !
+ address-family ipv4
+ exit-address-family
+ !
+ address-family ipv6
+ exit-address-family
+!
+enable secret 5 $1$cOX3$ijZdTDkba9YV9MjcQJ51C1
+enable password 7 132647000A0024393F37796166
+!
+no aaa new-model
+clock timezone GMT 2 0
+!
+!
+!
+!
+!
+!
+ip multicast-routing 
+!
+ip dhcp pool Admin_Voice
+ network 10.0.3.0 255.255.255.0
+ default-router 10.0.3.1 
+ option 150 ip 10.0.200.10 10.0.200.11 
+ lease infinite
+!
+ip dhcp pool SEC1_Voice
+ network 10.0.32.0 255.255.255.0
+ default-router 10.0.32.1 
+ option 150 ip 10.0.200.10 10.0.200.11 
+ lease infinite
+!
+ip dhcp pool SEC2_Voice
+ network 10.0.42.0 255.255.255.0
+ default-router 10.0.42.1 
+ option 150 ip 10.0.200.10 10.0.200.11 
+ lease infinite
+!
+ip dhcp pool SEC3_Voice
+ network 10.0.52.0 255.255.255.0
+ default-router 10.0.52.1 
+ option 150 ip 10.0.200.10 10.0.200.11 
+ lease infinite
+!
+ip dhcp pool SEC4_Voice
+ network 10.0.62.0 255.255.255.0
+ default-router 10.0.62.1 
+ option 150 ip 10.0.200.10 10.0.200.11 
+ lease infinite
+!
+!
+ip igmp snooping querier
+ip igmp snooping vlan 20 immediate-leave
+ip igmp snooping vlan 112 immediate-leave
+!
+!
+!
+power redundancy-mode redundant
+!
+spanning-tree mode rapid-pvst
+spanning-tree extend system-id
+spanning-tree vlan 1-220 priority 24576
+!
+redundancy
+ mode sso
+!
+!
+vlan configuration 29
+  no ip igmp snooping
+vlan internal allocation policy ascending
+lldp run
+!
+!
+class-map match-all AutoQos-4.0-Scavenger-Classify
+ match access-group name AutoQos-4.0-ACL-Scavenger
+class-map match-all AutoQos-4.0-Signaling-Classify
+ match access-group name AutoQos-4.0-ACL-Signaling
+class-map match-any AutoQos-4.0-Priority-Queue
+ match cos  5 
+ match dscp ef 
+ match dscp cs5 
+ match dscp cs4 
+class-map match-all AutoQos-4.0-VoIP-Data-Cos
+ match cos  5 
+class-map match-any AutoQos-4.0-Multimedia-Stream-Queue
+ match dscp af31 
+ match dscp af32 
+ match dscp af33 
+class-map match-all AutoQos-4.0-Network-Mgmt
+ match dscp cs2 
+class-map match-all AutoQos-4.0-VoIP-Signal-Cos
+ match cos  3 
+class-map match-any AutoQos-4.0-Multimedia-Conf-Queue
+ match cos  4 
+ match dscp af41 
+ match dscp af42 
+ match dscp af43 
+ match access-group name AutoQos-4.0-ACL-Multimedia-Conf
+class-map match-any AutoQos-4.0-Transaction-Data
+ match dscp af21 
+ match dscp af22 
+ match dscp af23 
+class-map match-all AutoQos-4.0-Network-Ctrl
+ match dscp cs7 
+class-map match-all AutoQos-4.0-Scavenger
+ match dscp cs1 
+class-map match-all AutoQos-4.0-Default-Classify
+ match access-group name AutoQos-4.0-ACL-Default
+class-map match-any AutoQos-4.0-Signaling
+ match dscp cs3 
+ match cos  3 
+class-map match-any AutoQos-4.0-Bulk-Data-Queue
+ match cos  1 
+ match dscp af11 
+ match dscp af12 
+ match dscp af13 
+ match access-group name AutoQos-4.0-ACL-Bulk-Data
+class-map match-all AutoQos-4.0-Transaction-Classify
+ match access-group name AutoQos-4.0-ACL-Transactional-Data
+class-map match-all AutoQos-4.0-Broadcast-Vid
+ match dscp cs5 
+class-map match-any AutoQos-4.0-Bulk-Data
+ match dscp af11 
+ match dscp af12 
+ match dscp af13 
+class-map match-any AutoQos-4.0-Scavenger-Queue
+ match dscp cs1 
+ match cos  1 
+ match access-group name AutoQos-4.0-ACL-Scavenger
+class-map match-any AutoQos-4.0-VoIP
+ match dscp ef 
+ match cos  5 
+class-map match-any AutoQos-4.0-Multimedia-Conf
+ match dscp af41 
+ match dscp af42 
+ match dscp af43 
+class-map match-any AutoQos-4.0-Control-Mgmt-Queue
+ match cos  3 
+ match dscp cs7 
+ match dscp cs6 
+ match dscp cs3 
+ match dscp cs2 
+ match access-group name AutoQos-4.0-ACL-Signaling
+class-map match-all AutoQos-4.0-Bulk-Data-Classify
+ match access-group name AutoQos-4.0-ACL-Bulk-Data
+class-map match-any AutoQos-4.0-Trans-Data-Queue
+ match cos  2 
+ match dscp af21 
+ match dscp af22 
+ match dscp af23 
+ match access-group name AutoQos-4.0-ACL-Transactional-Data
+class-map match-any AutoQos-4.0-Multimedia-Stream
+ match dscp af31 
+ match dscp af32 
+ match dscp af33 
+class-map match-any AutoQos-4.0-VoIP-Data
+ match dscp ef 
+ match cos  5 
+class-map match-all AutoQos-4.0-Internetwork-Ctrl
+ match dscp cs6 
+class-map match-all AutoQos-4.0-Realtime-Interact
+ match dscp cs4 
+class-map match-all AutoQos-4.0-Multimedia-Conf-Classify
+ match access-group name AutoQos-4.0-ACL-Multimedia-Conf
+class-map match-any AutoQos-4.0-VoIP-Signal
+ match dscp cs3 
+ match cos  3 
+!
+policy-map AutoQos-4.0-Output-Policy
+ class AutoQos-4.0-Scavenger-Queue
+  bandwidth remaining percent 1 
+ class AutoQos-4.0-Priority-Queue
+  priority
+  police cir percent 30 bc 33 ms
+ class AutoQos-4.0-Control-Mgmt-Queue
+  bandwidth remaining percent 10 
+ class AutoQos-4.0-Multimedia-Conf-Queue
+  bandwidth remaining percent 10 
+ class AutoQos-4.0-Multimedia-Stream-Queue
+  bandwidth remaining percent 10 
+ class AutoQos-4.0-Trans-Data-Queue
+  bandwidth remaining percent 10 
+    dbl
+ class AutoQos-4.0-Bulk-Data-Queue
+  bandwidth remaining percent 4 
+    dbl
+ class class-default
+  bandwidth remaining percent 25 
+    dbl
+policy-map AutoQos-4.0-Input-Policy
+ class AutoQos-4.0-VoIP
+ class AutoQos-4.0-Broadcast-Vid
+ class AutoQos-4.0-Realtime-Interact
+ class AutoQos-4.0-Network-Ctrl
+ class AutoQos-4.0-Internetwork-Ctrl
+ class AutoQos-4.0-Signaling
+ class AutoQos-4.0-Network-Mgmt
+ class AutoQos-4.0-Multimedia-Conf
+ class AutoQos-4.0-Multimedia-Stream
+ class AutoQos-4.0-Transaction-Data
+ class AutoQos-4.0-Bulk-Data
+ class AutoQos-4.0-Scavenger
+!
+! 
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+interface FastEthernet1
+ vrf forwarding mgmtVrf
+ no ip address
+ speed auto
+ duplex auto
+!
+interface GigabitEthernet1/1
+ description Sec1_G_R1_NPOE2
+ switchport mode trunk
+!
+interface GigabitEthernet1/2
+ switchport mode trunk
+ switchport nonegotiate
+ spanning-tree link-type point-to-point
+!
+interface GigabitEthernet1/3
+ description Sec1_F_R2_NPOE2
+ switchport mode trunk
+ switchport nonegotiate
+ spanning-tree link-type point-to-point
+!
+interface GigabitEthernet1/4
+ description Sec1_S_R2_NPOE1
+ switchport mode trunk
+ switchport nonegotiate
+ spanning-tree link-type point-to-point
+!
+interface GigabitEthernet1/5
+ description Sec2_12_R1_POE1
+ switchport mode trunk
+ switchport nonegotiate
+ spanning-tree link-type point-to-point
+!
+interface GigabitEthernet1/6
+ description Sec2_F_R1_NOPE2
+ switchport mode trunk
+!
+interface GigabitEthernet1/7
+ description Sec2_S_R1_NPOE1
+ switchport mode trunk
+ switchport nonegotiate
+ spanning-tree link-type point-to-point
+!
+interface GigabitEthernet1/8
+ description Sec4_G_R1_NPOE2
+ switchport mode trunk
+ switchport nonegotiate
+ spanning-tree link-type point-to-point
+!
+interface GigabitEthernet1/9
+ description Sec4_F_R1_POE1
+ switchport mode trunk
+ switchport nonegotiate
+ spanning-tree link-type point-to-point
+!
+interface GigabitEthernet1/10
+ description Sec4_S_R2_NPOE2
+ switchport mode trunk
+ switchport nonegotiate
+ spanning-tree link-type point-to-point
+!
+interface GigabitEthernet1/11
+ description Sec2_7_R1_NPOE1
+ switchport mode trunk
+ switchport nonegotiate
+ spanning-tree link-type point-to-point
+!
+interface GigabitEthernet1/12
+ description SEC3_GS_R2_nPOE_SW3
+ switchport mode trunk
+ switchport nonegotiate
+ spanning-tree link-type point-to-point
+!
+interface GigabitEthernet1/13
+ description TUI
+ switchport mode trunk
+ switchport nonegotiate
+ spanning-tree link-type point-to-point
+!
+interface GigabitEthernet1/14
+ switchport mode trunk
+ switchport nonegotiate
+ spanning-tree link-type point-to-point
+!
+interface GigabitEthernet1/15
+ switchport mode trunk
+ switchport nonegotiate
+ spanning-tree link-type point-to-point
+!
+interface GigabitEthernet1/16
+ description SEC3_GS_R1_POE_SW2
+ switchport mode trunk
+ switchport nonegotiate
+ spanning-tree link-type point-to-point
+!
+interface GigabitEthernet1/17
+ description SEC4_S-R1_1
+ switchport mode trunk
+ switchport nonegotiate
+ spanning-tree link-type point-to-point
+!
+interface GigabitEthernet1/18
+ description Sec4_F_R2_NPOE2
+ switchport mode trunk
+ switchport nonegotiate
+ spanning-tree link-type point-to-point
+!
+interface GigabitEthernet1/19
+ description Sec4_G_R2_NPOE1
+ switchport mode trunk
+ switchport nonegotiate
+ spanning-tree link-type point-to-point
+!
+interface GigabitEthernet1/20
+ description Sec2_G_R2_POE1
+ switchport mode trunk
+ switchport nonegotiate
+ spanning-tree link-type point-to-point
+!
+interface GigabitEthernet1/21
+ description Sec1_S_R1-POE1
+ switchport mode trunk
+ switchport nonegotiate
+ spanning-tree link-type point-to-point
+!
+interface GigabitEthernet1/22
+ description Sec1_F_R1_NPOE2
+ switchport mode trunk
+ switchport nonegotiate
+ spanning-tree link-type point-to-point
+!
+interface GigabitEthernet1/23
+ description Sec2_TH_NPOE2
+ switchport mode trunk
+ switchport nonegotiate
+ spanning-tree link-type point-to-point
+!
+interface GigabitEthernet1/24
+ description IPTV-SW
+ switchport access vlan 20
+ switchport mode access
+!
+interface GigabitEthernet2/1
+ description Sec1_G_R1_POE_WIFI
+ switchport mode trunk
+ switchport nonegotiate
+ spanning-tree link-type point-to-point
+!
+interface GigabitEthernet2/2
+ description Sec1_F_R1_POE1
+ switchport mode trunk
+ switchport nonegotiate
+ spanning-tree link-type point-to-point
+!
+interface GigabitEthernet2/3
+ description Sec1_F_R2_POE1
+ switchport mode trunk
+ switchport nonegotiate
+ spanning-tree link-type point-to-point
+!
+interface GigabitEthernet2/4
+ description Sec1_S_R2_POE1
+ switchport mode trunk
+ switchport nonegotiate
+ spanning-tree link-type point-to-point
+!
+interface GigabitEthernet2/5
+ description Sec2_12_NPOE1
+ switchport mode trunk
+ switchport nonegotiate
+ spanning-tree link-type point-to-point
+!
+interface GigabitEthernet2/6
+ description Sec2_G_R1_NPOE1
+ switchport mode trunk
+ switchport nonegotiate
+ spanning-tree link-type point-to-point
+!
+interface GigabitEthernet2/7
+ description Sec2_F_R1_POE1
+ switchport mode trunk
+ switchport nonegotiate
+ spanning-tree link-type point-to-point
+!
+interface GigabitEthernet2/8
+ description Sec4_G_R1_NPOE3
+ switchport mode trunk
+ switchport nonegotiate
+ spanning-tree link-type point-to-point
+!
+interface GigabitEthernet2/9
+ description Sec4_F_R1_NPOE1
+ switchport mode trunk
+ switchport nonegotiate
+ spanning-tree link-type point-to-point
+!
+interface GigabitEthernet2/10
+ description Sec4_F_R2_NPOE1
+ switchport mode trunk
+ switchport nonegotiate
+ spanning-tree link-type point-to-point
+!
+interface GigabitEthernet2/11
+ description Sec4_S_R2_POE1
+ switchport mode trunk
+ switchport nonegotiate
+ spanning-tree link-type point-to-point
+!
+interface GigabitEthernet2/12
+ description SEC3_GS_R2_POE_SW1
+ switchport mode trunk
+ switchport nonegotiate
+ spanning-tree link-type point-to-point
+!
+interface GigabitEthernet2/13
+ description SEC3_GS_R1_nPOE_SW3
+ switchport mode trunk
+ switchport nonegotiate
+ spanning-tree link-type point-to-point
+!
+interface GigabitEthernet2/14
+ description SEC3_GS_R1_nPOE_SW2
+ switchport mode trunk
+ switchport nonegotiate
+ spanning-tree link-type point-to-point
+!
+interface GigabitEthernet2/15
+ switchport mode trunk
+ switchport nonegotiate
+ spanning-tree link-type point-to-point
+!
+interface GigabitEthernet2/16
+ description SEC3_GS_R1_POE_SW1
+ switchport mode trunk
+ switchport nonegotiate
+ spanning-tree link-type point-to-point
+!
+interface GigabitEthernet2/17
+ description SEC4_S-R1_2
+ switchport mode trunk
+ switchport nonegotiate
+ spanning-tree link-type point-to-point
+!
+interface GigabitEthernet2/18
+ description Sec4_G_R2_POE1
+ switchport mode trunk
+ switchport nonegotiate
+ spanning-tree link-type point-to-point
+!
+interface GigabitEthernet2/19
+ description Sec2_R1_NPOE2
+ switchport mode trunk
+ switchport nonegotiate
+ spanning-tree link-type point-to-point
+!
+interface GigabitEthernet2/20
+ description Sec2_G_R2_NPOE1
+ switchport mode trunk
+ switchport nonegotiate
+ spanning-tree link-type point-to-point
+!
+interface GigabitEthernet2/21
+ description Sec1_S_R1_POE_WIFI
+ switchport mode trunk
+ switchport nonegotiate
+ spanning-tree link-type point-to-point
+!
+interface GigabitEthernet2/22
+ description Sec1_G_R2_POE1
+ switchport mode trunk
+ switchport nonegotiate
+ spanning-tree link-type point-to-point
+!
+interface GigabitEthernet2/23
+ description Sec2_TH_POE1
+ switchport mode trunk
+ switchport nonegotiate
+ spanning-tree link-type point-to-point
+!
+interface GigabitEthernet2/24
+ description Admin2_POE_SW1
+ switchport mode trunk
+ switchport nonegotiate
+ spanning-tree link-type point-to-point
+!
+interface TenGigabitEthernet3/1
+!
+interface TenGigabitEthernet3/2
+!
+interface GigabitEthernet3/3
+!
+interface GigabitEthernet3/4
+!
+interface GigabitEthernet3/5
+!
+interface GigabitEthernet3/6
+!
+interface TenGigabitEthernet4/1
+!
+interface TenGigabitEthernet4/2
+!
+interface GigabitEthernet4/3
+!
+interface GigabitEthernet4/4
+!
+interface GigabitEthernet4/5
+!
+interface GigabitEthernet4/6
+!
+interface GigabitEthernet5/1
+ description Sec1_G_R1_POE1
+ switchport mode trunk
+ switchport nonegotiate
+ spanning-tree link-type point-to-point
+!
+interface GigabitEthernet5/2
+ description Sec2_12_R1_NPOE2
+ switchport mode trunk
+ switchport nonegotiate
+ spanning-tree link-type point-to-point
+!
+interface GigabitEthernet5/3
+ description Sec2_G_R1_POE1
+ switchport mode trunk
+ switchport nonegotiate
+ spanning-tree link-type point-to-point
+!
+interface GigabitEthernet5/4
+ description Sec2_F_R1_NPOE1
+ switchport mode trunk
+ switchport nonegotiate
+ spanning-tree link-type point-to-point
+!
+interface GigabitEthernet5/5
+ description Sec2_S_R1_POE1
+ switchport mode trunk
+ switchport nonegotiate
+ spanning-tree link-type point-to-point
+!
+interface GigabitEthernet5/6
+ description Sec4_G_R1_POE1
+ switchport mode trunk
+ switchport nonegotiate
+ spanning-tree link-type point-to-point
+!
+interface GigabitEthernet5/7
+ description Sec4_F_R1_NPOE2
+ switchport mode trunk
+ switchport nonegotiate
+!
+interface GigabitEthernet5/8
+ description Sec4_F_R2_POE1
+ switchport mode trunk
+ switchport nonegotiate
+ spanning-tree link-type point-to-point
+!
+interface GigabitEthernet5/9
+ description Sec4_S_R_nPOE_SW1
+ switchport mode trunk
+ switchport nonegotiate
+ spanning-tree link-type point-to-point
+!
+interface GigabitEthernet5/10
+ description Sec2_7_R1_POE1
+ switchport mode trunk
+ switchport nonegotiate
+ spanning-tree link-type point-to-point
+!
+interface GigabitEthernet5/11
+ description SEC3_GS_R2_POE_SW2
+ switchport mode trunk
+ switchport nonegotiate
+!
+interface GigabitEthernet5/12
+ switchport mode trunk
+ switchport nonegotiate
+!
+interface GigabitEthernet5/13
+ description Theater
+ switchport mode trunk
+ switchport nonegotiate
+!
+interface GigabitEthernet5/14
+ description Admin-VG2
+ switchport mode trunk
+ switchport nonegotiate
+ spanning-tree link-type point-to-point
+!
+interface GigabitEthernet5/15
+ switchport mode trunk
+ switchport nonegotiate
+!
+interface GigabitEthernet5/16
+ description Section3_R1_POE_WiFi
+ switchport mode trunk
+ switchport nonegotiate
+ spanning-tree link-type point-to-point
+!
+interface GigabitEthernet5/17
+ description Sec3_R2_POE_WiFi
+ switchport mode trunk
+ switchport nonegotiate
+ spanning-tree link-type point-to-point
+!
+interface GigabitEthernet5/18
+ description Sec4_2nd_R1_POE
+ switchport mode trunk
+ switchport nonegotiate
+ spanning-tree link-type point-to-point
+!
+interface GigabitEthernet5/19
+ description Sec4_G_R2_NPOE2
+ switchport mode trunk
+ switchport nonegotiate
+ spanning-tree link-type point-to-point
+!
+interface GigabitEthernet5/20
+ description Sec1_S_R1_NPOE2
+ switchport mode trunk
+ switchport nonegotiate
+ spanning-tree link-type point-to-point
+!
+interface GigabitEthernet5/21
+ description Sec1_S_R2_NPOE2
+ switchport mode trunk
+ switchport nonegotiate
+ spanning-tree link-type point-to-point
+!
+interface GigabitEthernet5/22
+ description Sec1_G_R2_NPOE1
+ switchport mode trunk
+ switchport nonegotiate
+ spanning-tree link-type point-to-point
+!
+interface GigabitEthernet5/23
+ description Sec2_3rd_NPOE1
+ switchport mode trunk
+ switchport nonegotiate
+ spanning-tree link-type point-to-point
+!
+interface GigabitEthernet5/24
+ switchport mode trunk
+ switchport nonegotiate
+ spanning-tree link-type point-to-point
+!
+interface GigabitEthernet6/1
+ description Admin1_POE_SW3
+ switchport mode trunk
+ switchport nonegotiate
+ spanning-tree link-type point-to-point
+!
+interface GigabitEthernet6/2
+ description Admin1_POE_SW2
+ switchport mode trunk
+ switchport nonegotiate
+ spanning-tree link-type point-to-point
+!
+interface GigabitEthernet6/3
+ description Admin1_nPOE_SW1
+ switchport mode trunk
+ switchport nonegotiate
+ spanning-tree link-type point-to-point
+!
+interface GigabitEthernet6/4
+ description Admin1_POE_SW1
+ switchport mode trunk
+ switchport nonegotiate
+ spanning-tree link-type point-to-point
+!
+interface GigabitEthernet6/5
+ switchport access vlan 2
+ switchport mode access
+ spanning-tree portfast
+!
+interface GigabitEthernet6/6
+ description QNAP
+ switchport access vlan 2
+ switchport mode access
+ spanning-tree portfast
+!
+interface GigabitEthernet6/7
+ switchport access vlan 116
+ switchport mode access
+ spanning-tree portfast
+!
+interface GigabitEthernet6/8
+ switchport access vlan 20
+ switchport mode access
+!
+interface GigabitEthernet6/9
+ description Hoteplus IPTV Server
+ switchport access vlan 20
+ switchport mode access
+ spanning-tree portfast
+!
+interface GigabitEthernet6/10
+ description Villa1
+ switchport mode trunk
+ switchport nonegotiate
+ load-interval 30
+ speed 100
+ duplex full
+ spanning-tree portfast
+!
+interface GigabitEthernet6/11
+ description HotelPlus_Chromecast_interface
+ switchport access vlan 116
+ switchport mode access
+ spanning-tree portfast
+!
+interface GigabitEthernet6/12
+ switchport access vlan 2
+ switchport mode access
+ spanning-tree portfast
+!
+interface GigabitEthernet6/13
+ description PUB
+ switchport access vlan 200
+ switchport mode access
+ duplex full
+ spanning-tree portfast
+!
+interface GigabitEthernet6/14
+ description SUB
+ switchport access vlan 200
+ switchport mode access
+ duplex full
+ spanning-tree portfast
+!
+interface GigabitEthernet6/15
+ description Voice_Gateway
+ switchport access vlan 201
+ switchport mode access
+ spanning-tree portfast
+!
+interface GigabitEthernet6/16
+ description ITC Head End
+ switchport access vlan 20
+ switchport mode access
+ spanning-tree portfast
+!
+interface GigabitEthernet6/17
+ description HotelPlus_Guest_interface
+ switchport access vlan 21
+ switchport mode access
+ spanning-tree portfast
+!
+interface GigabitEthernet6/18
+ description ITC Head end-2
+ switchport access vlan 20
+ switchport mode access
+ spanning-tree portfast
+!
+interface GigabitEthernet6/19
+ description FW_Guest_internet
+ switchport access vlan 21
+ switchport mode access
+ spanning-tree portfast
+!
+interface GigabitEthernet6/20
+ description Wireless_Controller
+ switchport trunk native vlan 90
+ switchport trunk allowed vlan 20,21,90,101-104,116
+ switchport mode trunk
+ spanning-tree portfast
+!
+interface GigabitEthernet6/21
+ switchport trunk native vlan 90
+ switchport trunk allowed vlan 21,90,100-103
+ switchport mode trunk
+!
+interface GigabitEthernet6/22
+ switchport access vlan 30
+ switchport mode access
+ spanning-tree portfast
+!
+interface GigabitEthernet6/23
+ description IPS-ASA2
+ switchport access vlan 97
+ switchport mode access
+ spanning-tree portfast
+!
+interface GigabitEthernet6/24
+ description IPS-ASA1
+ switchport access vlan 97
+ switchport mode access
+ spanning-tree portfast
+!
+interface GigabitEthernet6/25
+ description MMC1-Connection
+ switchport access vlan 20
+ switchport mode access
+ load-interval 30
+ speed 1000
+ duplex full
+ spanning-tree portfast
+!
+interface GigabitEthernet6/26
+ description "Etisalat-Router"
+ switchport trunk native vlan 105
+ switchport trunk allowed vlan 2,105
+ switchport mode trunk
+ load-interval 30
+ spanning-tree portfast
+!
+interface GigabitEthernet6/27
+ description VOD-Connection
+ switchport access vlan 20
+ switchport mode access
+ load-interval 30
+ spanning-tree portfast
+!
+interface GigabitEthernet6/28
+ description "FW-WAN-E5"
+ switchport access vlan 105
+ switchport mode access
+ load-interval 30
+ spanning-tree portfast
+!
+interface GigabitEthernet6/29
+ switchport mode trunk
+ spanning-tree portfast
+!
+interface GigabitEthernet6/30
+ description IPTV-Management
+ switchport access vlan 100
+ switchport mode access
+ spanning-tree portfast
+!
+interface GigabitEthernet6/31
+ description FW-E2-IPTV
+ switchport trunk allowed vlan 20,112,116
+ switchport mode trunk
+!
+interface GigabitEthernet6/32
+ description FW_E5
+ switchport access vlan 101
+ switchport trunk allowed vlan 100-103
+ switchport mode trunk
+ spanning-tree portfast
+!
+interface GigabitEthernet6/33
+ switchport access vlan 20
+ switchport mode access
+ spanning-tree portfast
+!
+interface GigabitEthernet6/34
+ description Netgate
+ switchport access vlan 90
+ switchport mode access
+ spanning-tree portfast
+!
+interface GigabitEthernet6/35
+ description Netgate
+ switchport access vlan 90
+ switchport mode access
+ load-interval 30
+ spanning-tree portfast
+!
+interface GigabitEthernet6/36
+ switchport access vlan 81
+ switchport mode access
+ spanning-tree portfast
+!
+interface GigabitEthernet6/37
+ description VSOM-Connection
+ switchport access vlan 210
+ switchport mode access
+ spanning-tree portfast
+!
+interface GigabitEthernet6/38
+ description MS1-Connection
+ switchport access vlan 210
+ switchport mode access
+ spanning-tree portfast
+!
+interface GigabitEthernet6/39
+ description MS2-Connection
+ switchport access vlan 210
+ switchport mode access
+ spanning-tree portfast
+!
+interface GigabitEthernet6/40
+ switchport access vlan 210
+ switchport mode access
+ spanning-tree portfast
+!
+interface GigabitEthernet6/41
+ description HotePlus Internal interface
+ switchport access vlan 90
+ switchport mode access
+ spanning-tree portfast
+!
+interface GigabitEthernet6/42
+ description QNAP Ethernet-1
+ switchport access vlan 2
+ switchport mode access
+ spanning-tree portfast
+!
+interface GigabitEthernet6/43
+ description QNAP Ethernet-2
+ switchport access vlan 2
+ switchport mode access
+ spanning-tree portfast
+!
+interface GigabitEthernet6/44
+ switchport access vlan 211
+!
+interface GigabitEthernet6/45
+ description FW_Admin_CCTV
+ switchport trunk allowed vlan 1,2,104,211,241
+ switchport mode trunk
+ spanning-tree portfast
+!
+interface GigabitEthernet6/46
+ description Inside-ASA2
+ switchport access vlan 100
+ switchport mode access
+ shutdown
+ spanning-tree portfast
+!
+interface GigabitEthernet6/47
+ description Inside-ASA1
+ switchport access vlan 100
+ switchport mode access
+ shutdown
+ spanning-tree portfast
+!
+interface GigabitEthernet6/48
+ description FW_Admin
+ switchport access vlan 100
+ switchport mode access
+ spanning-tree portfast
+!
+interface GigabitEthernet7/1
+ description Sec1_F_R2_NPOE1
+!
+interface GigabitEthernet7/2
+ description Sec4_G_R1_NPOE1
+ switchport mode trunk
+ switchport nonegotiate
+ auto qos trust 
+ spanning-tree link-type point-to-point
+!
+interface GigabitEthernet7/3
+ description Sport-BAR
+ switchport mode trunk
+ switchport nonegotiate
+ auto qos trust 
+ spanning-tree link-type point-to-point
+!
+interface GigabitEthernet7/4
+ description SEC3_GS_R2_nPOE_SW4
+ switchport mode trunk
+ switchport nonegotiate
+ auto qos trust 
+ spanning-tree link-type point-to-point
+!
+interface GigabitEthernet7/5
+ description Admin-VG2 
+ switchport trunk native vlan 98
+ switchport mode trunk
+!
+interface GigabitEthernet7/6
+ switchport mode trunk
+!
+interface GigabitEthernet7/7
+ description Villa1 POE 48 port
+ switchport mode trunk
+ switchport nonegotiate
+ auto qos trust 
+ spanning-tree link-type point-to-point
+ service-policy input AutoQos-4.0-Input-Policy
+ service-policy output AutoQos-4.0-Output-Policy
+!
+interface GigabitEthernet7/8
+!
+interface GigabitEthernet7/9
+!
+interface GigabitEthernet7/10
+!
+interface GigabitEthernet7/11
+!
+interface GigabitEthernet7/12
+!
+interface Vlan1
+ no ip address
+ shutdown
+!
+interface Vlan2
+ ip address 10.0.0.1 255.255.255.0
+ ip helper-address 10.0.0.11
+!
+interface Vlan3
+ ip address 10.0.3.1 255.255.255.0
+!
+interface Vlan15
+ ip address 10.0.15.1 255.255.255.0
+ no ip redirects
+!
+interface Vlan20
+ ip address 192.168.19.1 255.255.240.0
+ ip pim dense-mode
+!
+interface Vlan21
+ no ip address
+ no ip redirects
+!
+interface Vlan30
+ ip address 10.0.30.1 255.255.255.0
+ no ip redirects
+!
+interface Vlan31
+ ip address 10.0.31.1 255.255.255.0
+!
+interface Vlan32
+ ip address 10.0.32.1 255.255.255.0
+!
+interface Vlan41
+ ip address 10.0.41.1 255.255.255.0
+!
+interface Vlan42
+ ip address 10.0.42.1 255.255.255.0
+!
+interface Vlan51
+ ip address 10.0.51.1 255.255.255.0
+!
+interface Vlan52
+ ip address 10.0.52.1 255.255.255.0
+!
+interface Vlan61
+ ip address 10.0.61.1 255.255.255.0
+!
+interface Vlan62
+ ip address 10.0.62.1 255.255.255.0
+!
+interface Vlan83
+ ip address 10.0.83.1 255.255.255.0
+!
+interface Vlan84
+ ip address 10.0.84.1 255.255.255.0
+!
+interface Vlan85
+ ip address 10.0.85.1 255.255.255.0
+!
+interface Vlan90
+ ip address 10.0.90.1 255.255.255.0
+!
+interface Vlan95
+ ip address 10.0.95.1 255.255.255.0
+!
+interface Vlan96
+ ip address 10.0.96.1 255.255.255.0
+!
+interface Vlan97
+ description IPS-Management
+ ip address 10.0.97.1 255.255.255.0
+!
+interface Vlan98
+ ip address 192.168.1.1 255.255.255.0
+!
+interface Vlan101
+ no ip address
+ ip pim dense-mode
+!
+interface Vlan105
+ no ip address
+!
+interface Vlan112
+ no ip address
+ ip pim dense-mode
+!
+interface Vlan190
+ ip address 10.0.190.1 255.255.255.0
+!
+interface Vlan200
+ ip address 10.0.200.1 255.255.255.0
+!
+interface Vlan201
+ ip address 10.0.201.1 255.255.255.0
+!
+interface Vlan202
+ ip address 10.0.202.1 255.255.255.0
+!
+interface Vlan205
+ description LG_Digital_Signage
+ ip address 10.0.205.1 255.255.255.0
+!
+interface Vlan210
+ ip address 10.0.210.1 255.255.255.0
+!
+interface Vlan211
+ description CCTV
+ ip address 10.0.211.1 255.255.255.0
+ ip policy route-map CCTV
+!
+interface Vlan212
+ ip address 10.0.212.1 255.255.255.0
+!
+interface Vlan220
+ description IPTV-Inside
+ ip address 10.0.220.1 255.255.255.0
+!
+ip http server
+no ip http secure-server
+ip forward-protocol nd
+!
+ip route 0.0.0.0 0.0.0.0 10.0.0.2
+ip route 100.0.0.0 255.255.0.0 10.0.0.3
+ip route 120.0.0.0 255.255.0.0 10.0.0.3
+ip route 150.0.0.0 255.255.0.0 10.0.0.3
+ip route 160.0.0.0 255.255.0.0 10.0.0.3
+ip route 170.0.0.0 255.255.0.0 10.0.0.3
+!
+ip access-list extended AutoQos-4.0-ACL-Bulk-Data
+ permit tcp any any eq ftp
+ permit tcp any any eq ftp-data
+ permit tcp any any eq 22
+ permit tcp any any eq smtp
+ permit tcp any any eq 465
+ permit tcp any any eq 143
+ permit tcp any any eq 993
+ permit tcp any any eq pop3
+ permit tcp any any eq 995
+ permit tcp any any eq 1914
+ip access-list extended AutoQos-4.0-ACL-Default
+ permit ip any any
+ip access-list extended AutoQos-4.0-ACL-Multimedia-Conf
+ permit udp any any range 16384 32767
+ip access-list extended AutoQos-4.0-ACL-Scavenger
+ permit tcp any any eq 1214
+ permit udp any any eq 1214
+ permit tcp any any range 2300 2400
+ permit udp any any range 2300 2400
+ permit tcp any any eq 3689
+ permit udp any any eq 3689
+ permit tcp any any range 6881 6999
+ permit tcp any any eq 11999
+ permit tcp any any range 28800 29100
+ip access-list extended AutoQos-4.0-ACL-Signaling
+ permit tcp any any range 2000 2002
+ permit tcp any any range 5060 5061
+ permit udp any any range 5060 5061
+ip access-list extended AutoQos-4.0-ACL-Transactional-Data
+ permit tcp any any eq 443
+ permit tcp any any eq 1521
+ permit udp any any eq 1521
+ permit tcp any any eq 1526
+ permit udp any any eq 1526
+ permit tcp any any eq 1575
+ permit udp any any eq 1575
+ permit tcp any any eq 1630
+ permit udp any any eq 1630
+ip access-list extended CCTV
+ deny   ip 10.0.211.0 0.0.0.255 10.0.0.0 0.0.0.255
+ permit ip 10.0.211.0 0.0.0.255 any
+ip access-list extended Ruckus
+ permit ip 172.21.0.0 0.0.255.255 10.0.30.0 0.0.0.255
+ permit ip 172.21.0.0 0.0.255.255 host 172.21.0.1
+ deny   ip any any
+!
+access-list 102 permit icmp any any
+!
+route-map CCTV permit 10
+ match ip address CCTV
+ set ip default next-hop 10.0.211.2
+!
+!
+snmp-server community Coralwr@sts RO wr
+!
+vstack
+!
+line con 0
+ password 7 062500334D42290A110443595F
+ login
+ stopbits 1
+line vty 0 4
+ password 7 072C2E5E4F05391603015A5E57
+ login
+line vty 5 15
+ password 7 072C2E5E4F05391603015A5E57
+ login
+!
+!
+monitor session 1 source interface Gi6/25
+monitor session 1 filter packet-type good rx
+ntp logging
+ntp authentication-key 1 md5 013D32347B28293D00601C594850 7
+ntp authenticate
+ntp trusted-key 1
+ntp source Vlan96
+ntp master 1
+!
+end
+

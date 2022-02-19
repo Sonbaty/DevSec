@@ -1,0 +1,286 @@
+Building configuration...
+
+Current configuration : 7616 bytes
+!
+version 12.2
+no service pad
+service timestamps debug datetime msec
+service timestamps log datetime msec
+no service password-encryption
+service sequence-numbers
+!
+hostname Sec1_G_R1_POE1
+!
+boot-start-marker
+boot-end-marker
+!
+enable secret 5 $1$dJnN$5slCszSa3tyFs8zLT98tL.
+!
+!
+!
+no aaa new-model
+system mtu routing 1500
+!
+!
+ip igmp snooping querier
+ip igmp snooping vlan 20 immediate-leave
+!
+mls qos srr-queue output cos-map queue 1 threshold 3 5
+mls qos srr-queue output cos-map queue 2 threshold 3 3 6 7
+mls qos srr-queue output cos-map queue 3 threshold 3 2 4
+mls qos srr-queue output cos-map queue 4 threshold 2 1
+mls qos srr-queue output cos-map queue 4 threshold 3 0
+mls qos
+!
+crypto pki trustpoint TP-self-signed-3478050944
+ enrollment selfsigned
+ subject-name cn=IOS-Self-Signed-Certificate-3478050944
+ revocation-check none
+ rsakeypair TP-self-signed-3478050944
+!
+!
+crypto pki certificate chain TP-self-signed-3478050944
+ certificate self-signed 01
+  30820247 308201B0 A0030201 02020101 300D0609 2A864886 F70D0101 04050030 
+  31312F30 2D060355 04031326 494F532D 53656C66 2D536967 6E65642D 43657274 
+  69666963 6174652D 33343738 30353039 3434301E 170D3933 30333031 30303031 
+  30375A17 0D323030 31303130 30303030 305A3031 312F302D 06035504 03132649 
+  4F532D53 656C662D 5369676E 65642D43 65727469 66696361 74652D33 34373830 
+  35303934 3430819F 300D0609 2A864886 F70D0101 01050003 818D0030 81890281 
+  8100E867 BF064C3D 4649CE97 8F63DDE2 4FE62A10 DF0A7862 8E3BA20E A81D9E0C 
+  8D8B9223 73D6DA06 A2D19376 4E2E27EE C2E561F6 DC47A26E 7E04295C C7880042 
+  52311AB3 69A5A182 6AAF9874 48700987 C3EB4FA6 9CCE03E6 7DEF7FB8 813ED6EA 
+  700B3934 E894DF53 6442BDD6 1FF03FE3 12CDCC52 B2687131 56E78AE8 561D6C6D 
+  97EB0203 010001A3 6F306D30 0F060355 1D130101 FF040530 030101FF 301A0603 
+  551D1104 13301182 0F536563 315F475F 52315F50 4F45312E 301F0603 551D2304 
+  18301680 14458304 F3878F89 EEB5C443 4F59ED5A 0B9A22CA 16301D06 03551D0E 
+  04160414 458304F3 878F89EE B5C4434F 59ED5A0B 9A22CA16 300D0609 2A864886 
+  F70D0101 04050003 81810011 4861ACC3 A65A95BE 01536357 EE9E95F1 5FE00522 
+  BA44A5A1 74F9E7A5 4E123753 681A3DF1 AA13A65B 7C2B47D7 06A7BEED D9629114 
+  DF5725EC CAD68FEA 6761B4FA A002A27F 55F01BD6 62DA4FC7 B0F91460 90A08B8E 
+  69752F28 C1BE349C 257B0821 3DC85F5A DE0AE7D7 C8A0B1F3 2F99FCA4 95AAA9EC 
+  7084BFC6 2C43110C FC5A1C
+  quit
+!
+!
+!
+!
+spanning-tree mode rapid-pvst
+spanning-tree extend system-id
+!
+vlan internal allocation policy ascending
+lldp run
+!
+!
+interface FastEthernet0/1
+ description IPTEL_Room 1111
+ switchport mode access
+ switchport voice vlan 32
+ spanning-tree portfast
+!
+interface FastEthernet0/2
+ description IPTEL_Room 1112
+ switchport mode access
+ switchport voice vlan 32
+ spanning-tree portfast
+!
+interface FastEthernet0/3
+ description IPTEL_Room 1113
+ switchport mode access
+ switchport voice vlan 32
+ spanning-tree portfast
+!
+interface FastEthernet0/4
+ description IPTEL_Room 1114
+ switchport mode access
+ switchport voice vlan 32
+ spanning-tree portfast
+!
+interface FastEthernet0/5
+ description IPTEL_Room 1115
+ switchport mode access
+ switchport voice vlan 32
+ spanning-tree portfast
+!
+interface FastEthernet0/6
+ description IPTEL_Room 1116
+ switchport mode access
+ switchport voice vlan 32
+ spanning-tree portfast
+!
+interface FastEthernet0/7
+ description IPTEL_Room 1117
+ switchport mode access
+ switchport voice vlan 32
+ spanning-tree portfast
+!
+interface FastEthernet0/8
+ description IPTEL_Room 1118
+ switchport mode access
+ switchport voice vlan 32
+ spanning-tree portfast
+!
+interface FastEthernet0/9
+ description IPTEL_Room 1119
+ switchport mode access
+ switchport voice vlan 32
+ spanning-tree portfast
+!
+interface FastEthernet0/10
+ description IPTEL_Room 1120
+ switchport mode access
+ switchport voice vlan 32
+ spanning-tree portfast
+!
+interface FastEthernet0/11
+ description IPTEL_Room 1121
+ switchport mode access
+ switchport voice vlan 32
+ spanning-tree portfast
+!
+interface FastEthernet0/12
+ description IPTEL_Room 1122
+ switchport mode access
+ switchport voice vlan 32
+ spanning-tree portfast
+!
+interface FastEthernet0/13
+ description IPTEL_Room 1123
+ switchport mode access
+ switchport voice vlan 32
+ spanning-tree portfast
+!
+interface FastEthernet0/14
+ description IPTEL_Room 1124
+ switchport mode access
+ switchport voice vlan 32
+ spanning-tree portfast
+!
+interface FastEthernet0/15
+ description IPTEL_Room 1125
+ switchport mode access
+ switchport voice vlan 32
+ spanning-tree portfast
+!
+interface FastEthernet0/16
+ description IPTEL_Room 1126
+ switchport mode access
+ switchport voice vlan 32
+ spanning-tree portfast
+!
+interface FastEthernet0/17
+ description IPTEL_Room 1127
+ switchport mode access
+ switchport voice vlan 32
+ spanning-tree portfast
+!
+interface FastEthernet0/18
+ description IPTEL_Room 1128
+ switchport mode access
+ switchport voice vlan 32
+ spanning-tree portfast
+!
+interface FastEthernet0/19
+ description IPTEL_Room 1129
+ switchport mode access
+ switchport voice vlan 32
+ spanning-tree portfast
+!
+interface FastEthernet0/20
+ description IPTEL_Room 1130
+ switchport mode access
+ switchport voice vlan 32
+ spanning-tree portfast
+!
+interface FastEthernet0/21
+ description IPTEL_Room 1131
+ switchport mode access
+ switchport voice vlan 32
+ spanning-tree portfast
+!
+interface FastEthernet0/22
+ description IPTEL_Room 1132
+ switchport mode access
+ switchport voice vlan 32
+ spanning-tree portfast
+!
+interface FastEthernet0/23
+ description AP_Beach3
+ switchport trunk native vlan 90
+ switchport trunk allowed vlan 21,90
+ switchport mode trunk
+ spanning-tree portfast
+!
+interface FastEthernet0/24
+ description AP_Beach4
+ switchport trunk native vlan 90
+ switchport trunk allowed vlan 21,90
+ switchport mode trunk
+ spanning-tree portfast
+!
+interface GigabitEthernet0/1
+ switchport mode trunk
+ mls qos trust cos
+ macro description cisco-switch | cisco-switch
+ spanning-tree link-type point-to-point
+!
+interface GigabitEthernet0/2
+ switchport mode trunk
+ media-type rj45
+ mls qos trust cos
+ macro description cisco-switch | cisco-switch
+ spanning-tree link-type point-to-point
+!
+interface Vlan1
+ no ip address
+ no ip route-cache
+ shutdown
+!
+interface Vlan96
+ ip address 10.0.96.20 255.255.255.0
+ no ip route-cache
+!
+ip http server
+ip http secure-server
+!
+ip access-list standard wr
+snmp-server community Coralwr@sts RO wr
+snmp-server enable traps snmp authentication linkdown linkup coldstart warmstart
+snmp-server enable traps transceiver all
+snmp-server enable traps tty
+snmp-server enable traps cluster
+snmp-server enable traps entity
+snmp-server enable traps cpu threshold
+snmp-server enable traps rep
+snmp-server enable traps vtp
+snmp-server enable traps vlancreate
+snmp-server enable traps vlandelete
+snmp-server enable traps flash insertion removal
+snmp-server enable traps port-security
+snmp-server enable traps auth-framework sec-violation
+snmp-server enable traps dot1x auth-fail-vlan guest-vlan no-auth-fail-vlan no-guest-vlan
+snmp-server enable traps envmon fan shutdown supply temperature status
+snmp-server enable traps power-ethernet group 1
+snmp-server enable traps power-ethernet police
+snmp-server enable traps config-copy
+snmp-server enable traps config
+snmp-server enable traps config-ctid
+snmp-server enable traps bridge newroot topologychange
+snmp-server enable traps stpx inconsistency root-inconsistency loop-inconsistency
+snmp-server enable traps syslog
+snmp-server enable traps mac-notification change move threshold
+snmp-server enable traps vlan-membership
+snmp-server enable traps errdisable
+!
+line con 0
+ password Coral@sts123
+ login
+line vty 0 4
+ password Coral@sts123
+ login
+line vty 5 15
+ password Coral@sts123
+ login
+!
+end
+

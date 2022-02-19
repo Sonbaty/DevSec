@@ -1,0 +1,256 @@
+Building configuration...
+
+Current configuration : 6642 bytes
+!
+version 12.2
+no service pad
+service timestamps debug datetime msec
+service timestamps log datetime msec
+no service password-encryption
+!
+hostname FoodCourt
+!
+boot-start-marker
+boot-end-marker
+!
+enable password Coral@sts123
+!
+!
+!
+no aaa new-model
+system mtu routing 1500
+!
+!
+!
+!
+crypto pki trustpoint TP-self-signed-3475887616
+ enrollment selfsigned
+ subject-name cn=IOS-Self-Signed-Certificate-3475887616
+ revocation-check none
+ rsakeypair TP-self-signed-3475887616
+!
+!
+crypto pki certificate chain TP-self-signed-3475887616
+ certificate self-signed 01
+  30820242 308201AB A0030201 02020101 300D0609 2A864886 F70D0101 04050030 
+  31312F30 2D060355 04031326 494F532D 53656C66 2D536967 6E65642D 43657274 
+  69666963 6174652D 33343735 38383736 3136301E 170D3933 30333031 30303031 
+  30335A17 0D323030 31303130 30303030 305A3031 312F302D 06035504 03132649 
+  4F532D53 656C662D 5369676E 65642D43 65727469 66696361 74652D33 34373538 
+  38373631 3630819F 300D0609 2A864886 F70D0101 01050003 818D0030 81890281 
+  8100DBAA 97B49F3D 68100575 9D8E1271 F20D0506 FFE6FA9B 74485D36 2C9BC6E4 
+  C588CBDA 822B1A50 F3CC802A 11C26955 58750B56 983E2452 FC85F870 46A566EC 
+  B9662450 5879B1D5 31E80356 6DE44965 2C7B1923 CAC1F9AD 6F13B424 7EF2DCF4 
+  D2EAFC76 E2DE497F 5F068B00 B8C55569 EC99F128 B6C158FA 4D395E9A 00AFF93D 
+  B1110203 010001A3 6A306830 0F060355 1D130101 FF040530 030101FF 30150603 
+  551D1104 0E300C82 0A466F6F 64436F75 72742E30 1F060355 1D230418 30168014 
+  EDC536BB 13A82D70 9CB05D1D 3717B8EE 7F5D813E 301D0603 551D0E04 160414ED 
+  C536BB13 A82D709C B05D1D37 17B8EE7F 5D813E30 0D06092A 864886F7 0D010104 
+  05000381 81007843 A4A83B06 A196270C 6950A303 96EACEB9 48E94C66 4D348C83 
+  EE3A3306 742DCAAB 3E88506B 13E2D605 48E1550C A6D6A276 AB521337 EF810A84 
+  5E494467 6CE3299B 11CDB3DA 31DA6B8B 3617AC1F FBEC5C8E 184C5478 B3FE4D55 
+  147386F6 FBA1AB15 46C185FE A53FC549 583F8117 68633F2E 9257D457 507645F8 
+  D0C16AC8 64DD
+  quit
+!
+!
+!
+spanning-tree mode pvst
+spanning-tree extend system-id
+!
+vlan internal allocation policy ascending
+lldp run
+!
+!
+interface FastEthernet0/1
+ description Food Court Bar
+ switchport access vlan 2
+ switchport mode access
+ switchport voice vlan 62
+ spanning-tree portfast
+!
+interface FastEthernet0/2
+ switchport access vlan 2
+ switchport mode access
+ switchport voice vlan 62
+ spanning-tree portfast
+!
+interface FastEthernet0/3
+ switchport access vlan 2
+ switchport mode access
+ switchport voice vlan 62
+ spanning-tree portfast
+!
+interface FastEthernet0/4
+ switchport access vlan 2
+ switchport mode access
+ switchport voice vlan 62
+ spanning-tree portfast
+!
+interface FastEthernet0/5
+ switchport access vlan 2
+ switchport mode access
+ switchport voice vlan 62
+ spanning-tree portfast
+!
+interface FastEthernet0/6
+ switchport access vlan 2
+ switchport mode access
+ switchport voice vlan 62
+ spanning-tree portfast
+!
+interface FastEthernet0/7
+ switchport access vlan 211
+ switchport mode access
+ spanning-tree portfast
+!
+interface FastEthernet0/8
+ switchport access vlan 211
+ switchport mode access
+ spanning-tree portfast
+!
+interface FastEthernet0/9
+ switchport trunk native vlan 90
+ switchport trunk allowed vlan 21,90,116
+ switchport mode trunk
+ spanning-tree portfast
+!
+interface FastEthernet0/10
+ switchport access vlan 211
+ switchport mode access
+ spanning-tree portfast
+!
+interface FastEthernet0/11
+ switchport access vlan 211
+ switchport mode access
+ spanning-tree portfast
+!
+interface FastEthernet0/12
+ switchport access vlan 2
+ switchport mode access
+ switchport voice vlan 62
+ spanning-tree portfast
+!
+interface FastEthernet0/13
+ switchport trunk native vlan 90
+ switchport trunk allowed vlan 21,90
+ switchport mode trunk
+ spanning-tree portfast
+!
+interface FastEthernet0/14
+ switchport trunk native vlan 90
+ switchport trunk allowed vlan 21,90
+ switchport mode trunk
+ spanning-tree portfast
+!
+interface FastEthernet0/15
+ switchport trunk native vlan 90
+ switchport trunk allowed vlan 21,90
+ switchport mode trunk
+ spanning-tree portfast
+!
+interface FastEthernet0/16
+ switchport trunk native vlan 90
+ switchport trunk allowed vlan 21,90
+ switchport mode trunk
+ spanning-tree portfast
+!
+interface FastEthernet0/17
+ switchport access vlan 211
+ switchport mode access
+ spanning-tree portfast
+!
+interface FastEthernet0/18
+ switchport access vlan 211
+ switchport mode access
+ spanning-tree portfast
+!
+interface FastEthernet0/19
+ switchport access vlan 211
+ switchport mode access
+ spanning-tree portfast
+!
+interface FastEthernet0/20
+ switchport access vlan 211
+ switchport mode access
+ spanning-tree portfast
+!
+interface FastEthernet0/21
+ switchport access vlan 211
+ switchport mode access
+ spanning-tree portfast
+!
+interface FastEthernet0/22
+ switchport access vlan 211
+ switchport mode access
+ spanning-tree portfast
+!
+interface FastEthernet0/23
+ switchport access vlan 211
+ switchport mode access
+ spanning-tree portfast
+!
+interface FastEthernet0/24
+ switchport access vlan 211
+ switchport mode access
+ spanning-tree portfast
+!
+interface GigabitEthernet0/1
+ switchport mode trunk
+ media-type sfp
+!
+interface GigabitEthernet0/2
+ switchport mode trunk
+!
+interface Vlan1
+ no ip address
+ no ip route-cache
+ shutdown
+!
+interface Vlan96
+ ip address 10.0.96.214 255.255.255.0
+ no ip route-cache
+!
+ip http server
+ip http secure-server
+!
+ip access-list standard wr
+snmp-server community Coralwr@sts RO wr
+snmp-server enable traps snmp authentication linkdown linkup coldstart warmstart
+snmp-server enable traps transceiver all
+snmp-server enable traps tty
+snmp-server enable traps cluster
+snmp-server enable traps entity
+snmp-server enable traps cpu threshold
+snmp-server enable traps rep
+snmp-server enable traps vtp
+snmp-server enable traps vlancreate
+snmp-server enable traps vlandelete
+snmp-server enable traps flash insertion removal
+snmp-server enable traps port-security
+snmp-server enable traps auth-framework sec-violation
+snmp-server enable traps dot1x auth-fail-vlan guest-vlan no-auth-fail-vlan no-guest-vlan
+snmp-server enable traps envmon fan shutdown supply temperature status
+snmp-server enable traps power-ethernet group 1
+snmp-server enable traps power-ethernet police
+snmp-server enable traps config-copy
+snmp-server enable traps config
+snmp-server enable traps config-ctid
+snmp-server enable traps bridge newroot topologychange
+snmp-server enable traps stpx inconsistency root-inconsistency loop-inconsistency
+snmp-server enable traps syslog
+snmp-server enable traps mac-notification change move threshold
+snmp-server enable traps vlan-membership
+snmp-server enable traps errdisable
+!
+line con 0
+ password Coral@sts123
+ login
+line vty 0 4
+ password Coral@sts123
+ login
+line vty 5 15
+ login
+!
+end
+

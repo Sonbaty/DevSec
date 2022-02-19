@@ -104,6 +104,5 @@ if __name__ == "__main__":
                 continue
         for t in threads:
             t.join()
-
     start()
 

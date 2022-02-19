@@ -1,0 +1,284 @@
+Building configuration...
+
+Current configuration : 7486 bytes
+!
+version 12.2
+no service pad
+service timestamps debug datetime msec
+service timestamps log datetime msec
+no service password-encryption
+service sequence-numbers
+!
+hostname Sport-BAR
+!
+boot-start-marker
+boot-end-marker
+!
+enable secret 5 $1$6wFM$hdIZf//P7xHaTaxJDMEAb/
+!
+!
+!
+no aaa new-model
+system mtu routing 1500
+!
+!
+ip igmp snooping querier
+ip igmp snooping vlan 20 immediate-leave
+!
+mls qos srr-queue output cos-map queue 1 threshold 3 5
+mls qos srr-queue output cos-map queue 2 threshold 3 3 6 7
+mls qos srr-queue output cos-map queue 3 threshold 3 2 4
+mls qos srr-queue output cos-map queue 4 threshold 2 1
+mls qos srr-queue output cos-map queue 4 threshold 3 0
+mls qos
+!
+crypto pki trustpoint TP-self-signed-3479489792
+ enrollment selfsigned
+ subject-name cn=IOS-Self-Signed-Certificate-3479489792
+ revocation-check none
+ rsakeypair TP-self-signed-3479489792
+!
+!
+crypto pki certificate chain TP-self-signed-3479489792
+ certificate self-signed 01
+  30820242 308201AB A0030201 02020101 300D0609 2A864886 F70D0101 04050030 
+  31312F30 2D060355 04031326 494F532D 53656C66 2D536967 6E65642D 43657274 
+  69666963 6174652D 33343739 34383937 3932301E 170D3933 30333031 30303030 
+  35375A17 0D323030 31303130 30303030 305A3031 312F302D 06035504 03132649 
+  4F532D53 656C662D 5369676E 65642D43 65727469 66696361 74652D33 34373934 
+  38393739 3230819F 300D0609 2A864886 F70D0101 01050003 818D0030 81890281 
+  8100A774 D15B9351 918A35E3 584B2403 665439FF 336E20E2 2CC64F2A 15F42DDB 
+  C816829B AE503EEA A893867D 933BDEA5 4E9690F2 1A8F79A4 CC0B2BAD E3D0CF07 
+  21953DAD 51A0A1C9 32584899 998654E3 102FBA6D D86E4899 15027FE9 35DF2946 
+  87FC1F92 D9FD4BD0 0639B3CB 83F6E4F4 1062D6E6 16037E11 75B40E36 0059D81C 
+  86890203 010001A3 6A306830 0F060355 1D130101 FF040530 030101FF 30150603 
+  551D1104 0E300C82 0A53706F 72742D42 41522E30 1F060355 1D230418 30168014 
+  ED78DBE9 CE760683 C7149E09 038F043F 6E2A4ABF 301D0603 551D0E04 160414ED 
+  78DBE9CE 760683C7 149E0903 8F043F6E 2A4ABF30 0D06092A 864886F7 0D010104 
+  05000381 81000D31 148E3E0B C6E62FAE 74624EE9 5A438ED4 29A374B8 C498DD80 
+  909A7317 536E0422 DF37070E 2458C619 FA2A5BF7 09F5424A 044B9E7A 371D3B18 
+  C28EE630 9154576E CDBECA8D 12E369E1 02D7B412 FBD07B46 AF9309BB AF9F3CFC 
+  258F501E 3288C3B3 BC531FB4 C054085D 569ACF40 C58D4D12 71566766 2549897B 
+  C4D25CA7 836B
+  quit
+!
+!
+!
+!
+spanning-tree mode rapid-pvst
+spanning-tree extend system-id
+!
+vlan internal allocation policy ascending
+lldp run
+!
+!
+interface FastEthernet0/1
+ switchport access vlan 2
+ switchport mode access
+ switchport voice vlan 3
+ spanning-tree portfast
+!
+interface FastEthernet0/2
+ switchport access vlan 20
+ switchport mode access
+ spanning-tree portfast
+!
+interface FastEthernet0/3
+ switchport access vlan 32
+ switchport mode access
+ spanning-tree portfast
+!
+interface FastEthernet0/4
+ switchport access vlan 20
+ switchport mode access
+ spanning-tree portfast
+!
+interface FastEthernet0/5
+ switchport access vlan 80
+ switchport mode access
+ shutdown
+ spanning-tree portfast
+!
+interface FastEthernet0/6
+ switchport access vlan 20
+ switchport mode access
+ spanning-tree portfast
+!
+interface FastEthernet0/7
+ description Camera Beach-4
+ switchport access vlan 211
+ switchport mode access
+ spanning-tree portfast
+!
+interface FastEthernet0/8
+ description Camera Beach-5
+ switchport access vlan 211
+ switchport mode access
+ spanning-tree portfast
+!
+interface FastEthernet0/9
+ description Camera Beach-6
+ switchport access vlan 211
+ switchport mode access
+ spanning-tree portfast
+!
+interface FastEthernet0/10
+ switchport access vlan 211
+ switchport mode access
+ spanning-tree portfast
+!
+interface FastEthernet0/11
+ switchport access vlan 211
+ switchport mode access
+ spanning-tree portfast
+!
+interface FastEthernet0/12
+ switchport access vlan 211
+ switchport mode access
+ shutdown
+ spanning-tree portfast
+!
+interface FastEthernet0/13
+ switchport access vlan 20
+ switchport mode access
+ shutdown
+ spanning-tree portfast
+!
+interface FastEthernet0/14
+ switchport access vlan 20
+ switchport mode access
+ switchport port-security
+ switchport port-security aging time 2
+ switchport port-security violation restrict
+ switchport port-security aging type inactivity
+ shutdown
+ macro description cisco-desktop
+ spanning-tree portfast
+ spanning-tree bpduguard enable
+!
+interface FastEthernet0/15
+ switchport access vlan 20
+ switchport mode access
+ shutdown
+ spanning-tree portfast
+!
+interface FastEthernet0/16
+ switchport access vlan 20
+ switchport mode access
+ shutdown
+ spanning-tree portfast
+!
+interface FastEthernet0/17
+ description Sports bar Camera-1
+ switchport access vlan 211
+ switchport mode access
+ spanning-tree portfast
+!
+interface FastEthernet0/18
+ description Sports bar Camera-2
+ switchport access vlan 211
+ switchport mode access
+ spanning-tree portfast
+!
+interface FastEthernet0/19
+ switchport access vlan 20
+ switchport mode access
+ shutdown
+ spanning-tree portfast
+!
+interface FastEthernet0/20
+ switchport access vlan 20
+ switchport mode access
+ shutdown
+ spanning-tree portfast
+!
+interface FastEthernet0/21
+ switchport access vlan 20
+ switchport mode access
+ shutdown
+ spanning-tree portfast
+!
+interface FastEthernet0/22
+ description Beach 2 Access point
+ switchport trunk native vlan 90
+ switchport trunk allowed vlan 21,90,116
+ switchport mode trunk
+ spanning-tree portfast
+!
+interface FastEthernet0/23
+ description Beach 2 Access point
+ switchport trunk native vlan 90
+ switchport trunk allowed vlan 21,90,116
+ switchport mode trunk
+ spanning-tree portfast
+!
+interface FastEthernet0/24
+ description DVR
+ switchport access vlan 211
+ switchport mode access
+ spanning-tree portfast
+!
+interface GigabitEthernet0/1
+ switchport mode trunk
+ mls qos trust cos
+ macro description cisco-switch
+ spanning-tree link-type point-to-point
+!
+interface GigabitEthernet0/2
+ switchport mode trunk
+ mls qos trust cos
+ macro description cisco-switch | cisco-switch
+ spanning-tree link-type point-to-point
+!
+interface Vlan1
+ no ip address
+ no ip route-cache
+!
+interface Vlan96
+ ip address 10.0.96.145 255.255.255.0
+ no ip route-cache
+!
+ip http server
+ip http secure-server
+!
+ip access-list standard wr
+snmp-server community Coralwr@sts RO wr
+snmp-server enable traps snmp authentication linkdown linkup coldstart warmstart
+snmp-server enable traps transceiver all
+snmp-server enable traps tty
+snmp-server enable traps cluster
+snmp-server enable traps entity
+snmp-server enable traps cpu threshold
+snmp-server enable traps rep
+snmp-server enable traps vtp
+snmp-server enable traps vlancreate
+snmp-server enable traps vlandelete
+snmp-server enable traps flash insertion removal
+snmp-server enable traps port-security
+snmp-server enable traps auth-framework sec-violation
+snmp-server enable traps dot1x auth-fail-vlan guest-vlan no-auth-fail-vlan no-guest-vlan
+snmp-server enable traps envmon fan shutdown supply temperature status
+snmp-server enable traps power-ethernet group 1
+snmp-server enable traps power-ethernet police
+snmp-server enable traps config-copy
+snmp-server enable traps config
+snmp-server enable traps config-ctid
+snmp-server enable traps bridge newroot topologychange
+snmp-server enable traps stpx inconsistency root-inconsistency loop-inconsistency
+snmp-server enable traps syslog
+snmp-server enable traps mac-notification change move threshold
+snmp-server enable traps vlan-membership
+snmp-server enable traps errdisable
+!
+line con 0
+ password Coral@sts123
+ login
+line vty 0 4
+ password Coral@sts123
+ login
+line vty 5 15
+ password Coral@sts123
+ login
+!
+end
+
