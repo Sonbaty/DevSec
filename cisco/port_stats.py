@@ -1,6 +1,7 @@
 from ast import And
 from sqlite3 import connect
 import time
+from cupshelpers import Device
 from netmiko import ConnectHandler
 from datetime import datetime
 from multiprocessing import Queue
@@ -38,46 +39,51 @@ def get_info(IP,any):
     print()
     print('-' * 79)
     connection.enable()
-
-    device = connection.send_command('show run | i hostname')
-    if device == "":
-        device = "no_hostname"
-        print('Notice : This switch has no hostname configured')
+    def device_intialize(IP,any):
+        device = connection.send_command('show run | i hostname')
+        if device == "":
+            device = "no_hostname"
+            print('Notice : This switch has no hostname configured')
+        print(f'Operating {device}')
+        return Device
  
-    print(f'Operating {device}')
-    my_ip = IP.strip('\n')
-
-    if not os.path.exists(Location):
-        os.mkdir(Location)
-        print("Directory ", Location, " Created ")
-    else:
-        print("Directory ", Location, " already exists")
-
-    # filename = '/home/sonbaty/Automation/backups/' + device + '.txt'
-    filename = f'{Location}/{device}-IP[{my_ip}]'+ '.txt'
-
+    def get_interfaces(IP):
+        port_query = connection.send_command('sh ip int br')
+        ou_List = port_query.splitlines()
+        Nei_List = ou_List[1:]
+        interface_list = []
+        for line in Nei_List:
+            int_line = str(line).split()
+            interface = int_line[0]
+            if (("FastEthernet" or "GigabitEthernet") and "/")in interface:
+                interface_list.append(interface)
+        return interface_list
+    def file_handler():
+        if not os.path.exists(Location):
+            os.mkdir(Location)
+            print("Directory ", Location, " Created ")
+        else:
+            print("Directory ", Location, " already exists")
+    device = device_intialize(IP)
+    file_handler()
+    output_file = f'{Location}/{device}-IP[{IP}]'+ '.txt'
     sw_uptime_query = connection.send_command('show version | i uptime')
-    port_query = connection.send_command('sh ip int br')
-    ou_List = port_query.splitlines()
-    Nei_List = ou_List[1:]
-    interface_list = []
-    for line in Nei_List:
-        int_line = str(line).split()
-        interface = int_line[0]
-        if (("FastEthernet" or "GigabitEthernet") and "/")in interface:
-            interface_list.append(interface)
-    
-    sw_identifier = f'IP:{my_ip}, Host:{device}'
-    #filename = initial + my_ip
-    log_file = open(filename, "a")  # append mode
+    sw_identifier = f'IP:{IP}, Host:{device}'
+    log_file = open(output_file, "a")  # append mode
     log_file.write(sw_identifier)
     log_file.write("\n")
     log_file.write(sw_uptime_query)
     log_file.write("\n")
+    interface_list = get_interfaces(IP)
     for interface in interface_list:
         print(f'Checking port {interface} , Switch {device}')
         connection.enable()
-        port_errors = connection.send_command(f'sh interfaces {interface} | i errors')  
+        config_commands = [
+                            f'enable',
+                            f'sh interfaces {interface} | i errors',
+                            'exit'
+                            ]
+        port_errors = connection.send_config_set(config_commands)  
         log_file.write(f'{interface} ----> : ' )
         log_file.write("\n")
         log_file.write(port_errors)
