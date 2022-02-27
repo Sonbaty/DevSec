@@ -8,7 +8,7 @@ import os
 Location = input('Enter The Switches Group Name First : ')
 print("Backup Is EveryDay at 1 AM")
 
-ips_file = open('concord_cairo.txt', 'r')    ## open the ip list file from root folder
+ips_file = open('school_switches.txt', 'r')    ## open the ip list file from root folder
 ips_file.seek(0)  ## put the first read on the begining
 ip_list = ips_file.read().splitlines()  ## splite the ip's in a list
 ips_file.close()
@@ -19,7 +19,7 @@ def get_backup(IP,any):
             'device_type': 'ruckus_fastiron',
             'ip': IP,
             'username': 'super',
-            'password': 'C0nc0rde'
+            'password': 'P@$$w0rd'
 
     }
 

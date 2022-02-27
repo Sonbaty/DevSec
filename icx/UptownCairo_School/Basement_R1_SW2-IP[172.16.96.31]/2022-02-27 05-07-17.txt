@@ -1,0 +1,182 @@
+Current configuration:
+!
+ver 08.0.90kT211
+!
+stack unit 1
+  module 1 icx7150-24p-poe-port-management-module
+  module 2 icx7150-2-copper-port-2g-module
+  module 3 icx7150-4-sfp-plus-port-40g-module
+!
+!
+!
+!
+!
+vlan 1 name DEFAULT-VLAN by port
+!
+vlan 96 by port
+ tagged ethe 1/2/1 to 1/2/2 
+ management-vlan
+ default-gateway  172.16.96.1 1
+!
+vlan 100 name Cams by port
+ tagged ethe 1/2/1 to 1/2/2 
+ untagged ethe 1/1/1 to 1/1/24 
+!
+vlan 200 by port
+ tagged ethe 1/2/1 
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+system-max spanning-tree 128
+!
+!
+aaa authentication web-server default local
+aaa authentication login default local
+enable aaa console
+enable acl-per-port-per-vlan
+hostname Basement_R1_SW2
+ip dhcp snooping vlan 1
+ip dhcp snooping vlan 96
+ip dhcp snooping vlan 100
+ip address 172.16.96.31 255.255.255.0
+!
+no telnet server
+username super password .....
+!
+!
+!
+!
+!
+!
+sz registrar
+!
+!
+interface ethernet 1/1/1
+ port-name <<  Fence-cam-8  >>
+ inline power power-limit 20000
+!
+interface ethernet 1/1/2
+ port-name <<  Fence-cam-9  >>
+ inline power power-limit 20000
+!
+interface ethernet 1/1/3
+ port-name <<  Fence-cam-10  >>
+ inline power power-limit 20000
+!
+interface ethernet 1/1/4
+ port-name <<  Fence-cam-11  >>
+ inline power power-limit 20000
+!
+interface ethernet 1/1/5
+ port-name <<  Fence-cam-12  >>
+ inline power power-limit 20000
+!
+interface ethernet 1/1/6
+ port-name <<  Fence-cam-13  >>
+ inline power power-limit 20000
+!
+interface ethernet 1/1/7
+ port-name <<  Fence-cam-14  >>
+ inline power power-limit 20000
+!
+interface ethernet 1/1/8
+ port-name <<  Fence-cam-15  >>
+ inline power power-limit 20000
+!
+interface ethernet 1/1/9
+ port-name <<  Fence-cam-16  >>
+ inline power power-limit 20000
+!
+interface ethernet 1/1/10
+ port-name <<  Fence-cam-17  >>
+ inline power power-limit 20000
+!
+interface ethernet 1/1/11
+ port-name <<  Fence-cam-18  >>
+ inline power power-limit 20000
+!
+interface ethernet 1/1/12
+ port-name <<  Sec4-Cam  >>
+ inline power power-limit 10000
+!
+interface ethernet 1/1/13
+ port-name <<  CAM-1.1  >>
+ inline power power-limit 10000
+!
+interface ethernet 1/1/14
+ port-name <<  CAM-1.2  >>
+ inline power power-limit 10000
+!
+interface ethernet 1/1/15
+ port-name <<  CAM-1.3  >>
+ inline power power-limit 10000
+!
+interface ethernet 1/1/16
+ port-name <<  CAM-1.4  >>
+ inline power power-limit 10000
+!
+interface ethernet 1/1/17
+ port-name <<  CAM-3  >>
+ inline power power-limit 10000
+!
+interface ethernet 1/1/18
+ port-name <<  CAM-4  >>
+ inline power power-limit 10000
+!
+interface ethernet 1/1/19
+ port-name <<  CAM-6  >>
+ inline power power-limit 10000
+!
+interface ethernet 1/1/20
+ port-name <<  CAM-29  >>
+ inline power power-limit 10000
+!
+interface ethernet 1/1/21
+ port-name <<  CAM-Cor-1  >>
+ inline power power-limit 10000
+!
+interface ethernet 1/1/22
+ port-name <<  CAM-Cor-2  >>
+ inline power power-limit 10000
+!
+interface ethernet 1/1/23
+ port-name <<  CAM-Cor-3  >>
+ inline power power-limit 10000
+!
+interface ethernet 1/1/24
+ port-name <<  CAM-Cor-4  >>
+ inline power power-limit 10000
+!
+interface ethernet 1/3/1
+ speed-duplex 1000-full
+!
+interface ethernet 1/3/2
+ speed-duplex 1000-full
+!
+interface ethernet 1/3/3
+ speed-duplex 1000-full
+!
+interface ethernet 1/3/4
+ speed-duplex 1000-full
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+end
