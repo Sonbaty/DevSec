@@ -34,11 +34,12 @@ def get_backup(IP,any):
     print('-' * 79)
     connection.enable()
     hostname = connection.send_command('show run | i hostname')
+    hostname.split(" ")
     if hostname == "":
-        device = "SW_name"
+        device = "no_hostname"
         print('Notice : This switch has no hostname configured')
     else:
-        device = hostname
+        hostname, device = hostname.split(" ")
     print(device)
     my_ip = IP.strip('\n')
     now = datetime.now()
