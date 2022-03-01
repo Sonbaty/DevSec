@@ -68,7 +68,7 @@ def get_info(IP,any):
     log_file.write("\n")
     
     for interface in interface_list:
-        if "1/1/" in Interface:
+        if "1/1/" in interface:
             neighbor_mac = connection.send_command('sh lldp neighbors detail ports ethernet 1/1/1 | i Neighbor')
             neighbor_hostname = connection.send_command('sh lldp neighbors detail ports ethernet 1/1/1 | i System name')
             log_file.write(f'Interface : Ethernet {Interface}')
