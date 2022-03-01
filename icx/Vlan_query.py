@@ -66,18 +66,18 @@ def get_info(IP,any):
         vlan_interfaces = []
         for line in q_lines:
             print(line)
-            if 'U1' in line:
+            if 'M1' in line:
                 for w in line.split():
                     if w.isdigit():
                         vlan_interfaces.append(f'ethernet 1/1/{int(w)}')
-            elif 'U2' in line:
+            elif 'M2' in line:
                 for w in line.split():
                     if w.isdigit():
-                        vlan_interfaces.append(f'ethernet 2/1/{int(w)}')
-            elif 'U3' in line:
+                        vlan_interfaces.append(f'ethernet 1/2/{int(w)}')
+            elif 'M3' in line:
                 for w in line.split():
                     if w.isdigit():
-                        vlan_interfaces.append(f'ethernet 3/1/{int(w)}')
+                        vlan_interfaces.append(f'ethernet 1/3/{int(w)}')
         return vlan_interfaces
     vlan_query = connection.send_command('sh vlan | i PORT-VLAN [0-9]')
     vl_q1 = vlan_query.splitlines()
