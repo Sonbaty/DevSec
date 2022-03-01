@@ -69,15 +69,15 @@ def get_info(IP,any):
             if 'U1' in line:
                 for w in line.split():
                     if w.isdigit():
-                        vlan_interfaces.append(f'eth 1/1/{int(w)}')
+                        vlan_interfaces.append(f'ethernet 1/1/{int(w)}')
             elif 'U2' in line:
                 for w in line.split():
                     if w.isdigit():
-                        vlan_interfaces.append(f'eth 2/1/{int(w)}')
+                        vlan_interfaces.append(f'ethernet 2/1/{int(w)}')
             elif 'U3' in line:
                 for w in line.split():
                     if w.isdigit():
-                        vlan_interfaces.append(f'eth 3/1/{int(w)}')
+                        vlan_interfaces.append(f'ethernet 3/1/{int(w)}')
         return vlan_interfaces
     vlan_query = connection.send_command('sh vlan | i PORT-VLAN [0-9]')
     vl_q1 = vlan_query.splitlines()
@@ -96,17 +96,19 @@ def get_info(IP,any):
         log_file.write("Tagged Ports are : ")
         for taggedPort in TaggedPortsList:
             log_file.write(taggedPort)
-            log_file.write('  , ')
+            log_file.write(' \n')
         log_file.write("\n")
         Untagged_Ports_raw = connection.send_command(f'sh vlan {vlan} | i Untagged ')
         Untagged_Ports = Untagged_Ports_raw.splitlines()
         Untagged_PortList = interface_type(Untagged_Ports)
+        log_file.write(my_ip)
+        log_file.write('\n')
         log_file.write(f'VLAN: {vlan}')
         log_file.write("\n")
         log_file.write("Untagged Ports are : ")
         for untaggedPort in Untagged_PortList:
             log_file.write(untaggedPort)
-            log_file.write('  , ')
+            log_file.write('\n')
         log_file.write("\n")
 
     connection.disconnect()
