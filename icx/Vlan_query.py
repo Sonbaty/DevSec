@@ -69,15 +69,15 @@ def get_info(IP,any):
             if 'M1' in line:
                 for w in line.split():
                     if w.isdigit():
-                        vlan_interfaces.append(f'ethernet 1/1/{int(w)}')
+                        vlan_interfaces.append(f' 1/1/{int(w)}')
             elif 'M2' in line:
                 for w in line.split():
                     if w.isdigit():
-                        vlan_interfaces.append(f'ethernet 1/2/{int(w)}')
+                        vlan_interfaces.append(f' 1/2/{int(w)}')
             elif 'M3' in line:
                 for w in line.split():
                     if w.isdigit():
-                        vlan_interfaces.append(f'ethernet 1/3/{int(w)}')
+                        vlan_interfaces.append(f' 1/3/{int(w)}')
         return vlan_interfaces
     vlan_query = connection.send_command('sh vlan | i PORT-VLAN [0-9]')
     vl_q1 = vlan_query.splitlines()
@@ -87,26 +87,22 @@ def get_info(IP,any):
         vlan = vl_line[1]
         vlan = vlan.replace(',','')
         vlan_list.append(vlan)
+    log_file.write(f'ip : {my_ip}')
+    log_file.write('\n')
+    log_file.write(f'VLAN_list : {vlan_list}')
+    log_file.write('\n')
     for vlan in vlan_list:
         Tagged_Ports_raw = connection.send_command(f'sh vlan {vlan} | i Tagged ')
         Tagged_Ports = Tagged_Ports_raw.splitlines()
         TaggedPortsList = interface_type(Tagged_Ports)
         log_file.write(f'VLAN: {vlan}')
         log_file.write("\n")
-        log_file.write(f'ip : {my_ip}')
-        log_file.write('\n')
-        log_file.write("Tagged Ports are : ")
-        for taggedPort in TaggedPortsList:
-            log_file.write(taggedPort)
-            log_file.write(' \n')
+        log_file.write(f"Tagged Ports are : {TaggedPortsList}")
+        log_file.write("\n")
         Untagged_Ports_raw = connection.send_command(f'sh vlan {vlan} | i Untagged ')
         Untagged_Ports = Untagged_Ports_raw.splitlines()
         Untagged_PortList = interface_type(Untagged_Ports)
-       
-        log_file.write("Untagged Ports are : ")
-        for untaggedPort in Untagged_PortList:
-            log_file.write(untaggedPort)
-            log_file.write('\n')
+        log_file.write(f"Untagged Ports are : {Untagged_PortList}")
         log_file.write("\n")
         log_file.write("\n")
         log_file.write("\n")
@@ -119,7 +115,7 @@ def finalize():
     print('finalizing ...............')
     Path = str(pathlib.Path().resolve())
     print(Path)
-    operated_file = open('Port_map.txt','a')
+    operated_file = open('vlan_map.txt','a')
     filelist = os.listdir()
     for i in filelist:
         if i.startswith(initial):
