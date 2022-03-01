@@ -10,7 +10,7 @@ import os
 import re
 
 
-devices_file = open("concord_cairo.txt")  ## open the ip list file from root folder
+devices_file = open("test_dev.txt")  ## open the ip list file from root folder
 devices_file.seek(0)  ## put the first read on the begining
 ip_list = devices_file.read().splitlines()  ## splite the ip's in a list
 print(ip_list)
@@ -72,7 +72,8 @@ def get_info(IP,any):
         if "1/1/" in interface:
             print(f"Operating Port Eth {interface}")
             neighbor_mac_raw = connection.send_command(f'sh lldp neighbors detail ports ethernet {interface} | i Neighbor')
-            neighbor_mac = (string(neighbor_mac_raw).split(":"))[1]
+            query_identifier , neighbor_mac_ping = neighbor_mac_raw.split(":")
+            neighbor_mac , ping = neighbor_mac_ping.split(",")
 
             neighbor_hostname = connection.send_command(f'sh lldp neighbors detail ports ethernet {interface} | i System name')
             log_file.write(f'Interface : Ethernet {interface}')
@@ -89,7 +90,7 @@ def finalize():
     print('finalizing ...............')
     Path = str(pathlib.Path().resolve())
     print(Path)
-    operated_file = open('Port_info_Result.txt','a')
+    operated_file = open('Port_map.txt','a')
     filelist = os.listdir()
     for i in filelist:
         if i.startswith(initial):
