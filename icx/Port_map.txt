@@ -1,0 +1,40 @@
+IP:172.21.10.19, Host:F1_Right
+SW: Version 08.0.90mcT211 
+STACKID 1  system uptime is 38 day(s) 23 hour(s) 2 minute(s) 34 second(s) 
+
+-------------------------------------------------------------------------------
+IP:172.21.10.19, Host:F1_Right
+SW: Version 08.0.90mcT211 
+STACKID 1  system uptime is 38 day(s) 23 hour(s) 7 minute(s) 28 second(s) 
+Interface : Ethernet 1/1/1
+ ec58.ea30.fc10, TTL 116 seconds 
++ System name         : "Room_" 
+Interface : Ethernet 1/1/2
+ ec58.ea30.fc60, TTL 120 seconds 
++ System name         : "Room_152" 
+Interface : Ethernet 1/1/3
+ 94bf.c402.1380, TTL 102 seconds 
++ System name         : "Room_153" 
+Interface : Ethernet 1/1/4
+ 94bf.c402.0860, TTL 92 seconds 
++ System name         : "Room_158" 
+Interface : Ethernet 1/1/5
+ 184b.0d0a.37e0, TTL 103 seconds 
++ System name         : "Room_161" 
+Interface : Ethernet 1/1/6
+ 94bf.c402.09d0, TTL 100 seconds 
++ System name         : "Room_169" 
+Interface : Ethernet 1/1/7
+ ec58.ea31.18f0, TTL 108 seconds 
++ System name         : "Room_168" 
+Interface : Ethernet 1/1/8
+ 184b.0d10.e850, TTL 96 seconds 
++ System name         : "Room_173" 
+Interface : Ethernet 1/1/9
+ 94bf.c402.11c0, TTL 115 seconds 
++ System name         : "Room_181" 
+Interface : Ethernet 1/1/10
+ 184b.0d10.da60, TTL 100 seconds 
++ System name         : "Room_191" 
+
+-------------------------------------------------------------------------------
