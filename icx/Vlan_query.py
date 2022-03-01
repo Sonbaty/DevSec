@@ -68,6 +68,7 @@ def get_info(IP,any):
     for line in vl_list:
         vl_line = str(line).split(' ')
         vlan = vl_line[1]
+        vlan = vlan.replace(',','')
         vlan_list.append(vlan)
     print(vlan_list)
 
