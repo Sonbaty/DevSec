@@ -76,7 +76,9 @@ def get_info(IP,any):
             neighbor_mac_raw = connection.send_command(f'sh lldp neighbors detail ports ethernet {interface} | i Neighbor')
             if "+" in neighbor_mac_raw:
                 query_identifier , neighbor_mac_ping = neighbor_mac_raw.split(":")
+                print(neighbor_mac_ping)
                 neighbor_mac , ping = neighbor_mac_ping.split(",")
+                print(neighbor_mac)
                 log_file.write(f'Attached Device MAC : {neighbor_mac} ')
                 log_file.write("\n")
             neighbor_hostname_raw = connection.send_command(f'sh lldp neighbors detail ports ethernet {interface} | i System name')

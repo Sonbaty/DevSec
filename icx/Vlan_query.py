@@ -10,7 +10,7 @@ import os
 import re
 
 
-devices_file = open("test_dev.txt")  ## open the ip list file from root folder
+devices_file = open("concord_cairo.txt")  ## open the ip list file from root folder
 devices_file.seek(0)  ## put the first read on the begining
 ip_list = devices_file.read().splitlines()  ## splite the ip's in a list
 print(ip_list)
