@@ -70,20 +70,22 @@ def get_info(IP,any):
     
     for interface in interface_list:
         if "1/1/" in interface:
+            log_file.write(f'Interface : Ethernet {interface}')
+            log_file.write("\n")
             print(f"Operating Port Eth {interface}")
             neighbor_mac_raw = connection.send_command(f'sh lldp neighbors detail ports ethernet {interface} | i Neighbor')
             if "+" in neighbor_mac_raw:
                 query_identifier , neighbor_mac_ping = neighbor_mac_raw.split(":")
                 neighbor_mac , ping = neighbor_mac_ping.split(",")
+                log_file.write(f'Attached Device MAC : {neighbor_mac} ')
+                log_file.write("\n")
             neighbor_hostname_raw = connection.send_command(f'sh lldp neighbors detail ports ethernet {interface} | i System name')
             if "+" in neighbor_hostname_raw:
                qu_id, neighbor_hostname  = neighbor_hostname_raw.split(":")
-            log_file.write(f'Interface : Ethernet {interface}')
-            log_file.write("\n")
-            log_file.write(f'Attached Device MAC : {neighbor_mac} ')
-            log_file.write("\n")
-            log_file.write(f'Attached Device Hostname{neighbor_hostname} ')
-            log_file.write("\n")
+               log_file.write(f'Attached Device Hostname{neighbor_hostname} ')
+               log_file.write("\n")
+            
+            
 
     connection.disconnect()
     return
