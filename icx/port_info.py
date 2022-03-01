@@ -1,6 +1,5 @@
 from ast import And
 import time
-from dbus import Interface
 from netmiko import ConnectHandler
 from datetime import datetime
 from multiprocessing import Queue
