@@ -67,14 +67,17 @@ def get_info(IP,any):
     log_file.write("\n")
     log_file.write(sw_uptime_query)
     log_file.write("\n")
-    
+    global neighbor_mac
+    global neighbor_hostname
     for interface in interface_list:
         if "1/1/" in interface:
             print(f"Operating Port Eth {interface}")
             neighbor_mac_raw = connection.send_command(f'sh lldp neighbors detail ports ethernet {interface} | i Neighbor')
             if "+" in neighbor_mac_raw:
                 query_identifier , neighbor_mac_ping = neighbor_mac_raw.split(":")
+                print(neighbor_mac_ping)
                 neighbor_mac , ping = neighbor_mac_ping.split(",")
+                print("neighbor_mac")
             neighbor_hostname_raw = connection.send_command(f'sh lldp neighbors detail ports ethernet {interface} | i System name')
             if "+" in neighbor_hostname_raw:
                qu_id, neighbor_hostname  = neighbor_hostname_raw.split(":")
