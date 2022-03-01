@@ -93,6 +93,8 @@ def get_info(IP,any):
         TaggedPortsList = interface_type(Tagged_Ports)
         log_file.write(f'VLAN: {vlan}')
         log_file.write("\n")
+        log_file.write(f'ip : {my_ip}')
+        log_file.write('\n')
         log_file.write("Tagged Ports are : ")
         for taggedPort in TaggedPortsList:
             log_file.write(taggedPort)
@@ -101,9 +103,6 @@ def get_info(IP,any):
         Untagged_Ports_raw = connection.send_command(f'sh vlan {vlan} | i Untagged ')
         Untagged_Ports = Untagged_Ports_raw.splitlines()
         Untagged_PortList = interface_type(Untagged_Ports)
-        log_file.write(my_ip)
-        log_file.write('\n')
-        log_file.write(f'VLAN: {vlan}')
         log_file.write("\n")
         log_file.write("Untagged Ports are : ")
         for untaggedPort in Untagged_PortList:
