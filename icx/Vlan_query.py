@@ -62,6 +62,23 @@ def get_info(IP,any):
     filename = initial + my_ip
     log_file = open(filename, "a")  # append mode
     vlan_list = []
+    def interface_type(q_lines):
+        vlan_interfaces = []
+        for line in q_lines:
+            print(line)
+            if 'U1' in line:
+                for w in line.split():
+                    if w.isdigit():
+                        vlan_interfaces.append(f'eth 1/1/{int(w)}')
+            elif 'U2' in line:
+                for w in line.split():
+                    if w.isdigit():
+                        vlan_interfaces.append(f'eth 2/1/{int(w)}')
+            elif 'U3' in line:
+                for w in line.split():
+                    if w.isdigit():
+                        vlan_interfaces.append(f'eth 3/1/{int(w)}')
+        return vlan_interfaces
     vlan_query = connection.send_command('sh vlan | i PORT-VLAN [0-9]')
     vl_q1 = vlan_query.splitlines()
     vl_list =vl_q1[1:]
@@ -70,7 +87,27 @@ def get_info(IP,any):
         vlan = vl_line[1]
         vlan = vlan.replace(',','')
         vlan_list.append(vlan)
-    print(vlan_list)
+    for vlan in vlan_list:
+        Tagged_Ports_raw = connection.send_command(f'sh vlan {vlan} | i Tagged ')
+        Tagged_Ports = Tagged_Ports_raw.splitlines()
+        TaggedPortsList = interface_type(Tagged_Ports)
+        log_file.write(f'VLAN: {vlan}')
+        log_file.write("\n")
+        log_file.write("Tagged Ports are : ")
+        for taggedPort in TaggedPortsList:
+            log_file.write(taggedPort)
+            log_file.write('  , ')
+        log_file.write("\n")
+        Untagged_Ports_raw = connection.send_command(f'sh vlan {vlan} | i Untagged ')
+        Untagged_Ports = Untagged_Ports_raw.splitlines()
+        Untagged_PortList = interface_type(Untagged_Ports)
+        log_file.write(f'VLAN: {vlan}')
+        log_file.write("\n")
+        log_file.write("Untagged Ports are : ")
+        for untaggedPort in Untagged_PortList:
+            log_file.write(untaggedPort)
+            log_file.write('  , ')
+        log_file.write("\n")
 
     connection.disconnect()
     return
