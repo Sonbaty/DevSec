@@ -49,8 +49,6 @@ def conf_vlan(IP,any):
     else:
         print(f'Switch: {my_ip} is POE cabaple with budget of: {poe_value}')
         show_int = connection.send_command('sh vlan id 20 | i Fa ')
-        print(show_int)
-
         print(f'Query The Device IP: {IP}')
         print('Found The Following APs : ')
         vlan_116 = []
@@ -58,8 +56,8 @@ def conf_vlan(IP,any):
         for line in show_int:
         # interfaces_list = str(line).split(' ')
             print(line)
-            InterfaceNum = interfaces_list[4]
-            vlan_116.append(InterfaceNum)
+            matches = re.findall(r'\b\w*Fa\w*\b', line)
+            vlan_116.append(matches)
         print(vlan_116)
 
 
