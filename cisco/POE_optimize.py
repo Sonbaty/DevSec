@@ -58,11 +58,11 @@ def conf_vlan(IP,any):
         connection.enable()
         for interface in vlan_20:
             config_commands = [
-
                             'conf t',
                             f'int {interface}',
                             'power inline never',
-                            'exit'   ]
+                            'exit' , 
+                            'wr mem']
             connection.send_config_set(config_commands,delay_factor=4)
             print(f'Disabling POE On Switch {my_ip} , With the port {interface}')
 
