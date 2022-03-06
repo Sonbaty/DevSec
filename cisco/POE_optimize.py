@@ -54,13 +54,19 @@ def conf_vlan(IP,any):
         vlan_20 = []
         matches = re.findall(r'\b\w*Fa\w\/\w*\b', show_int)
         vlan_20.append(matches)
-
         print(vlan_20)
-        for line in show_int:
-        # interfaces_list = str(line).split(' ')
-            matches = re.findall(r'\b\w*Fa*\/*\w*\b', line)
+        connection.enable()
+        for interface in vlan_20:
+            config_commands = [
 
+                            'conf t',
+                            f'int {interface}',
+                            'power inline never',
+                            'exit'   ]
+            connection.send_config_set(config_commands,delay_factor=4)
+            print(f'Disabling POE On Switch {my_ip} , With the port {interface}')
 
+        
 if __name__ == "__main__":
     que = Queue()
 
