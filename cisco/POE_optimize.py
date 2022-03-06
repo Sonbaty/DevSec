@@ -48,18 +48,17 @@ def conf_vlan(IP,any):
         print(f'Switch {my_ip} Is Not POE')
     else:
         print(f'Switch: {my_ip} is POE cabaple with budget of: {poe_value}')
-        show_int = connection.send_command('sh interfaces trunk | i ^Fa.*116 ')
-        ou_List = show_int.splitlines()
-        int_list = ou_List[5:]   #delete unnecessary in fo and pop last line
+        show_int = connection.send_command('sh vlan id 20 | i Fa ')
+        print(show_int)
 
         print(f'Query The Device IP: {IP}')
         print('Found The Following APs : ')
         vlan_116 = []
 
-        for line in int_list:
+        for line in show_int:
         # interfaces_list = str(line).split(' ')
-            interfaces_list = re.split(r'\s{2,}',line)
-            InterfaceNum = interfaces_list[0]
+            print(line)
+            InterfaceNum = interfaces_list[4]
             vlan_116.append(InterfaceNum)
         print(vlan_116)
 
