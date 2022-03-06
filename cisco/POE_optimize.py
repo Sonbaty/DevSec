@@ -39,15 +39,15 @@ def conf_vlan(IP,any):
     my_ip = IP.strip('\n')
     connection.enable()
     device = connection.send_command('show run | i hostname')
-    print('Detecting POE Cabapility........... ')
+    print(f'Detecting {my_ip} POE Cabapility........... ')
     poe_query_raw = connection.send_command('sh power inline | i Available')
-    poe_query_1 , poe_query_2, poe_query_3 = poe_query_raw.split(" ")
-    print(poe_query_raw)
-    poe_query = poe_query_1.split(':')
-    print(poe_query)
-    
-
-
+    poe_query_1 = poe_query_raw.split(None, 1)[0]
+    availabe, poe_value = poe_query_1.split(':')
+    print(poe_value)
+    if poe_value == '0.0(w)':
+        print(f'Switch {my_ip} Is Not POE')
+    else:
+        print(f'Switch: {my_ip} is POE cabaple with budget of: {poe_value}')
 
 if __name__ == "__main__":
     que = Queue()
