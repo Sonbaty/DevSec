@@ -51,14 +51,14 @@ def conf_vlan(IP,any):
         show_int = connection.send_command('sh vlan id 20 | i Fa ')
         print(f'Query The Device IP: {IP}')
         print('Found The Following APs : ')
-        vlan_116 = []
+        vlan_20 = []
+        matches = re.findall(r'\b\w*Fa\w\/\w*\b', show_int)
+        vlan_20.append(matches)
 
+        print(vlan_20)
         for line in show_int:
         # interfaces_list = str(line).split(' ')
-            print(line)
-            matches = re.findall(r'\b\w*Fa\w*\b', line)
-            vlan_116.append(matches)
-        print(vlan_116)
+            matches = re.findall(r'\b\w*Fa*\/*\w*\b', line)
 
 
 if __name__ == "__main__":
