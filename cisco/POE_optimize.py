@@ -41,7 +41,8 @@ def conf_vlan(IP,any):
     device = connection.send_command('show run | i hostname')
     print('Detecting POE Cabapility........... ')
     poe_query_raw = connection.send_command('sh power inline | i Available')
-    poe_query_1 = poe_query_raw[1]
+    poe_query_1 , poe_query_2, poe_query_3 = poe_query_raw.split(" ")
+    print(poe_query_raw)
     poe_query = poe_query_1.split(':')
     print(poe_query)
     
