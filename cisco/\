@@ -53,9 +53,10 @@ def conf_vlan(IP,any):
         print('Found The Following APs : ')
         vlan_20 = []
         matches = re.findall(r'\b\w*Fa\w\/\w*\b', show_int)
-        print(f'switch {my_ip} has ports {matches} in iptv vlan')
+        matches1.append(matches)
+        vlan_20 = matches.split(",")
         connection.enable()
-        for interface in matches:
+        for interface in vlan_20:
             print(interface)
             config_commands = [
                             'conf t',
@@ -63,7 +64,7 @@ def conf_vlan(IP,any):
                             'power inline never',
                             'exit' , 
                             'wr mem']
-            connection.send_config_set(config_commands,delay_factor=4)
+            #connection.send_config_set(config_commands,delay_factor=4)
             print(f'Disabling POE On Switch {my_ip} , With the port {interface}')
 
         
