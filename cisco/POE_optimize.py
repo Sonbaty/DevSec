@@ -57,14 +57,22 @@ def conf_vlan(IP,any):
         connection.enable()
         for interface in matches:
             print(interface)
-            config_commands = [
+            show_int = connection.send_command(f'sh lldp Neighbors {interface}')
+            ou_List = show_int.splitlines()
+            int_list = ou_List[5:]   #delete unnecessary in fo and pop last line
+            interfaces_list = re.split(r'\s{2,}',int_list)
+            Criteria = interfaces_list[3]
+            if Criteria == 'B,W':
+                print("Skipping this port cause its connected to AP")
+            else:
+                config_commands = [
                             'conf t',
                             f'int {interface}',
                             'power inline never',
                             'exit' , 
                             'wr mem']
-            connection.send_config_set(config_commands,delay_factor=4)
-            print(f'Disabling POE On Switch {my_ip} , With the port {interface}')
+                connection.send_config_set(config_commands,delay_factor=4)
+                print(f'Disabling POE On Switch {my_ip} , With the port {interface}')
 
         
 if __name__ == "__main__":
