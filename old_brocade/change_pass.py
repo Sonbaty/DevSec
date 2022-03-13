@@ -22,8 +22,8 @@ def get_info(IP,any):
     switch = {
             'device_type': 'ruckus_fastiron_telnet',
             'ip': IP,
-            'password': 'letmein',  # telnet Pass
-            'secret': 'letmein',  # Enable Pas
+            'password': 'C0r@lSe@',  # telnet Pass
+            'secret': 'C0r@lSe@',  # Enable Pas
 
         }
 
@@ -50,8 +50,8 @@ def get_info(IP,any):
     connection.enable()
     config_commands = [
 
-                        'enable telnet password C0nc0rde',
-                        'enable super-user-password C0nc0rde',
+                        'enable telnet password C0r@lSe@',
+                        'enable super-user-password C0r@lSe@',
                         'exit'  ]
     connection.send_config_set(config_commands, delay_factor=4)
     print(f'All passwords on {device} is set..')

@@ -20,8 +20,8 @@ def get_info(IP, any):
     switch = {
         'device_type': 'ruckus_fastiron_telnet',
         'ip': IP,
-        'password': 'letmein',  # telnet Pass
-        'secret': 'letmein',  # Enable Pass
+        'password': 'C0r@lSe@',  # telnet Pass
+        'secret': 'C0r@lSe@',  # Enable Pass
 
     }
 
