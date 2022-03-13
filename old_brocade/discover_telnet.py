@@ -48,6 +48,8 @@ def get_info(IP, any):
     sw_identifier = f'IP:{my_ip}, Host:{device}'
     filename = initial + my_ip
     log_file = open(filename, "a")  # append mode
+    log_file.write("The Following Devices Verified Succefully : ")
+    log_file.write("\n")
     log_file.write(sw_identifier)
     log_file.write("  ==>  IP: ")
     log_file.write(my_ip)
